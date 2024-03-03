@@ -1,0 +1,103 @@
+<div class="sidecontent">
+  <div class="grid tp">
+    <p-panel header="Baustoffhändler">
+      <div class="grid">
+        <div class="col-6 mr-0 " *ngFor="let item of items;">
+          <p-card [style]="{width: '200px', height: '255px'}" styleClass="shadow-2">
+            <ng-template pTemplate="header">
+                <img alt="Card" src="{{item.logo}}">
+            </ng-template>
+            <p><strong>{{item.name}}</strong></p>
+            <p>{{item.adress}}</p>
+            <p>{{item.tel}}</p>
+          </p-card>
+        </div>
+      </div>
+    </p-panel>
+</div>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+  <div class="grid tp">
+    <p-panel header="Handwerker">
+      <div class="grid">
+        <div class="col-6 mr-0 " *ngFor="let handwerk of handwerker;">
+          <p-card [style]="{width: '200px', height: '255px'}" styleClass="shadow-2">
+            <ng-template pTemplate="header">
+                <img alt="Card" src="{{handwerk.logo}}">
+            </ng-template>
+            <p><strong>{{handwerk.name}}</strong></p>
+            <p>{{handwerk.adress}}</p>
+            <p>{{handwerk.tel}}</p>
+          </p-card>
+        </div>
+      </div>
+    </p-panel>
+</div>
+</div>
+ <!-- <div class="grid">
+  <p-panel header="Handwerker">
+    <p-sidebar-right>
+      <div class="grid">
+        <div class="col mr-5">
+          <p-card [style]="{width: '300px'}" styleClass="shadow-2">
+            <ng-template pTemplate="header">
+                <img alt="Card" src="https://tse3.mm.bing.net/th?id=OIP.GLd703di2IXEfIT6TSEkmwHaCv&pid=Api&P=0&h=180">
+            </ng-template>
+          <p><strong>GGS</strong></p>
+          <p>Mainzerstraße 27, 67657 Kaiserslautern-Innenstadt</p>
+          <p> 0631 3 60 86 80 </p>
+          </p-card>
+        </div>
+        <div class="col">
+          <p-card [style]="{width: '300px'}" styleClass="shadow-2">
+            <ng-template pTemplate="header">
+                <img alt="Card" src="https://tse3.mm.bing.net/th?id=OIP.Gvk8Jsk6fcvntGC5mGs8LQHaHa&pid=Api&P=0&h=180">
+            </ng-template>
+            <p><strong>Rose A.</strong></p>
+            <p> Rostockerstraße 58, 67663 Kaiserslautern </p>
+            <p>0162 2 79 13 79</p>
+          </p-card>
+        </div>
+      </div>
+      <div class="grid">
+        <div class="col mr-5">
+          <p-card [style]="{width: '300px'}" styleClass="shadow-2">
+            <ng-template pTemplate="header">
+                <img alt="Card" src="https://tse2.mm.bing.net/th?id=OIP.KN77yWC1SrXaYK8C9w2XogHaBP&pid=Api&P=0&h=180">
+            </ng-template>
+          <p><strong>HORNBACH Kaiserslautern</strong></p>
+          <p> Mainzer Straße 33, 67657 Kaiserslautern </p>
+          <p> 0631 34 17 00 </p>
+          </p-card>
+        </div>
+        <div class="col">
+          <p-card [style]="{width: '300px'}" styleClass="shadow-2">
+            <ng-template pTemplate="header">
+                <img alt="Card" src="https://tse4.mm.bing.net/th?id=OIP.TLm50CAwI-pS0H9AsARw1QHaCx&pid=Api&P=0&h=180">
+            </ng-template>
+            <p><strong>Handwerker Service 24</strong></p>
+            <p> Bismarckstraße 1, 68161 Mannheim </p>
+            <p>0162 2 79 13 79</p>
+          </p-card>
+        </div>
+      </div>
+    </p-sidebar-right>
+  </p-panel>
+</div>
+</div> -->
+
+
+<!-- <p-panel header="Handwerker"  [toggleable]="true">
+  <ng-template pTemplate="icons">
+      <button pButton class="p-panel-header-icon p-link" icon="pi pi-cog">
+      </button>
+      <p-menu #menu id="config_menu" [model]="items" [popup]="true"></p-menu>
+  </ng-template>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</p-panel> -->
+
+<p-toast></p-toast>
