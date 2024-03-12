@@ -1,0 +1,58 @@
+
+<div class="row flex-container">
+  <div class="dachdaemmung">
+    <div class="tile" (click)="produktClicked()">
+      <a class="tile-link" [routerLink]="['/dachboden-daemmung-artikel']">
+        <img class="tile-image" src="https://tse2.mm.bing.net/th?id=OIP.qOM7HaybdzRlh50GofujJwHaE6&pid=Api&P=0&h=180" alt="Produktbild 1">
+        <div class="tile-name">Dachboden Dämmung</div>
+      </a>
+    </div>
+  </div>
+  <div class="dachdaemmung">
+    <div class="tile" (click)="produktClicked()">
+      <a class="tile-link" [routerLink]="['/steildach-daemmung-artikel']">
+        <img class="tile-image" src="https://tse3.mm.bing.net/th?id=OIP.TRqayUAVVkz_1oRm6riPHwHaE8&pid=Api&P=0&h=180" alt="Produktbild 2">
+        <div class="tile-name">Steildach Dämmung</div>
+      </a>
+    </div>
+  </div>
+  <div class="dachdaemmung">
+    <div class="tile" (click)="produktClicked()">
+      <a class="tile-link" [routerLink]="['/dachdaemmung']">
+        <img class="tile-image" src="https://tse2.mm.bing.net/th?id=OIP.FnnZfbKtzXoCiTYiD-qZ3AHaE7&pid=Api&P=0&h=180" alt="Produktbild 3">
+        <div class="tile-name">Flachdach Dämmung</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="row flex-container">
+  <div class="unter_daemmung">
+    <div class="tile" (click)="produktClicked()">
+      <a class="tile-link" [routerLink]="['/dachdaemmung']">
+        <img class="tile-image" src="https://tse3.mm.bing.net/th?id=OIP.MJBk_FFWXNnRsLFT3w7_ugHaFj&pid=Api&P=0&h=180" alt="Produktbild 1">
+        <div class="tile-name">Untersparrendämmung</div>
+      </a>
+    </div>
+  </div>
+  <div class="unter_daemmung">
+    <div class="tile" (click)="produktClicked()">
+      <a class="tile-link" [routerLink]="['/dachdaemmung']">
+        <img class="tile-image" src="https://tse1.mm.bing.net/th?id=OIP.U9-df2oPwkS4BBbeJAPDOgHaFj&pid=Api&P=0&h=180" alt="Produktbild 2">
+        <div class="tile-name">Zwischensparrendämmung</div>
+      </a>
+    </div>
+  </div>
+  <div class="unter_daemmung">
+    <div class="tile" (click)="produktClicked()">
+      <a class="tile-link" [routerLink]="['/dachdaemmung']">
+        <img class="tile-image" src="https://tse1.mm.bing.net/th?id=OIP.a5EEiCdV84SMz2PMgrxu3AHaE7&pid=Api&P=0&h=180" alt="Produktbild 3">
+        <div class="tile-name">Unterdachdämmung</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<app-dachboden-daemmung-artikel></app-dachboden-daemmung-artikel>
+
+<app-steildach-daemmung-artikel></app-steildach-daemmung-artikel>

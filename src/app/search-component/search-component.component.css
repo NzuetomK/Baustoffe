@@ -1,0 +1,17 @@
+/* Style the search field */
+form.example input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    width: 80%;
+    display: flex;
+    align-items: center;
+  }
+  a {
+    display: inline;
+    padding: 8px;
+    background-color: #dddddd;
+  }
+  table, th, td {
+    border: 1px solid black;
+  }

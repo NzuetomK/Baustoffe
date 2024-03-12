@@ -16,9 +16,20 @@ import {PanelModule} from 'primeng/panel';
 import {CardModule} from 'primeng/card';
 import {SidebarModule} from 'primeng/sidebar';
 import { AdvertisingComponent } from './advertising/advertising.component';
-
-
-
+import { InputNumberModule } from 'primeng/inputnumber';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DachdaemmungComponent } from './dachdaemmung/dachdaemmung.component';
+import { FassadeDaemmungComponent } from './fassade-daemmung/fassade-daemmung.component';
+import { DachComponent } from './dach/dach.component';
+import { ZiegelComponent } from './ziegel/ziegel.component';
+import { DachbodenDaemmungArtikelComponent } from './dachboden-daemmung-artikel/dachboden-daemmung-artikel.component';
+import { OrtgangziegelArtikelComponent } from './ortgangziegel-artikel/ortgangziegel-artikel.component';
+import { SteildachDaemmungArtikelComponent } from './steildach-daemmung-artikel/steildach-daemmung-artikel.component';
+import { FirstziegelArtikelComponent } from './firstziegel-artikel/firstziegel-artikel.component';
+import { DachbahnenComponent } from './dachbahnen/dachbahnen.component';
+import { DachfensterComponent } from './dachfenster/dachfenster.component';
+import { SchieferComponent } from './schiefer/schiefer.component';
+import { SliderModule } from 'primeng/slider';
 
 @NgModule({
   declarations: [
@@ -26,7 +37,18 @@ import { AdvertisingComponent } from './advertising/advertising.component';
     MenuComponent,
     HeaderComponent,
     SidebarComponent,
-    AdvertisingComponent
+    AdvertisingComponent,
+    DachdaemmungComponent,
+    FassadeDaemmungComponent,
+    DachComponent,
+    ZiegelComponent,
+    DachbodenDaemmungArtikelComponent,
+    OrtgangziegelArtikelComponent,
+    SteildachDaemmungArtikelComponent,
+    FirstziegelArtikelComponent,
+    DachbahnenComponent,
+    DachfensterComponent,
+    SchieferComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +61,10 @@ import { AdvertisingComponent } from './advertising/advertising.component';
     ButtonModule,
     PanelModule,
     CardModule,
-    SidebarModule
+    SidebarModule,
+    InputNumberModule,
+    BrowserAnimationsModule,
+    SliderModule
   ],
   providers: [
     provideClientHydration()

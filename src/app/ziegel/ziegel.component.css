@@ -1,0 +1,46 @@
+
+.tile {
+  width: 300px;
+  height: 300px;
+  margin-top: 0px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin-top: 0%;
+}
+
+.tile-name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: nowrap; /* Dies stellt sicher, dass die Elemente nicht umgebrochen werden */
+}
+
+.ziegel{
+  margin-right: 1%;
+  margin-bottom: 1%;
+}
+.unter_ziegel{
+  margin-right: 1%;
+  margin-bottom: 5%;
+}

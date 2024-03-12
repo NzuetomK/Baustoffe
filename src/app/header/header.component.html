@@ -2,15 +2,86 @@
   <span class="p-input-icon-right">
     <strong class="rub">Rund um Baustoffe</strong>&nbsp;&nbsp;
     <i class="pi pi-search"></i>
-      <input pInputText type="text" class="p-inputtext-lg" placeholder="Artikel, Baustoffe" />
+      <input pInputText type="text" class="p-inputtext-lg" placeholder="Artikel, Baustoffe"
+      [(ngModel)]="searchTerm" (input)="filterItems()" (keyup.enter)="onEnterPressed()" />
   </span>
-
   <span class="p-input-icon-right">
       <i class="pi pi-map-marker"></i>
-      <input pInputText type="text" class="p-inputtext-lg" placeholder="PLZ/Stadt" />
-  </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <p-button label="Login/Registrierung"></p-button>&nbsp;&nbsp;&nbsp;&nbsp;
-  <p-button icon="pi pi-user" [rounded]="true" severity="secondary"[outlined]="true"></p-button>&nbsp;&nbsp;&nbsp;&nbsp;
-  <p-button icon="pi pi-shopping-cart" [rounded]="true" severity="secondary" [outlined]="true"></p-button>&nbsp;&nbsp;&nbsp;&nbsp;
-  <p-button icon="pi pi-bell" [rounded]="true" severity="secondary" [outlined]="true"></p-button>&nbsp;&nbsp;&nbsp;&nbsp;
+      <input pInputText type="text" class="p-inputtext-lg2" placeholder="PLZ/Stadt"
+      [(ngModel)]="searchTerm2" (input)="filterItems2()" (keyup.enter)="onEnterPressed()" style="width:auto"/>
+  </span>
+  &nbsp;
+  <span>
+    <label for="radiusSlider">Umkreis: <p-slider id="radiusSlider" [(ngModel)]="selectedRadius" [min]="10" [max]="50" [step]="10" styleClass="custom-slider"></p-slider></label>
+    <p class="s">{{ selectedRadius }} km</p>
+  </span>
+  <p-button class="logIn" label="Login/Registrierung"></p-button>
+  <p-button class="user" icon="pi pi-user" [rounded]="true" severity="secondary"[outlined]="true"></p-button>
+  <p-button class="shopping" icon="pi pi-shopping-cart" [rounded]="true" severity="secondary" [outlined]="true"></p-button>
+  <p-button  class="bell" icon="pi pi-bell" [rounded]="true" severity="secondary" [outlined]="true"></p-button>&nbsp;&nbsp;&nbsp;&nbsp;
 </div>
+
+<div class="menu">
+  <p-menubar [model]="menus" [style]="{'max-width.px': 1300}"></p-menubar>
+</div>
+
+<div *ngIf="showAdvertising">
+  <app-advertising></app-advertising>
+</div>
+
+<div class="sidecontent">
+  <div class="grid tp">
+    <p-panel>
+      <ng-template pTemplate="header">
+        <div class="panel-header">
+          <div class="header-content">
+            <span class="header-text"><strong>Baustoffhändler</strong></span>
+          </div>
+        </div>
+      </ng-template>
+      <div class="grid">
+        <div class="col-6" *ngFor="let item of filteredItems;">
+          <p-card class="custom" [style]="{width: '150px', height: '110px'}" styleClass="shadow-2">
+            <ng-template pTemplate="header">
+                <img class="ort" alt="Card" src="{{item.logo}}">
+            </ng-template>
+            <p style="margin-top: 10px; padding-top: 0px; padding-bottom: 0; text-align: center;">{{item.adress}}</p>
+          </p-card>
+        </div>
+      </div>
+    </p-panel>
+</div>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+  <div class="grid tp">
+    <p-panel class="p-input-icon-right">
+      <ng-template pTemplate="header">
+        <div class="panel-header">
+          <div class="header-content">
+            <span class="header-text"><strong>Handwerker</strong></span>
+            <i class="pi pi-search" style="margin-left: 10px;"></i> <!-- Hinzugefügtes Icon -->
+          </div>
+        </div>
+      </ng-template>
+      <div class="grid">
+        <div class="col-6" *ngFor="let handwerk of filteredHandwerker;">
+          <p-card class="custom" [style]="{width: '150px', height: '110px'}" styleClass="shadow-2">
+            <ng-template pTemplate="header">
+                <img class="ort" alt="Card" src="{{handwerk.logo}}">
+            </ng-template>
+            <p style="margin-top: 10px; padding-top: 0px; padding-bottom: 0; text-align: center;">{{handwerk.adress}}</p>
+          </p-card>
+        </div>
+      </div>
+    </p-panel>
+
+</div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<div class="grid tp">
+  <p-button class="tender" label="Ausschreibung">
+  </p-button>
+</div>
+</div>
+
+
