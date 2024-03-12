@@ -10,11 +10,7 @@
       <input pInputText type="text" class="p-inputtext-lg2" placeholder="PLZ/Stadt"
       [(ngModel)]="searchTerm2" (input)="filterItems2()" (keyup.enter)="onEnterPressed()" style="width:auto"/>
   </span>
-  &nbsp;
-  <span>
-    <label for="radiusSlider">Umkreis: <p-slider id="radiusSlider" [(ngModel)]="selectedRadius" [min]="10" [max]="50" [step]="10" styleClass="custom-slider"></p-slider></label>
-    <p class="s">{{ selectedRadius }} km</p>
-  </span>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <p-button class="logIn" label="Login/Registrierung"></p-button>
   <p-button class="user" icon="pi pi-user" [rounded]="true" severity="secondary"[outlined]="true"></p-button>
   <p-button class="shopping" icon="pi pi-shopping-cart" [rounded]="true" severity="secondary" [outlined]="true"></p-button>
@@ -52,6 +48,11 @@
     </p-panel>
 </div>
 
+
+<!-- <span>
+  <label for="radiusSlider">Umkreis: <p-slider id="radiusSlider" [(ngModel)]="selectedRadius" [min]="10" [max]="50" [step]="10" styleClass="custom-slider"></p-slider></label>
+  <p class="s">{{ selectedRadius }} km</p>
+</span> -->
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
   <div class="grid tp">
