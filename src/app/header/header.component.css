@@ -43,7 +43,7 @@ img{
 
 .p-inputtext-lg {
   margin-left: 30px; /* Oder einen anderen Wert, der zu Ihrer Layout-Anforderung passt */
-  width: 300px;
+  width: 700px;
   height: 45px;
   margin-bottom: 0.5%;
 }
@@ -52,9 +52,8 @@ img{
   margin-bottom: 0.5%;
 }
 .logIn{
-  margin-right: 20px;
-  margin-bottom: 100px;
-  margin-left: 1300px;
+  margin-right: 50px;
+  margin-bottom: 0px;
 }
 .user{
   margin-right: 30px;
@@ -118,15 +117,5 @@ img{
   font-size: 20px;
 }
 
-:host ::ng-deep .p-slider {
-  max-width: 100px; /* Hier die gewünschte maximale Breite einstellen */
-  margin-left: 990px;
-  margin-top: -25px;
-}
-
-.s{
-  margin-left: 1100px;
-  margin-top: -15px;
-}
 
 
