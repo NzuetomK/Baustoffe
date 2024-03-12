@@ -7,7 +7,8 @@ interface Baustoffhändler {
   adress: string;
   product_name: string;
   name:string;
-  // radius: string;
+  radius: number;
+  adress_2: string;
 
 };
 
@@ -15,7 +16,8 @@ interface Handwerker {
   logo: string;
   adress: string;
   product_name: string;
-  // radius: string;
+  radius: number;
+  adress_2: string;
 };
 
 @Component({
@@ -32,24 +34,24 @@ export class HeaderComponent {
   filteredItems: Baustoffhändler[];
   filteredHandwerker: Handwerker[] = [];
   showAdvertising: boolean = true; // Ändern Sie dies basierend auf Ihren Anforderungen
-  selectedRadius: number = 10;
+  selectedRadius: number = 0;
 
 
   public constructor(private router: Router){
     this.items = [
-      {logo: "https://www.designtagebuch.de/wp-content/uploads/mediathek//2021/04/raab-karcher-logo.jpg", adress:"Kaiserslautern", product_name:"Ziegel", name: "Raab Karcher"},
-      {logo: "https://tse3.mm.bing.net/th?id=OIP.n_R8v2CwWRawt-FcoGdSJgAAAA&pid=Api&P=0&h=180", adress:"Saarbrücken", product_name:"Ziegel", name: "Wego"},
-      {logo: "https://tse3.mm.bing.net/th?id=OIP.eazMVopEqR-3CTnYCLBuVwHaCG&pid=Api&P=0&h=180", adress:"Saarbrücken", product_name:"Ziegel", name: "Hubing"},
-      {logo: "https://tse3.mm.bing.net/th?id=OIP.Pu0cINY7aE6E4ktOifuE4gAAAA&pid=Api&P=0&h=180", adress:"Saarbrücken", product_name:"Ziegel", name: "Omlor"},
+      {logo: "https://www.designtagebuch.de/wp-content/uploads/mediathek//2021/04/raab-karcher-logo.jpg", adress:"Kaiserslautern", product_name:"Ziegel", name: "Raab Karcher", radius:20, adress_2:"Saarbrücken"},
+      {logo: "https://tse3.mm.bing.net/th?id=OIP.n_R8v2CwWRawt-FcoGdSJgAAAA&pid=Api&P=0&h=180", adress:"Rockenhausen", product_name:"Ziegel", name: "Wego", radius:20, adress_2:"Kaiserslautern"},
+      {logo: "https://tse3.mm.bing.net/th?id=OIP.eazMVopEqR-3CTnYCLBuVwHaCG&pid=Api&P=0&h=180", adress:"Zweibrücken", product_name:"Ziegel", name: "Hubing", radius:35, adress_2:"Kaiserslautern"},
+      {logo: "https://tse3.mm.bing.net/th?id=OIP.Pu0cINY7aE6E4ktOifuE4gAAAA&pid=Api&P=0&h=180", adress:"Paderborn", product_name:"Ziegel", name: "Omlor", radius:60, adress_2:"Badlipspringe"},
       // {logo: "https://www.designtagebuch.de/wp-content/uploads/mediathek//2021/04/raab-karcher-logo.jpg", name: "RAAB KARCHER", adress:"Merkurstraße 39, 66111 Saarbrücken", tel:"0631 5 34 30", product_name:"Vollsickerrohr", city:"Saarbrücken"},
       // {logo: "https://tse3.mm.bing.net/th?id=OIP.eazMVopEqR-3CTnYCLBuVwHaCG&pid=Api&P=0&h=180", name: "Hubing GmbH", adress:"Hauptstr. 14, 67697 Otterberg", tel:"06301 20 26", product_name:"Ziegel", city:"Kaiserslautern"},
 
     ];
     this.handwerker = [
-      {logo: "https://tse3.mm.bing.net/th?id=OIP.GLd703di2IXEfIT6TSEkmwHaCv&pid=Api&P=0&h=180", adress:"Kaiserslautern", product_name:"Ziegel"},
-      {logo: "https://tse3.mm.bing.net/th?id=OIP.Gvk8Jsk6fcvntGC5mGs8LQHaHa&pid=Api&P=0&h=180", adress:"Kaiserslautern", product_name:"Ziegel"},
-      {logo: "https://tse4.mm.bing.net/th?id=OIP.TLm50CAwI-pS0H9AsARw1QHaCx&pid=Api&P=0&h=180", adress:"Kaiserslautern", product_name:"Ziegel"},
-      {logo: "https://tse2.mm.bing.net/th?id=OIP.KN77yWC1SrXaYK8C9w2XogHaBP&pid=Api&P=0&h=180", adress:"Kaiserslautern", product_name:"Ziegel"}
+      {logo: "https://tse3.mm.bing.net/th?id=OIP.GLd703di2IXEfIT6TSEkmwHaCv&pid=Api&P=0&h=180", adress:"Kaiserslautern", product_name:"Ziegel", radius:20, adress_2:"Saarbrücken"},
+      {logo: "https://tse3.mm.bing.net/th?id=OIP.Gvk8Jsk6fcvntGC5mGs8LQHaHa&pid=Api&P=0&h=180", adress:"Homburg", product_name:"Ziegel", radius:32, adress_2:"Kaiserslautern"},
+      {logo: "https://tse4.mm.bing.net/th?id=OIP.TLm50CAwI-pS0H9AsARw1QHaCx&pid=Api&P=0&h=180", adress:"Pirmasens", product_name:"Ziegel", radius:29, adress_2:"Kaiserslautern"},
+      {logo: "https://tse2.mm.bing.net/th?id=OIP.KN77yWC1SrXaYK8C9w2XogHaBP&pid=Api&P=0&h=180", adress:"Frankenthal", product_name:"Ziegel", radius:45, adress_2:"Kaiserslautern"}
     ];
     this.menus = [];
     this.filteredItems = this.items;
@@ -77,13 +79,13 @@ export class HeaderComponent {
       console.log('Filtered Handwerker:', this.filteredHandwerker);
     } else {
       // Wenn der Benutzer nichts eingegeben hat, filtern Sie nach der Adresse "Kaiserslautern"
-      this.filteredItems = this.items.filter(item =>
-        item.adress.toLowerCase().includes('Kaiserslautern'.toLowerCase())
-      );
+      // this.filteredItems = this.items.filter(item =>
+      //   item.adress.toLowerCase().includes('Kaiserslautern'.toLowerCase())
+      // );
 
-      this.filteredHandwerker = this.handwerker.filter(handwerk =>
-        handwerk.adress.toLowerCase().includes('Kaiserslautern'.toLowerCase())
-      );
+      // this.filteredHandwerker = this.handwerker.filter(handwerk =>
+      //   handwerk.adress.toLowerCase().includes('Kaiserslautern'.toLowerCase())
+      // );
     }
   }
 
@@ -106,8 +108,24 @@ export class HeaderComponent {
   }
 
   onRadiusChange() {
-    console.log('Ausgewählter Radius:', this.selectedRadius);
-    // Hier kannst du den Wert weiterverwenden, z.B. für Filterung oder andere Logik
+    if (this.selectedRadius !== 0) {
+      // Filtern Sie Baustoffhändler nach Adresse oder Adresse_2 und Umkreis
+      this.filteredItems = this.items.filter(item =>
+        (item.adress.toLowerCase().includes(this.searchTerm2.toLowerCase()) ||
+        (item.adress_2 && item.adress_2.toLowerCase().includes(this.searchTerm2.toLowerCase()))) &&
+        item.radius <= this.selectedRadius
+      );
+
+      // Filtern Sie Handwerker nach Adresse oder Adresse_2 und Umkreis
+      this.filteredHandwerker = this.handwerker.filter(handwerk =>
+        (handwerk.adress.toLowerCase().includes(this.searchTerm2.toLowerCase()) ||
+        (handwerk.adress_2 && handwerk.adress_2.toLowerCase().includes(this.searchTerm2.toLowerCase()))) &&
+        handwerk.radius <= this.selectedRadius
+      );
+    } else {
+      this.filteredItems = this.items;
+      this.filteredHandwerker = this.handwerker;
+    }
   }
 
 
