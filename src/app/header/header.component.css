@@ -43,7 +43,7 @@ img{
 
 .p-inputtext-lg {
   margin-left: 30px; /* Oder einen anderen Wert, der zu Ihrer Layout-Anforderung passt */
-  width: 700px;
+  width: 450px;
   height: 45px;
   margin-bottom: 0.5%;
 }
@@ -117,5 +117,19 @@ img{
   font-size: 20px;
 }
 
+:host ::ng-deep .p-slider{
+  max-width: 100px;
+  margin-left: 1150px;
+  margin-top: -25px;
+}
+.s{
+  margin-left: 1260px;
+  margin-top: -13px;
+}
 
-
+.aligne{
+  position: absolute;
+  right: 0;
+  top: 1%;
+  margin-right: 30px;
+}

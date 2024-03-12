@@ -7,6 +7,7 @@ interface Baustoffhändler {
   adress: string;
   product_name: string;
   name:string;
+  // radius: string;
 
 };
 
@@ -14,6 +15,7 @@ interface Handwerker {
   logo: string;
   adress: string;
   product_name: string;
+  // radius: string;
 };
 
 @Component({
@@ -102,6 +104,12 @@ export class HeaderComponent {
       this.filteredHandwerker = this.handwerker;
     }
   }
+
+  onRadiusChange() {
+    console.log('Ausgewählter Radius:', this.selectedRadius);
+    // Hier kannst du den Wert weiterverwenden, z.B. für Filterung oder andere Logik
+  }
+
 
   onEnterPressed(): void {
     // Hier können Sie zusätzliche Aktionen für Enter-Taste durchführen
