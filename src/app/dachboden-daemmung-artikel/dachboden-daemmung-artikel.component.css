@@ -1,15 +1,15 @@
-.mg {
+/* .mg {
   width: 60px;
   height: 50px;
   margin-right: 250px;
   margin-top: 0px;
-}
+} */
 
 .price1 {
   color: red;
 }
 
-.product_image {
+/* .product_image {
   margin-bottom: 0;
   margin-left: 50px;
   margin-top: 70px;
@@ -17,16 +17,22 @@
   position: center;
   max-width: 200px;
 
-}
+} */
 
 .dachboden{
-  margin-bottom: 0;
-  margin-left: 50px;
-  margin-top: 30px;
-  width: 200px;
   position: center;
+  width: auto;
+  height: auto;
+  max-width: 300%;
+  max-height: 130px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding-top: 30px;
 }
-.product_images {
+/* .product_images {
   margin-bottom: 0;
   margin-left: 50px;
   margin-top: 1px;
@@ -34,21 +40,20 @@
   position: center;
   max-width: 200px;
 
-}
+} */
 
 .text{
-  margin-top: -60px;
-  margin-bottom: 10px;
+  margin-top: 5px;
   margin-left: 0px;
   margin-right: 0px;
 }
 
-.text2{
+/* .text2{
   margin-top: -30px;
   margin-bottom: 2px;
   margin-left: 0px;
   margin-right: 0px;
-}
+} */
 
 .price{
   margin-top: 40px;
@@ -63,22 +68,22 @@
 .price_bachBoden{
   margin-top: 10px;
 }
-.price_rock{
+/* .price_rock{
   margin-top: 30px;
-}
-.product_image_r{
+} */
+/* .product_image_r{
    margin-bottom: 0;
   margin-left: 50px;
   margin-top: 60px;
   width: 200px;
   position: center;
   max-width: 200px;
-}
-.price_rock2{
+} */
+/* .price_rock2{
   margin-top: 60px;
-}
+} */
 
-.sidecontent{
+/* .sidecontent{
   position: absolute;
   left: 0;
   top: 15%;
@@ -86,13 +91,35 @@
 }
 .tp{
   margin-left: 2%;
-}
+} */
 
 :host ::ng-deep .p-button{
   font-size:20px;
   width: 260px;
 
 }
+
+.main-content {
+  width: 50%;
+}
+
+.grid {
+  display:flex;
+  flex-wrap: wrap; /* Elemente in neue Zeilen umbrechen */
+}
+
+.col {
+  flex-basis: calc(2%); /* Berechnen Sie die Breite jedes Elements */
+  margin-bottom: 0px; /* Reduzieren Sie den Abstand zwischen den Zeilen */
+  margin-right: 2px; /* Reduzieren Sie den Abstand zwischen den Kacheln */
+  margin-left: -2000px;
+
+  flex: 0 0 auto;
+}
+
+
+/* Die folgende Regel entfernt den rechten Abstand für das dritte Element in jeder Zeile */
+
 /* .pub{
   float: right;
   margin-right: 32%;

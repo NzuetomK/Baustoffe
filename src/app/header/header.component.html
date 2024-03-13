@@ -2,8 +2,9 @@
   <span class="p-input-icon-right">
     <strong class="rub">Rund um Baustoffe</strong>&nbsp;&nbsp;
     <i class="pi pi-search"></i>
-      <input pInputText type="text" class="p-inputtext-lg" placeholder="Artikel, Baustoffe"
-      [(ngModel)]="searchTerm" (input)="filterItems()" (keyup.enter)="onEnterPressed()" />
+    <input pInputText type="text" class="p-inputtext-lg" placeholder="Artikel, Baustoffe"
+       [(ngModel)]="searchTerm" (input)="filterItems()" (keyup)="onSearchInput($event)" />
+
   </span>
   <span class="p-input-icon-right">
       <i class="pi pi-map-marker"></i>

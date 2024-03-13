@@ -1,103 +1,127 @@
-<div class="pub">
-  <div class="grid">
-    <div class="grid">
-      <div class="col  ml-2 mt-4">
-        <p-card [style]="{width: '300px', height: '420px'}">
-          <ng-template pTemplate="header">
-            <img alt="Card" class="dachboden" src="https://www.baustoffshop.de/pub/media/catalog/product/l/i/linitherm_3212938-3212945_linitherm_pal-n-f-platte_produktbild.jpg">
-          </ng-template>
-          <div class="text2">
-            <h3>LINITHERM PAL N+F Dämmplatte - 2420 x 1000 mm</h3>
-            <p class="price">
-              <strong class="price1">ab 32,96 €</strong>&nbsp; | Qm
-            </p>
-          </div>
-          <p-button severity="info" label="ANGEBOT ANZEIGEN">
-          </p-button>
-        </p-card>
-      </div>
 
-      <div class="col mt-4">
-        <p-card [style]="{width: '300px', height: '420px'}" styleClass="shadow-2">
-          <ng-template pTemplate="header">
-            <img alt="Card" class="product_image_steil" src="https://www.baustoffshop.de/pub/media/catalog/product/m/u/multipor_multipor_2739.jpg">
-          </ng-template>
-          <div class="text2">
-            <h3>Mineraldämmplatte DAD Steildachdämmung | 600x390 mm</h3>
-            <p>
-              <strong class="price1">ab 55,44 €</strong>&nbsp; | Qm
-            </p>
-          </div>
-          <p-button severity="info" label="ANGEBOT ANZEIGEN">
-          </p-button>
-        </p-card>
-      </div>
-      <div class="col mt-4">
-        <p-card [style]="{width: '300px', height: '420px'}" styleClass="shadow-2">
-          <ng-template pTemplate="header">
-            <img alt="Card" class="product_image" src="https://www.baustoffshop.de/pub/media/catalog/product/b/a/bauder_pir-mde_1_.jpg">
-          </ng-template>
-          <div class="text3">
-            <h3 class="steildach">Steildachwärmedämm WLS 023 - Nut & Feder</h3>
-            <p class="steildach_price">
-              <strong class="price1"> ab 22,44 €</strong>&nbsp; | Qm
-            </p>
-          </div>
-          <p-button severity="info" label="ANGEBOT ANZEIGEN">
-          </p-button>
-        </p-card>
-      </div>
-    </div>
-</div>
-&nbsp;&nbsp;&nbsp;&nbsp;
+<!-- <app-header (searchInput)="filterItems($event)"></app-header> -->
 
-<div class="grid">
+
+<div class="main-content">
   <div class="grid">
-    <div class="col ml-2">
-      <p-card [style]="{width: '300px', height: '420px'}" styleClass="shadow-2">
+    <div class="col-4 mr-0 mt-4"  *ngFor="let item of filteredItems;">
+      <p-card [style]="{width: '300px', height: '370px'}">
         <ng-template pTemplate="header">
-          <img alt="Card" class="product_image" src="https://www.baustoffshop.de/pub/media/catalog/product/s/i/siga_siga_majpell_5_dampfbremse_-_1-5x50_m.jpg">
-        </ng-template>
-      <div class="text3">
-        <h3 class="siga">SIGA Majpell 5 Dampfbremse -20m Rolle</h3>
-            <p>
-              <strong class="price1">ab 86,20 €</strong>&nbsp; | Roll
-            </p>
-      </div>
-      <p-button severity="info" label="ANGEBOT ANZEIGEN">
-      </p-button>
-      </p-card>
-    </div>
-    <div class="col">
-      <p-card [style]="{width: '300px', height: '420px'}" styleClass="shadow-2">
-        <ng-template pTemplate="header">
-          <img alt="Card" class="product_image_r" src="https://www.baustoffshop.de/pub/media/catalog/product/s/u/superglass_sd_kf3v-035_50er.jpg">
+          <img alt="Card" class="dachboden" src="{{item.product_image}}">
         </ng-template>
         <div class="text">
-          <h3 class="superglass">Superglass Untersparren-Klemmfilz 5000 x 1250 x 50 mm</h3>
-            <p>
-              <strong class="price1">ab 14,03 €</strong>&nbsp; | Qm
-            </p>
+          <h3>{{item.product_name}}</h3>
+          <p>
+            <strong class="price1">{{item.price}}</strong>&nbsp; | Qm
+          </p>
         </div>
-        <p-button severity="info" label="ANGEBOT ANZEIGEN">
-        </p-button>
-      </p-card>
-    </div>
-    <div class="col">
-      <p-card [style]="{width: '300px', height: '420px'}" styleClass="shadow-2">
-        <ng-template pTemplate="header">
-          <img alt="Card" class="product_image_t" src="https://www.baustoffshop.de/pub/media/catalog/product/t/h/thermo-hanf_thermo-hanf-combi-jute-01.jpg">
-        </ng-template>
-        <div class="text">
-          <h3 class="price_rock2">THERMO HANF Combi Jute Dämmplatte 1200x840 mm Klemmfilz - </h3>
-            <p>
-              <strong class="price1">ab 12,35 €</strong>&nbsp; | Qm
-            </p>
-        </div>
-        <p-button severity="info" label="ANGEBOT ANZEIGEN">
+        <p-button severity="info" label="{{item.offer}}">
         </p-button>
       </p-card>
     </div>
   </div>
 </div>
+
+
+    <!-- <div class="col mt-4">
+      <p-card [style]="{width: '300px', height: '420px'}" styleClass="shadow-2">
+        <ng-template pTemplate="header">
+          <img alt="Card" class="product_image" src="https://www.baustoffshop.de/pub/media/catalog/product/i/s/isover_topdec_14109_topdec_loft_7.jpg">
+        </ng-template>
+        <div class="text2">
+          <h3>Dachboden Steinwoll-Dämmplatte- 1200 x 625 mm </h3>
+          <p>
+            <strong class="price1">19,84 €</strong>&nbsp; | Qm
+          </p>
+        </div>
+        <p-button severity="info" label="ANGEBOT ANZEIGEN">
+        </p-button>
+      </p-card>
+    </div>
+    <div class="col mt-4">
+      <p-card [style]="{width: '300px', height: '420px'}" styleClass="shadow-2">
+        <ng-template pTemplate="header">
+          <img alt="Card" class="product_image" src="https://www.baustoffshop.de/pub/media/catalog/product/s/u/superglass_sg_topdec-loft_100er.jpg">
+        </ng-template>
+        <div class="text3">
+          <h3>Superglass Dachbodendämmplatte- 1200x625 mm</h3>
+          <p>
+            <strong class="price1">22,44 €</strong>&nbsp; | Qm
+          </p>
+        </div>
+        <p-button severity="info" label="ANGEBOT ANZEIGEN">
+        </p-button>
+      </p-card>
+    </div> -->
+
+
+<!-- <div class="grid">
+<div class="grid">
+  <div class="col ml-2" *ngFor="let item of filteredItems;">
+    <p-card [style]="{width: '300px', height: '350px'}" styleClass="shadow-2">
+      <ng-template pTemplate="header">
+        <img alt="Card" class="dachboden" src="{{item.product_image}}">
+      </ng-template>
+    <div class="text">
+      <h3>{{item.product_name}}</h3>
+          <p>
+            <strong class="price1">{{item.price}}</strong>&nbsp; | Qm
+          </p>
+    </div>
+    <p-button severity="info" label="{{item.offer}}">
+    </p-button>
+    </p-card>
+  </div> -->
+  <!-- <div class="col">
+    <p-card [style]="{width: '300px', height: '420px'}" styleClass="shadow-2">
+      <ng-template pTemplate="header">
+        <img alt="Card" class="product_image_r" src="https://www.baustoffshop.de/pub/media/catalog/product/r/o/rockwool_rockwool-daemmfilz-varirock-035-01.jpg">
+      </ng-template>
+      <div class="text">
+        <h3 class="price_rock">Rockwool Varirock 035 Dämmfilz, 1000 mm</h3>
+          <p>
+            <strong class="price1">6,99 €</strong>&nbsp; | Qm
+          </p>
+      </div>
+      <p-button severity="info" label="ANGEBOT ANZEIGEN">
+      </p-button>
+    </p-card>
+  </div>
+  <div class="col">
+    <p-card [style]="{width: '300px', height: '420px'}" styleClass="shadow-2">
+      <ng-template pTemplate="header">
+        <img alt="Card" class="product_image_r" src="https://www.baustoffshop.de/pub/media/catalog/product/r/o/rockwool_tegarock-l-rockwool-platten.jpg">
+      </ng-template>
+      <div class="text">
+        <h3 class="price_rock2">Rockwool Dämmplatte Tegarock, 1000x600 mm</h3>
+          <p>
+            <strong class="price1">16,20 €</strong>&nbsp; | Qm
+          </p>
+      </div>
+      <p-button severity="info" label="ANGEBOT ANZEIGEN">
+      </p-button>
+    </p-card>
+  </div>
+</div> -->
+<!-- </div>
+</div> -->
+
+<!-- <div class="sidecontent">
+<div class="grid tp">
+  <p-panel header="Filter">
+    <div class="grid">
+      <div class="col-6 mr-0 ">
+        <p-card [style]="{width: '200px', height: '255px'}" styleClass="shadow-2">
+          <ng-template pTemplate="header">
+          </ng-template>
+          <p><strong>sddf</strong></p>
+          <p>ddf</p>
+          <p>ddfff</p>
+        </p-card>
+      </div>
+    </div>
+  </p-panel>
 </div>
+</div> -->
+
+

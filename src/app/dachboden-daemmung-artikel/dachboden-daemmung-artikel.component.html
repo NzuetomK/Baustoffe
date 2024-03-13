@@ -1,26 +1,29 @@
 
+<!-- <app-header (searchInput)="filterItems($event)"></app-header> -->
+
 
 <div class="main-content">
-  <div class="pub">
-    <div class="grid">
       <div class="grid">
-        <div class="col ml-2 mt-4">
-          <p-card [style]="{width: '300px', height: '420px'}">
+        <div class="col-4 mr-0 mt-4"  *ngFor="let item of filteredItems;">
+          <p-card [style]="{width: '300px', height: '350px'}">
             <ng-template pTemplate="header">
-              <img alt="Card" class="dachboden" src="https://www.baustoffshop.de/pub/media/catalog/product/k/n/knaufinsulation_ki-rmw-kp-035-hb_print.jpg">
+              <img alt="Card" class="dachboden" src="{{item.product_image}}">
             </ng-template>
             <div class="text">
-              <h3>Dachboden-Dämmplatte- 1200x625 mm</h3>
-              <p class="price">
-                <strong class="price1">ab 15,97 €</strong>&nbsp; | Qm
+              <h3>{{item.product_name}}</h3>
+              <p>
+                <strong class="price1">{{item.price}}</strong>&nbsp; | Qm
               </p>
             </div>
-            <p-button severity="info" label="ANGEBOT ANZEIGEN">
+            <p-button severity="info" label="{{item.offer}}">
             </p-button>
           </p-card>
         </div>
+      </div>
+    </div>
 
-        <div class="col mt-4">
+
+        <!-- <div class="col mt-4">
           <p-card [style]="{width: '300px', height: '420px'}" styleClass="shadow-2">
             <ng-template pTemplate="header">
               <img alt="Card" class="product_image" src="https://www.baustoffshop.de/pub/media/catalog/product/i/s/isover_topdec_14109_topdec_loft_7.jpg">
@@ -49,29 +52,27 @@
             <p-button severity="info" label="ANGEBOT ANZEIGEN">
             </p-button>
           </p-card>
-        </div>
-      </div>
-  </div>
-  &nbsp;&nbsp;&nbsp;&nbsp;
+        </div> -->
 
-  <div class="grid">
+
+  <!-- <div class="grid">
     <div class="grid">
-      <div class="col ml-2">
-        <p-card [style]="{width: '300px', height: '420px'}" styleClass="shadow-2">
+      <div class="col ml-2" *ngFor="let item of filteredItems;">
+        <p-card [style]="{width: '300px', height: '350px'}" styleClass="shadow-2">
           <ng-template pTemplate="header">
-            <img alt="Card" class="product_image" src="https://www.baustoffshop.de/pub/media/catalog/product/b/a/bachl_eps-boden-daemmplatte_ausschnitt.jpg">
+            <img alt="Card" class="dachboden" src="{{item.product_image}}">
           </ng-template>
-        <div class="text3">
-          <h3 class="price_bachBoden">Bachl Boden-Dämmplatte 1210x610 mm</h3>
+        <div class="text">
+          <h3>{{item.product_name}}</h3>
               <p>
-                <strong class="price1">45,27 €</strong>&nbsp; | Qm
+                <strong class="price1">{{item.price}}</strong>&nbsp; | Qm
               </p>
         </div>
-        <p-button severity="info" label="ANGEBOT ANZEIGEN">
+        <p-button severity="info" label="{{item.offer}}">
         </p-button>
         </p-card>
-      </div>
-      <div class="col">
+      </div> -->
+      <!-- <div class="col">
         <p-card [style]="{width: '300px', height: '420px'}" styleClass="shadow-2">
           <ng-template pTemplate="header">
             <img alt="Card" class="product_image_r" src="https://www.baustoffshop.de/pub/media/catalog/product/r/o/rockwool_rockwool-daemmfilz-varirock-035-01.jpg">
@@ -101,9 +102,9 @@
           </p-button>
         </p-card>
       </div>
-    </div>
-  </div>
-  </div>
+    </div> -->
+  <!-- </div>
+  </div> -->
 
   <!-- <div class="sidecontent">
     <div class="grid tp">
@@ -122,5 +123,5 @@
       </p-panel>
   </div>
   </div> -->
-</div>
+
 

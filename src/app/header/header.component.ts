@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { MenuItem } from 'primeng/api';
+import { SearchService } from '../search.service';
 
 interface Baustoffhändler {
   logo: string;
   adress: string;
   product_name: string;
+  product_name2: string;
   name:string;
   radius: number;
   adress_2: string;
@@ -18,6 +20,7 @@ interface Handwerker {
   product_name: string;
   radius: number;
   adress_2: string;
+  product_name2: string;
 };
 
 @Component({
@@ -26,6 +29,14 @@ interface Handwerker {
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+  @Output() searchInput: EventEmitter<string> = new EventEmitter<string>();
+
+  onSearchInput(event: Event): void {
+    this.searchTerm = (event.target as HTMLInputElement).value;
+    this.searchService.setSearchTerm(this.searchTerm);
+  }
+
+
   items: Baustoffhändler[];
   handwerker: Handwerker[];
   menus: MenuItem[];
@@ -37,21 +48,22 @@ export class HeaderComponent {
   selectedRadius: number = 0;
 
 
-  public constructor(private router: Router){
+
+  public constructor(private router: Router, private searchService: SearchService){
     this.items = [
-      {logo: "https://www.designtagebuch.de/wp-content/uploads/mediathek//2021/04/raab-karcher-logo.jpg", adress:"Kaiserslautern", product_name:"Ziegel", name: "Raab Karcher", radius:20, adress_2:"Saarbrücken"},
-      {logo: "https://tse3.mm.bing.net/th?id=OIP.n_R8v2CwWRawt-FcoGdSJgAAAA&pid=Api&P=0&h=180", adress:"Rockenhausen", product_name:"Ziegel", name: "Wego", radius:20, adress_2:"Kaiserslautern"},
-      {logo: "https://tse3.mm.bing.net/th?id=OIP.eazMVopEqR-3CTnYCLBuVwHaCG&pid=Api&P=0&h=180", adress:"Zweibrücken", product_name:"Ziegel", name: "Hubing", radius:35, adress_2:"Kaiserslautern"},
-      {logo: "https://tse3.mm.bing.net/th?id=OIP.Pu0cINY7aE6E4ktOifuE4gAAAA&pid=Api&P=0&h=180", adress:"Paderborn", product_name:"Ziegel", name: "Omlor", radius:60, adress_2:"Badlipspringe"},
+      {logo: "https://www.designtagebuch.de/wp-content/uploads/mediathek//2021/04/raab-karcher-logo.jpg", adress:"Kaiserslautern", product_name:"Dachboden-Dämmplatte- 1200x625 mm", name: "Raab Karcher", radius:20, adress_2:"Saarbrücken", product_name2:"LINITHERM PAL N+F Dämmplatte - 2420 x 1000 mm"},
+      {logo: "https://tse3.mm.bing.net/th?id=OIP.n_R8v2CwWRawt-FcoGdSJgAAAA&pid=Api&P=0&h=180", adress:"Rockenhausen", product_name:"Superglass Dachboden- 1200x625 mm", name: "Wego", radius:20, adress_2:"Kaiserslautern",product_name2:"Mineraldämmplatte DAD Steildachdämmung | 600x390 mm"},
+      {logo: "https://tse3.mm.bing.net/th?id=OIP.eazMVopEqR-3CTnYCLBuVwHaCG&pid=Api&P=0&h=180", adress:"Zweibrücken", product_name:"Superglass Dachboden- 1200x625 mm", name: "Hubing", radius:35, adress_2:"Kaiserslautern", product_name2:"Mineraldämmplatte DAD Steildachdämmung | 600x390 mm"},
+      {logo: "https://tse3.mm.bing.net/th?id=OIP.Pu0cINY7aE6E4ktOifuE4gAAAA&pid=Api&P=0&h=180", adress:"Paderborn", product_name:"Superglass Dachboden- 1200x625 mm", name: "Omlor", radius:60, adress_2:"Badlipspringe", product_name2:"Mineraldämmplatte DAD Steildachdämmung | 600x390 mm"},
       // {logo: "https://www.designtagebuch.de/wp-content/uploads/mediathek//2021/04/raab-karcher-logo.jpg", name: "RAAB KARCHER", adress:"Merkurstraße 39, 66111 Saarbrücken", tel:"0631 5 34 30", product_name:"Vollsickerrohr", city:"Saarbrücken"},
       // {logo: "https://tse3.mm.bing.net/th?id=OIP.eazMVopEqR-3CTnYCLBuVwHaCG&pid=Api&P=0&h=180", name: "Hubing GmbH", adress:"Hauptstr. 14, 67697 Otterberg", tel:"06301 20 26", product_name:"Ziegel", city:"Kaiserslautern"},
 
     ];
     this.handwerker = [
-      {logo: "https://tse3.mm.bing.net/th?id=OIP.GLd703di2IXEfIT6TSEkmwHaCv&pid=Api&P=0&h=180", adress:"Kaiserslautern", product_name:"Ziegel", radius:20, adress_2:"Saarbrücken"},
-      {logo: "https://tse3.mm.bing.net/th?id=OIP.Gvk8Jsk6fcvntGC5mGs8LQHaHa&pid=Api&P=0&h=180", adress:"Homburg", product_name:"Ziegel", radius:32, adress_2:"Kaiserslautern"},
-      {logo: "https://tse4.mm.bing.net/th?id=OIP.TLm50CAwI-pS0H9AsARw1QHaCx&pid=Api&P=0&h=180", adress:"Pirmasens", product_name:"Ziegel", radius:29, adress_2:"Kaiserslautern"},
-      {logo: "https://tse2.mm.bing.net/th?id=OIP.KN77yWC1SrXaYK8C9w2XogHaBP&pid=Api&P=0&h=180", adress:"Frankenthal", product_name:"Ziegel", radius:45, adress_2:"Kaiserslautern"}
+      {logo: "https://tse3.mm.bing.net/th?id=OIP.GLd703di2IXEfIT6TSEkmwHaCv&pid=Api&P=0&h=180", adress:"Kaiserslautern", product_name:"Superglass Dachboden- 1200x625 mm", radius:20, adress_2:"Saarbrücken", product_name2:"Mineraldämmplatte DAD Steildachdämmung | 600x390 mm"},
+      {logo: "https://tse3.mm.bing.net/th?id=OIP.Gvk8Jsk6fcvntGC5mGs8LQHaHa&pid=Api&P=0&h=180", adress:"Homburg", product_name:"Dachboden-Dämmplatte- 1200x625 mm", radius:32, adress_2:"Kaiserslautern", product_name2:"LINITHERM PAL N+F Dämmplatte - 2420 x 1000 mm"},
+      {logo: "https://tse4.mm.bing.net/th?id=OIP.TLm50CAwI-pS0H9AsARw1QHaCx&pid=Api&P=0&h=180", adress:"Pirmasens", product_name:"Dachboden-Dämmplatte- 1200x625 mm", radius:29, adress_2:"Kaiserslautern", product_name2:"LINITHERM PAL N+F Dämmplatte - 2420 x 1000 mm"},
+      {logo: "https://tse2.mm.bing.net/th?id=OIP.KN77yWC1SrXaYK8C9w2XogHaBP&pid=Api&P=0&h=180", adress:"Frankenthal", product_name:"Dachboden-Dämmplatte- 1200x625 mm", radius:45, adress_2:"Kaiserslautern", product_name2:"LINITHERM PAL N+F Dämmplatte - 2420 x 1000 mm"}
     ];
     this.menus = [];
     this.filteredItems = this.items;
@@ -64,7 +76,8 @@ export class HeaderComponent {
       // Filtern Sie Baustoffhändler
       this.filteredItems = this.items.filter(item =>
         item.product_name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-        item.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+        item.product_name2.toLowerCase().includes(this.searchTerm.toLowerCase())
+
       );
 
       // Log-Ausgabe für die gefilterten Baustoffhändler
@@ -72,20 +85,22 @@ export class HeaderComponent {
 
       // Filtern Sie Handwerker nur nach product_name
       this.filteredHandwerker = this.handwerker.filter(handwerk =>
-        handwerk.product_name.toLowerCase().includes(this.searchTerm.toLowerCase())
+        handwerk.product_name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+        handwerk.product_name2.toLowerCase().includes(this.searchTerm.toLowerCase())
+
       );
 
       // Log-Ausgabe für die gefilterten Handwerker
       console.log('Filtered Handwerker:', this.filteredHandwerker);
     } else {
       // Wenn der Benutzer nichts eingegeben hat, filtern Sie nach der Adresse "Kaiserslautern"
-      // this.filteredItems = this.items.filter(item =>
-      //   item.adress.toLowerCase().includes('Kaiserslautern'.toLowerCase())
-      // );
+      this.filteredItems = this.items.filter(item =>
+        item.adress.toLowerCase().includes(''.toLowerCase())
+      );
 
-      // this.filteredHandwerker = this.handwerker.filter(handwerk =>
-      //   handwerk.adress.toLowerCase().includes('Kaiserslautern'.toLowerCase())
-      // );
+      this.filteredHandwerker = this.handwerker.filter(handwerk =>
+        handwerk.adress.toLowerCase().includes(''.toLowerCase())
+      );
     }
   }
 
@@ -128,6 +143,9 @@ export class HeaderComponent {
     }
   }
 
+  onSearchInputChange(): void {
+    this.searchService.setSearchTerm(this.searchTerm);
+  }
 
   onEnterPressed(): void {
     // Hier können Sie zusätzliche Aktionen für Enter-Taste durchführen
