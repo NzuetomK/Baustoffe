@@ -8,7 +8,6 @@ import { Component } from '@angular/core';
 export class DachComponent {
   produktClicked() {
     console.log('Produkt wurde geklickt');
-    // Fügen Sie hier die gewünschte Aktion hinzu
   }
 
 }

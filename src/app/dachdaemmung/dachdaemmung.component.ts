@@ -8,6 +8,5 @@ import { Component } from '@angular/core';
 export class DachdaemmungComponent {
   produktClicked() {
     console.log('Produkt wurde geklickt');
-    // Fügen Sie hier die gewünschte Aktion hinzu
   }
 }

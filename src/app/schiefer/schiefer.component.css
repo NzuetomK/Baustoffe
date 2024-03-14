@@ -33,7 +33,7 @@
 
 .flex-container {
   display: flex;
-  flex-wrap: nowrap; /* Dies stellt sicher, dass die Elemente nicht umgebrochen werden */
+  flex-wrap: nowrap;
 }
 
 .dachdaemmung{

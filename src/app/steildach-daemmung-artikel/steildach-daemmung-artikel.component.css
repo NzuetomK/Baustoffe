@@ -1,23 +1,7 @@
-/* .mg {
-  width: 60px;
-  height: 50px;
-  margin-right: 250px;
-  margin-top: 0px;
-} */
 
 .price1 {
   color: red;
 }
-
-/* .product_image {
-  margin-bottom: 0;
-  margin-left: 50px;
-  margin-top: 70px;
-  width: 200px;
-  position: center;
-  max-width: 200px;
-
-} */
 
 .dachboden{
   position: center;
@@ -32,28 +16,12 @@
   margin-bottom: auto;
   padding-top: 30px;
 }
-/* .product_images {
-  margin-bottom: 0;
-  margin-left: 50px;
-  margin-top: 1px;
-  width: 200px;
-  position: center;
-  max-width: 200px;
-
-} */
 
 .text{
   margin-top: 5px;
   margin-left: 0px;
   margin-right: 0px;
 }
-
-/* .text2{
-  margin-top: -30px;
-  margin-bottom: 2px;
-  margin-left: 0px;
-  margin-right: 0px;
-} */
 
 .price{
   margin-top: 40px;
@@ -68,30 +36,6 @@
 .price_bachBoden{
   margin-top: 10px;
 }
-/* .price_rock{
-  margin-top: 30px;
-} */
-/* .product_image_r{
-   margin-bottom: 0;
-  margin-left: 50px;
-  margin-top: 60px;
-  width: 200px;
-  position: center;
-  max-width: 200px;
-} */
-/* .price_rock2{
-  margin-top: 60px;
-} */
-
-/* .sidecontent{
-  position: absolute;
-  left: 0;
-  top: 15%;
-  margin-right: 200%;
-}
-.tp{
-  margin-left: 2%;
-} */
 
 :host ::ng-deep .p-button{
   font-size:20px;
@@ -105,22 +49,16 @@
 
 .grid {
   display:flex;
-  flex-wrap: wrap; /* Elemente in neue Zeilen umbrechen */
+  flex-wrap: wrap;
 }
 
 .col {
-  flex-basis: calc(2%); /* Berechnen Sie die Breite jedes Elements */
-  margin-bottom: 0px; /* Reduzieren Sie den Abstand zwischen den Zeilen */
-  margin-right: 2px; /* Reduzieren Sie den Abstand zwischen den Kacheln */
+  flex-basis: calc(2%);
+  margin-bottom: 0px;
+  margin-right: 2px;
   margin-left: -2000px;
 
   flex: 0 0 auto;
 }
 
 
-/* Die folgende Regel entfernt den rechten Abstand für das dritte Element in jeder Zeile */
-
-/* .pub{
-  float: right;
-  margin-right: 32%;
-} */

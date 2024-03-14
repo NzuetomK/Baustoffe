@@ -92,17 +92,8 @@
   margin-right: 0;
 }
 
-/* host ::ng-deep .p-button {
-  margin-right: 2px;
-  background-color: transparent;
-} */
-
 :host ::ng-deep .p-button{
   font-size:20px;
   width: 260px;
 
 }
-/* .pub{
-  float: right;
-  margin-right: 32%;
-} */

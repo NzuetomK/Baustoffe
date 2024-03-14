@@ -1,51 +1,23 @@
-.mg {
-  width: 60px;
-  height: 50px;
-  margin-right: 250px;
-  margin-top: 0px;
-}
-
 .price1 {
   color: red;
 }
 
-.product_image {
-  margin-bottom: 0;
-  margin-left: 50px;
-  margin-top: 70px;
-  width: 200px;
-  position: center;
-  max-width: 200px;
-
-}
-
 .dachboden{
-  margin-bottom: 0;
-  margin-left: 50px;
-  margin-top: 30px;
-  width: 200px;
   position: center;
-}
-.product_images {
-  margin-bottom: 0;
-  margin-left: 50px;
-  margin-top: 1px;
-  width: 200px;
-  position: center;
-  max-width: 200px;
-
+  width: auto;
+  height: auto;
+  max-width: 500%;
+  max-height: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding-top: 30px;
 }
 
 .text{
-  margin-top: -60px;
-  margin-bottom: 10px;
-  margin-left: 0px;
-  margin-right: 0px;
-}
-
-.text2{
-  margin-top: -30px;
-  margin-bottom: 2px;
+  margin-top: 5px;
   margin-left: 0px;
   margin-right: 0px;
 }
@@ -63,46 +35,27 @@
 .price_bachBoden{
   margin-top: 10px;
 }
-.price_rock{
-  margin-top: 30px;
-}
-.product_image_r{
-   margin-bottom: 0;
-  margin-left: 50px;
-  margin-top: 60px;
-  width: 200px;
-  position: center;
-  max-width: 200px;
-}
-.price_rock2{
-  margin-top: 60px;
-}
-
-.sidecontent{
-  position: absolute;
-  left: 0;
-  top: 15%;
-  margin-right: 200%;
-}
-.tp{
-  margin-left: 2%;
-}
-
-.button{
-  margin-right: 0;
-}
-
-/* host ::ng-deep .p-button {
-  margin-right: 2px;
-  background-color: transparent;
-} */
 
 :host ::ng-deep .p-button{
   font-size:20px;
   width: 260px;
 
 }
-/* .pub{
-  float: right;
-  margin-right: 32%;
-} */
+
+.main-content {
+  width: 50%;
+}
+
+.grid {
+  display:flex;
+  flex-wrap: wrap;
+}
+
+.col {
+  flex-basis: calc(2%);
+  margin-bottom: 0px;
+  margin-right: 2px;
+  margin-left: -2000px;
+
+  flex: 0 0 auto;
+}

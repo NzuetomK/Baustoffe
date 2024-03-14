@@ -21,7 +21,7 @@ export class DachbodenDaemmungArtikelComponent {
   filteredItems: Dachboden[];
 
   searchTerm2: string = '';
-  showAdvertising: boolean = true; // Ändern Sie dies basierend auf Ihren Anforderungen
+  showAdvertising: boolean = true;
 
 
   public constructor(private router: Router, private searchService: SearchService){

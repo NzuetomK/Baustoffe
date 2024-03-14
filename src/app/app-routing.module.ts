@@ -12,14 +12,6 @@ import { DachbahnenComponent } from './dachbahnen/dachbahnen.component';
 import { DachfensterComponent } from './dachfenster/dachfenster.component';
 import { SchieferComponent } from './schiefer/schiefer.component';
 
-// const routes: Routes = [
-//   { path: 'dach', component: DachComponent, children: [
-//     { path: 'dachdaemmung', component: DachdaemmungComponent },
-//     { path: 'ziegel', component: ZiegelComponent },
-//     // Weitere Unterkategorien für die "Dach"-Kategorie können hier hinzugefügt werden
-//   ]},
-//   // Weitere Hauptkategorien und ihre Unterkategorien können hier hinzugefügt werden
-// ];
 
 const routes: Routes = [
   { path: 'dach', component: DachComponent },
@@ -34,11 +26,6 @@ const routes: Routes = [
   { path: 'schiefer', component: SchieferComponent }
 
 
-
-
-
-
-  // Fügen Sie weitere Routen für andere Kategorien hinzu
 
 ];
 @NgModule({

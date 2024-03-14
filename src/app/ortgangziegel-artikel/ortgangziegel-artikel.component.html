@@ -1,124 +1,21 @@
+
 <div class="main-content">
-  <div class="pub">
-    <div class="grid">
-      <div class="grid">
-        <div class="col ml-2 mt-4">
-          <p-card [style]="{width: '300px', height: '420px'}">
-            <ng-template pTemplate="header">
-              <img alt="Card" class="dachboden" src="https://ayilolvodm.cloudimg.io/v7/https://www.welt-der-baustoffe.de/medias/PB-975433.jpg?context=bWFzdGVyfGltYWdlc3wyMzc5OXxpbWFnZS9qcGVnfGg4ZS9oM2QvODg5NzcyMTQ2NjkxMC9QQl85NzU0MzMuanBnfDJhMWIwMTQ3MmY2YTNkMzQyYWY0ODBhYTQwZjI1NjFjM2M2N2YzZDZlNWFkNGVjYzU5OTY3NGUwZTFhNGY2N2I&w=720&q=76">
-            </ng-template>
-            <div class="text2">
-              <h3>Ortgangziegel links Linea Klassik Engobe</h3>
-              <p>
-                <strong class="price1">ab 15,97 €</strong>&nbsp; | Qm
-              </p>
-            </div>
-            <div class="button">
-              <p-button severity="info" label="ANGEBOT ANZEIGEN" styleClass="p-button-info" [ngStyle]="{'margin-right':'100px'}" class="p-button-lg"></p-button>
-            </div>
-          </p-card>
-        </div>
-
-        <div class="col mt-4">
-          <p-card [style]="{width: '300px', height: '420px'}" styleClass="shadow-2">
-            <ng-template pTemplate="header">
-              <img alt="Card" class="dachboden" src="https://ayilolvodm.cloudimg.io/v7/https://www.welt-der-baustoffe.de/medias/PB-166422.jpg?context=bWFzdGVyfGltYWdlc3wyODAzNnxpbWFnZS9qcGVnfGg3Mi9oZGQvODg5NjYzMzg2NDIyMi9QQl8xNjY0MjIuanBnfDQ4ZTg4ODI1NTU5ZDMwODg1NmViNjgwZTM5NGFmMGZlMzQyZDE5OTQ4ZmIyMDFkN2E5MmRhMDQ0ZGM1MTA4YWI&w=720&q=76">
-            </ng-template>
-            <div class="text2">
-              <h3>Ortgangziegel links Herzziegel natur</h3>
-              <p>
-                <strong class="price1">19,84 €</strong>&nbsp; | Qm
-              </p>
-            </div>
-            <p-button severity="info" label="ANGEBOT ANZEIGEN">
-            </p-button>
-          </p-card>
-        </div>
-        <div class="col mt-4">
-          <p-card [style]="{width: '300px', height: '420px'}" styleClass="shadow-2">
-            <ng-template pTemplate="header">
-              <img alt="Card" class="dachboden" src="https://ayilolvodm.cloudimg.io/v7/https://www.welt-der-baustoffe.de/medias/PB-979655.jpg?context=bWFzdGVyfGltYWdlc3wzMDExMnxpbWFnZS9qcGVnfGhmOS9oZGMvODg5Nzc3MzUzNTI2Mi9QQl85Nzk2NTUuanBnfDAyNDkxNGI0NTBjM2M1MjBiMTYzNjMwZGNmNTFkODcwOGM5YTAxMmNhYTIyNmQ4Y2JiMGIzNWRiNDdiOTVhY2I&w=720&q=76">
-            </ng-template>
-            <div class="text2">
-              <h3>Ortgangziegel links Falzziegel Engobe</h3>
-              <p>
-                <strong class="price1">22,44 €</strong>&nbsp; | Qm
-              </p>
-            </div>
-            <p-button severity="info" label="ANGEBOT ANZEIGEN">
-            </p-button>
-          </p-card>
-        </div>
-      </div>
-  </div>
-  &nbsp;&nbsp;&nbsp;&nbsp;
-
   <div class="grid">
-    <div class="grid">
-      <div class="col ml-2">
-        <p-card [style]="{width: '300px', height: '420px'}" styleClass="shadow-2">
-          <ng-template pTemplate="header">
-            <img alt="Card" class="dachboden" src="https://ayilolvodm.cloudimg.io/v7/https://www.welt-der-baustoffe.de/medias/PB-504346.jpg?context=bWFzdGVyfGltYWdlc3wyMjU4NHxpbWFnZS9qcGVnfGhlNi9oZDgvODg5NzU5MDE5ODMwMi9QQl81MDQzNDYuanBnfDExZDE0ZDRhZjhjYzM0NzQxODg1MTAwYjQ4ZDYwMmJlNjllMDhhNmQ5NmUwZTE0YjZhNTI1MjM1OTNjNDE3ZjU&w=720&q=76">
-          </ng-template>
-        <div class="text2">
-          <h3>Ortgangziegel rechts Smaragd seidenmatt</h3>
-              <p>
-                <strong class="price1">45,27 €</strong>&nbsp; | Qm
-              </p>
+    <div class="col-4 mr-0 mt-4"  *ngFor="let item of filteredItems;">
+      <p-card [style]="{width: '300px', height: '370px'}">
+        <ng-template pTemplate="header">
+          <img alt="Card" class="dachboden" src="{{item.product_image}}">
+        </ng-template>
+        <div class="text">
+          <h3>{{item.product_name}}</h3>
+          <p>
+            <strong class="price1">{{item.price}}</strong>&nbsp; | Qm
+          </p>
         </div>
-        <p-button severity="info" label="ANGEBOT ANZEIGEN">
+        <p-button severity="info" label="{{item.offer}}">
         </p-button>
-        </p-card>
-      </div>
-      <div class="col">
-        <p-card [style]="{width: '300px', height: '420px'}" styleClass="shadow-2">
-          <ng-template pTemplate="header">
-            <img alt="Card" class="dachboden" src="https://ayilolvodm.cloudimg.io/v7/https://www.welt-der-baustoffe.de/medias/PB-653522.jpg?context=bWFzdGVyfGltYWdlc3wzOTk4NnxpbWFnZS9qcGVnfGg1My9oZjYvODg5ODY0MjUwOTg1NC9QQl82NTM1MjIuanBnfGU5ZTUwMGZiMzBjZDU2OTRkMWEyNmRhYWI2NWM2M2Q3NGUzYTc5ZDdmMjUyZDUzOWEyZWE3NmMzNTZmZTgwMjA&w=720&q=76">
-          </ng-template>
-          <div class="text2">
-            <h3>Ortgangziegel rechts R 13 S Engobe</h3>
-              <p>
-                <strong class="price1">6,99 €</strong>&nbsp; | Qm
-              </p>
-          </div>
-          <p-button severity="info" label="ANGEBOT ANZEIGEN">
-          </p-button>
-        </p-card>
-      </div>
-      <div class="col">
-        <p-card [style]="{width: '300px', height: '420px'}" styleClass="shadow-2">
-          <ng-template pTemplate="header">
-            <img alt="Card" class="dachboden" src="https://ayilolvodm.cloudimg.io/v7/https://www.welt-der-baustoffe.de/medias/PB-542936.jpg?context=bWFzdGVyfGltYWdlc3wyNDgwN3xpbWFnZS9qcGVnfGhhMS9oMDUvODg5NjY1MjQ3NjQ0Ni9QQl81NDI5MzYuanBnfGIyMjFjYjZiNTc2NGNhNTNjYTk0M2VkMDVjYmU1NWRhMTVhNGFhNmQzNjBhZWQzNTc3OGY0NjUyYmEyYWEyZmI&w=720&q=76">
-          </ng-template>
-          <div class="text2">
-            <h3>Ortgangziegel links Cosmo 13 S Engobe</h3>
-              <p>
-                <strong class="price1">16,20 €</strong>&nbsp; | Qm
-              </p>
-          </div>
-          <p-button severity="info" label="ANGEBOT ANZEIGEN">
-          </p-button>
-        </p-card>
-      </div>
+      </p-card>
     </div>
   </div>
-  </div>
-
-  <!-- <div class="sidecontent">
-    <div class="grid tp">
-      <p-panel header="Filter">
-        <div class="grid">
-          <div class="col-6 mr-0 ">
-            <p-card [style]="{width: '200px', height: '255px'}" styleClass="shadow-2">
-              <ng-template pTemplate="header">
-              </ng-template>
-              <p><strong>sddf</strong></p>
-              <p>ddf</p>
-              <p>ddfff</p>
-            </p-card>
-          </div>
-        </div>
-      </p-panel>
-  </div>
-  </div> -->
 </div>
+
