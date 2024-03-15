@@ -89,9 +89,9 @@ img{
   align-items: center;
 }
 
-.tender{
+:host ::ng-deep .p-button .tender{
   margin-right: 3px;
-  width: 2px;
+  width: 10px;
 }
 
 .put{
@@ -114,6 +114,11 @@ img{
 
 .header-text {
   margin-left: 110px;
+  font-size: 20px;
+}
+
+.header-text1 {
+  margin-left: 100px;
   font-size: 20px;
 }
 

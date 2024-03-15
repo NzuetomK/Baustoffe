@@ -2,7 +2,7 @@
   <span class="p-input-icon-right">
     <strong class="rub">Rund um Baustoffe</strong>&nbsp;&nbsp;
     <i class="pi pi-search"></i>
-    <input pInputText type="text" class="p-inputtext-lg" placeholder="Artikel, Baustoffe"
+    <input pInputText type="text" class="p-inputtext-lg" placeholder="Artikel"
        [(ngModel)]="searchTerm" (input)="filterItems()" (keyup)="onSearchInput($event)" />
 
   </span>
@@ -34,12 +34,13 @@
 </div>
 
 <div class="sidecontent">
-  <div class="grid tp">
+  <div class="grid tp" style="overflow-y: auto; max-height: 340px; max-width: 700px;">
     <p-panel>
       <ng-template pTemplate="header">
         <div class="panel-header">
           <div class="header-content">
-            <span class="header-text"><strong>Baustoffhändler</strong></span>
+            <span class="header-text1">Baustoffhändler</span>
+            <i class="pi pi-search" style="margin-left: 10px;"></i>
           </div>
         </div>
       </ng-template>
@@ -58,13 +59,13 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-  <div class="grid tp">
+  <!-- <div class="grid tp">
     <p-panel class="p-input-icon-right">
       <ng-template pTemplate="header">
         <div class="panel-header">
           <div class="header-content">
-            <span class="header-text"><strong>Handwerker</strong></span>
-            <i class="pi pi-search" style="margin-left: 10px;"></i> <!-- Hinzugefügtes Icon -->
+            <span class="header-text">Handwerker</span>
+            <i class="pi pi-search" style="margin-left: 10px;"></i>
           </div>
         </div>
       </ng-template>
@@ -80,10 +81,35 @@
       </div>
     </p-panel>
 
+</div> -->
+
+<div class="grid tp" style="overflow-y: auto; max-height: 340px; max-width: 700px; margin-top: 2%;"> <!-- Max. Höhe für Scroller festlegen -->
+  <p-panel class="p-input-icon-right">
+      <ng-template pTemplate="header">
+          <div class="panel-header">
+              <div class="header-content">
+                  <span class="header-text">Handwerker</span>
+                  <i class="pi pi-search" style="margin-left: 10px;"></i> <!-- Hinzugefügtes Icon -->
+              </div>
+          </div>
+      </ng-template>
+      <div class="grid">
+          <div class="col-6" *ngFor="let handwerk of filteredHandwerker;">
+              <p-card class="custom" [style]="{width: '150px', height: '110px'}" styleClass="shadow-2">
+                  <ng-template pTemplate="header">
+                      <img class="ort" alt="Card" src="{{ handwerk.logo }}">
+                  </ng-template>
+                  <p style="margin-top: 10px; padding-top: 0px; padding-bottom: 0; text-align: center;">{{ handwerk.adress }}</p>
+              </p-card>
+          </div>
+      </div>
+  </p-panel>
 </div>
+
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <div class="grid tp">
-  <p-button class="tender" label="Ausschreibung">
+  <p-button class="tender" label="Zur Ausschreibungsseite">
   </p-button>
 </div>
 </div>
