@@ -30,6 +30,7 @@ import { DachbahnenComponent } from './dachbahnen/dachbahnen.component';
 import { DachfensterComponent } from './dachfenster/dachfenster.component';
 import { SchieferComponent } from './schiefer/schiefer.component';
 import { SliderModule } from 'primeng/slider';
+import { BraasUnterkategorienComponent } from './braas-unterkategorien/braas-unterkategorien.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { SliderModule } from 'primeng/slider';
     FirstziegelArtikelComponent,
     DachbahnenComponent,
     DachfensterComponent,
-    SchieferComponent
+    SchieferComponent,
+    BraasUnterkategorienComponent
   ],
   imports: [
     BrowserModule,

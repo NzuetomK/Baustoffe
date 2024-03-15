@@ -11,6 +11,7 @@ import { OrtgangziegelArtikelComponent } from './ortgangziegel-artikel/ortgangzi
 import { DachbahnenComponent } from './dachbahnen/dachbahnen.component';
 import { DachfensterComponent } from './dachfenster/dachfenster.component';
 import { SchieferComponent } from './schiefer/schiefer.component';
+import { BraasUnterkategorienComponent } from './braas-unterkategorien/braas-unterkategorien.component';
 
 
 const routes: Routes = [
@@ -23,7 +24,8 @@ const routes: Routes = [
   { path: 'ortgangziegel-artikel', component: OrtgangziegelArtikelComponent },
   { path: 'dachbahnen', component: DachbahnenComponent },
   { path: 'dachfenster', component: DachfensterComponent },
-  { path: 'schiefer', component: SchieferComponent }
+  { path: 'schiefer', component: SchieferComponent },
+  { path: 'braas-unterkategorien', component: BraasUnterkategorienComponent }
 
 
 

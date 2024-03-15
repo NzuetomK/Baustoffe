@@ -55,24 +55,24 @@ export class HeaderComponent {
     this.items = [
       {logo: "https://www.designtagebuch.de/wp-content/uploads/mediathek//2021/04/raab-karcher-logo.jpg", adress:"Kaiserslautern", product_name:"Dachboden-Dämmplatte- 1200x625 mm", name: "Raab Karcher", radius:20, adress_2:"Saarbrücken", product_name2:"LINITHERM PAL N+F Dämmplatte - 2420 x 1000 mm", product_name3:"Ortgangziegel links Linea Klassik Engobe"},
       {logo: "https://tse3.mm.bing.net/th?id=OIP.n_R8v2CwWRawt-FcoGdSJgAAAA&pid=Api&P=0&h=180", adress:"Rockenhausen", product_name:"Superglass Dachboden- 1200x625 mm", name: "Wego", radius:20, adress_2:"Kaiserslautern",product_name2:"Mineraldämmplatte DAD Steildachdämmung | 600x390 mm", product_name3:"Ortgangziegel links Linea Klassik Engobe"},
-      {logo: "https://tse3.mm.bing.net/th?id=OIP.eazMVopEqR-3CTnYCLBuVwHaCG&pid=Api&P=0&h=180", adress:"Zweibrücken", product_name:"Superglass Dachboden- 1200x625 mm", name: "Hubing", radius:35, adress_2:"Kaiserslautern", product_name2:"Mineraldämmplatte DAD Steildachdämmung | 600x390 mm", product_name3:"Ortgangziegel links Linea Klassik Engobe"},
+      {logo: "https://tse3.mm.bing.net/th?id=OIP.eazMVopEqR-3CTnYCLBuVwHaCG&pid=Api&P=0&h=180", adress:"Otterberg", product_name:"Superglass Dachboden- 1200x625 mm", name: "Hubing", radius:35, adress_2:"Kaiserslautern", product_name2:"Mineraldämmplatte DAD Steildachdämmung | 600x390 mm", product_name3:"Ortgangziegel links Linea Klassik Engobe"},
+      {logo: "https://tse1.mm.bing.net/th?id=OIP.uxp6h-I7U0TETUTz6_lUhAAAAA&pid=Api&P=0&h=180", adress:"Kaiserslautern", product_name:"Superglass Dachboden- 1200x625 mm", name: "Cemex", radius:20, adress_2:"Saarbrücken", product_name2:"Mineraldämmplatte DAD Steildachdämmung | 600x390 mm", product_name3:"Ortgangziegel links Falzziegel Engobe"},
+      {logo: "https://tse4.mm.bing.net/th?id=OIP.AAYG_zLLCtUWziaMYvADpgHaBT&pid=Api&P=0&h=180", adress:"Rodenbach", product_name:"Superglass Dachboden- 1200x625 mm", name: "Höhn", radius:30, adress_2:"Kaiserslautern", product_name2:"Mineraldämmplatte DAD Steildachdämmung | 600x390 mm", product_name3:"Ortgangziegel links Falzziegel Engobe"},
       {logo: "https://tse3.mm.bing.net/th?id=OIP.Pu0cINY7aE6E4ktOifuE4gAAAA&pid=Api&P=0&h=180", adress:"Paderborn", product_name:"Superglass Dachboden- 1200x625 mm", name: "Omlor", radius:60, adress_2:"Badlipspringe", product_name2:"Mineraldämmplatte DAD Steildachdämmung | 600x390 mm", product_name3:"Ortgangziegel links Falzziegel Engobe"},
-      {logo: "https://tse3.mm.bing.net/th?id=OIP.Pu0cINY7aE6E4ktOifuE4gAAAA&pid=Api&P=0&h=180", adress:"Paderborn", product_name:"Superglass Dachboden- 1200x625 mm", name: "Omlor", radius:60, adress_2:"Badlipspringe", product_name2:"Mineraldämmplatte DAD Steildachdämmung | 600x390 mm", product_name3:"Ortgangziegel links Falzziegel Engobe"},
-      {logo: "https://tse3.mm.bing.net/th?id=OIP.Pu0cINY7aE6E4ktOifuE4gAAAA&pid=Api&P=0&h=180", adress:"Paderborn", product_name:"Superglass Dachboden- 1200x625 mm", name: "Omlor", radius:60, adress_2:"Badlipspringe", product_name2:"Mineraldämmplatte DAD Steildachdämmung | 600x390 mm", product_name3:"Ortgangziegel links Falzziegel Engobe"},
-      {logo: "https://tse3.mm.bing.net/th?id=OIP.Pu0cINY7aE6E4ktOifuE4gAAAA&pid=Api&P=0&h=180", adress:"Paderborn", product_name:"Superglass Dachboden- 1200x625 mm", name: "Omlor", radius:60, adress_2:"Badlipspringe", product_name2:"Mineraldämmplatte DAD Steildachdämmung | 600x390 mm", product_name3:"Ortgangziegel links Falzziegel Engobe"},
-      {logo: "https://tse3.mm.bing.net/th?id=OIP.Pu0cINY7aE6E4ktOifuE4gAAAA&pid=Api&P=0&h=180", adress:"Paderborn", product_name:"Superglass Dachboden- 1200x625 mm", name: "Omlor", radius:60, adress_2:"Badlipspringe", product_name2:"Mineraldämmplatte DAD Steildachdämmung | 600x390 mm", product_name3:"Ortgangziegel links Falzziegel Engobe"}
+      {logo: "https://tse1.mm.bing.net/th?id=OIP.T2M-QX2IVRXBsUiQsMXUhAAAAA&pid=Api&P=0&h=180", adress:"Hirschhorn", product_name:"Superglass Dachboden- 1200x625 mm", name: "Mannweiler", radius:25, adress_2:"Kaiserslautern", product_name2:"Mineraldämmplatte DAD Steildachdämmung | 600x390 mm", product_name3:"Ortgangziegel links Falzziegel Engobe"},
+      {logo: "https://tse3.mm.bing.net/th?id=OIP.udcFmVsQ9i-KGAnol8DqWAHaDx&pid=Api&P=0&h=180", adress:"Kaiserslautern", product_name:"Superglass Dachboden- 1200x625 mm", name: "Reca", radius:20, adress_2:"Saarbrücken", product_name2:"Mineraldämmplatte DAD Steildachdämmung | 600x390 mm", product_name3:"Ortgangziegel links Falzziegel Engobe"}
 
 
     ];
     this.handwerker = [
       {logo: "https://tse3.mm.bing.net/th?id=OIP.GLd703di2IXEfIT6TSEkmwHaCv&pid=Api&P=0&h=180", adress:"Kaiserslautern", product_name:"Superglass Dachboden- 1200x625 mm", radius:20, adress_2:"Saarbrücken", product_name2:"Mineraldämmplatte DAD Steildachdämmung | 600x390 mm",product_name3:"Ortgangziegel links Linea Klassik Engobe"},
-      {logo: "https://tse3.mm.bing.net/th?id=OIP.Gvk8Jsk6fcvntGC5mGs8LQHaHa&pid=Api&P=0&h=180", adress:"Homburg", product_name:"Dachboden-Dämmplatte- 1200x625 mm", radius:32, adress_2:"Kaiserslautern", product_name2:"LINITHERM PAL N+F Dämmplatte - 2420 x 1000 mm", product_name3:"Ortgangziegel links Falzziegel Engobe"},
+      {logo: "https://tse3.mm.bing.net/th?id=OIP.Gvk8Jsk6fcvntGC5mGs8LQHaHa&pid=Api&P=0&h=180", adress:"Frankfurt", product_name:"Dachboden-Dämmplatte- 1200x625 mm", radius:60, adress_2:"Mannheim", product_name2:"LINITHERM PAL N+F Dämmplatte - 2420 x 1000 mm", product_name3:"Ortgangziegel links Falzziegel Engobe"},
       {logo: "https://tse4.mm.bing.net/th?id=OIP.TLm50CAwI-pS0H9AsARw1QHaCx&pid=Api&P=0&h=180", adress:"Pirmasens", product_name:"Dachboden-Dämmplatte- 1200x625 mm", radius:29, adress_2:"Kaiserslautern", product_name2:"LINITHERM PAL N+F Dämmplatte - 2420 x 1000 mm", product_name3:"Ortgangziegel links Falzziegel Engobe"},
       {logo: "https://tse2.mm.bing.net/th?id=OIP.KN77yWC1SrXaYK8C9w2XogHaBP&pid=Api&P=0&h=180", adress:"Frankenthal", product_name:"Dachboden-Dämmplatte- 1200x625 mm", radius:45, adress_2:"Kaiserslautern", product_name2:"LINITHERM PAL N+F Dämmplatte - 2420 x 1000 mm", product_name3:"Ortgangziegel links Falzziegel Engobe"},
-      {logo: "https://tse2.mm.bing.net/th?id=OIP.KN77yWC1SrXaYK8C9w2XogHaBP&pid=Api&P=0&h=180", adress:"Frankenthal", product_name:"Dachboden-Dämmplatte- 1200x625 mm", radius:45, adress_2:"Kaiserslautern", product_name2:"LINITHERM PAL N+F Dämmplatte - 2420 x 1000 mm", product_name3:"Ortgangziegel links Falzziegel Engobe"},
-      {logo: "https://tse2.mm.bing.net/th?id=OIP.KN77yWC1SrXaYK8C9w2XogHaBP&pid=Api&P=0&h=180", adress:"Frankenthal", product_name:"Dachboden-Dämmplatte- 1200x625 mm", radius:45, adress_2:"Kaiserslautern", product_name2:"LINITHERM PAL N+F Dämmplatte - 2420 x 1000 mm", product_name3:"Ortgangziegel links Falzziegel Engobe"},
-      {logo: "https://tse2.mm.bing.net/th?id=OIP.KN77yWC1SrXaYK8C9w2XogHaBP&pid=Api&P=0&h=180", adress:"Frankenthal", product_name:"Dachboden-Dämmplatte- 1200x625 mm", radius:45, adress_2:"Kaiserslautern", product_name2:"LINITHERM PAL N+F Dämmplatte - 2420 x 1000 mm", product_name3:"Ortgangziegel links Falzziegel Engobe"},
-      {logo: "https://tse2.mm.bing.net/th?id=OIP.KN77yWC1SrXaYK8C9w2XogHaBP&pid=Api&P=0&h=180", adress:"Frankenthal", product_name:"Dachboden-Dämmplatte- 1200x625 mm", radius:45, adress_2:"Kaiserslautern", product_name2:"LINITHERM PAL N+F Dämmplatte - 2420 x 1000 mm", product_name3:"Ortgangziegel links Falzziegel Engobe"}
+      {logo: "https://tse3.mm.bing.net/th?id=OIP.bdBlBXYW9ydi03LPUqbwXgAAAA&pid=Api&P=0&h=180", adress:"Hütschenhausen", product_name:"Dachboden-Dämmplatte- 1200x625 mm", radius:20, adress_2:"Kaiserslautern", product_name2:"LINITHERM PAL N+F Dämmplatte - 2420 x 1000 mm", product_name3:"Ortgangziegel links Falzziegel Engobe"},
+      {logo: "https://tse3.mm.bing.net/th?id=OIP.RVI0B8Z0NXKQFDrjjV4T0QAAAA&pid=Api&P=0&h=180", adress:"St. Wendel", product_name:"Dachboden-Dämmplatte- 1200x625 mm", radius:43.5, adress_2:"Kaiserslautern", product_name2:"LINITHERM PAL N+F Dämmplatte - 2420 x 1000 mm", product_name3:"Ortgangziegel links Falzziegel Engobe"},
+      {logo: "https://tse3.mm.bing.net/th?id=OIP.d3hvWtPLnkqDdA-U-SZkEAAAAA&pid=Api&P=0&h=180", adress:"Römerberg", product_name:"Dachboden-Dämmplatte- 1200x625 mm", radius:48.3, adress_2:"Kaiserslautern", product_name2:"LINITHERM PAL N+F Dämmplatte - 2420 x 1000 mm", product_name3:"Ortgangziegel links Falzziegel Engobe"},
+      {logo: "https://tse2.mm.bing.net/th?id=OIP._7C9TCoWvHSRUO6qYcDevAAAAA&pid=Api&P=0&h=180", adress:"Kaiserslautern", product_name:"Dachboden-Dämmplatte- 1200x625 mm", radius:20, adress_2:"Saarbrücken", product_name2:"LINITHERM PAL N+F Dämmplatte - 2420 x 1000 mm", product_name3:"Ortgangziegel links Falzziegel Engobe"}
     ];
     this.menus = [];
     this.filteredItems = this.items;
@@ -184,7 +184,7 @@ export class HeaderComponent {
             routerLink: '/dach',
             items: [
                 {
-                    label: 'Ziegel',
+                    label: 'Dachziegel/ -steine',
                     routerLink: '/ziegel'
                 },
                 {
@@ -193,7 +193,7 @@ export class HeaderComponent {
                     routerLink: '/dachdaemmung'
                 },
                 {
-                    label: 'Dachbahnen',
+                    label: 'Unterspambahnen',
                     routerLink: '/dachbahnen'
 
                 },
