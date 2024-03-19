@@ -39,8 +39,13 @@
       <ng-template pTemplate="header">
         <div class="panel-header">
           <div class="header-content">
-            <span class="header-text1">Baustoffhändler</span>
-            <i class="pi pi-search" style="margin-left: 10px;"></i>
+            <span class="p-input-icon-right">
+              <i class="pi pi-search"></i>
+              <input pInputText type="text" class="p-inputtext-lg3" placeholder="Baustoffhändler"
+              [(ngModel)]="searchTerm" (input)="filterItems()" (keyup)="onSearchInput($event)" />
+            <!-- <span class="header-text1">Baustoffhändler</span> -->
+            <!-- <i class="pi pi-search" style="margin-left: 10px;"></i> -->
+            </span>
           </div>
         </div>
       </ng-template>
@@ -88,8 +93,13 @@
       <ng-template pTemplate="header">
           <div class="panel-header">
               <div class="header-content">
-                  <span class="header-text">Handwerker</span>
-                  <i class="pi pi-search" style="margin-left: 10px;"></i> <!-- Hinzugefügtes Icon -->
+                <span class="p-input-icon-right">
+                  <i class="pi pi-search"></i>
+                  <input pInputText type="text" class="p-inputtext-lg3" placeholder="Handwerker"
+                  [(ngModel)]="searchTerm" (input)="filterItems()" (keyup)="onSearchInput($event)" />
+                </span>
+                  <!-- <span class="header-text">Handwerker</span>
+                  <i class="pi pi-search" style="margin-left: 10px;"></i> -->
               </div>
           </div>
       </ng-template>

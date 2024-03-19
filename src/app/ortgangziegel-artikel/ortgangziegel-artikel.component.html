@@ -1,4 +1,11 @@
-
+<div class="productbeschreibung">
+  <p>
+    Für alle, die verlässliche Qualität schätzen, ist die schiefergraue Taunus Pfanne ideal.Ihre Stärken liegen insbesondere in der Renovierung vorhandener Dachflächen, denn sie passt
+    sich mit ihrer ausgeprägten Profilierung jedem architektonischen Umfeld an.So genießt sie überall dort hohes Ansehen, wo es um das Bewahren von Werten geht.
+    Aber auch bei Neubauten fügt sie sich harmonisch in das Gesamtbild ein.Wie alle Braas Dachsteine besitzt die Taunus Pfanne eine besonders günstige Energiebilanz und
+    bietet Ihnen 30 Jahre Garantie auf Material sowie 30 Jahre Zusatz-Garantie auf Frostbeständigkeit.
+  </p>
+</div>
 <div class="main-content">
   <div class="grid">
     <div class="col-4 mr-0 mt-4"  *ngFor="let item of filteredItems;">
@@ -12,7 +19,7 @@
             <strong class="price1">{{item.price}}</strong>&nbsp; | Qm
           </p>
         </div>
-        <p-button severity="info" label="{{item.offer}}">
+        <p-button [routerLink]="['/produktbeschreibung']" severity="info" label="{{item.offer}}">
         </p-button>
       </p-card>
     </div>

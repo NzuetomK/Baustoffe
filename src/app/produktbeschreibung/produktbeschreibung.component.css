@@ -1,0 +1,29 @@
+.imgage2{
+  max-width: 25%;
+}
+
+.image1{
+  max-width:55%;
+}
+
+:host ::ng-deep .p-card {
+  justify-content: center;
+  align-items: center;
+}
+
+.image_color{
+  font-size: 150%;
+}
+
+.product_name{
+  font-size: 200%;
+}
+
+.menge{
+  font-size: 150%;
+}
+
+#quantity{
+  width: 30%;
+  margin-left: 2%;
+}

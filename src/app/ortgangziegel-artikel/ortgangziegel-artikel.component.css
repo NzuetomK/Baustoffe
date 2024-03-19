@@ -59,3 +59,11 @@
 
   flex: 0 0 auto;
 }
+
+.productbeschreibung{
+  padding-right: 30%;
+  font-family:Effra Regular;
+  font-size: 25px;
+  display: block;
+  margin-bottom: 3%;
+}

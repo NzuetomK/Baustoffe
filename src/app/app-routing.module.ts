@@ -12,6 +12,7 @@ import { DachbahnenComponent } from './dachbahnen/dachbahnen.component';
 import { DachfensterComponent } from './dachfenster/dachfenster.component';
 import { SchieferComponent } from './schiefer/schiefer.component';
 import { BraasUnterkategorienComponent } from './braas-unterkategorien/braas-unterkategorien.component';
+import { ProduktbeschreibungComponent } from './produktbeschreibung/produktbeschreibung.component';
 
 
 const routes: Routes = [
@@ -25,7 +26,11 @@ const routes: Routes = [
   { path: 'dachbahnen', component: DachbahnenComponent },
   { path: 'dachfenster', component: DachfensterComponent },
   { path: 'schiefer', component: SchieferComponent },
-  { path: 'braas-unterkategorien', component: BraasUnterkategorienComponent }
+  { path: 'braas-unterkategorien', component: BraasUnterkategorienComponent },
+  { path: 'produktbeschreibung', component: ProduktbeschreibungComponent}
+
+
+
 
 
 
