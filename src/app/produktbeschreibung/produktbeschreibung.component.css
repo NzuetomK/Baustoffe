@@ -2,10 +2,6 @@
   max-width: 25%;
 }
 
-.image1{
-  max-width:55%;
-}
-
 :host ::ng-deep .p-card {
   justify-content: center;
   align-items: center;
@@ -24,6 +20,71 @@
 }
 
 #quantity{
-  width: 30%;
+  width: 13%;
   margin-left: 2%;
+  height: 50px;
 }
+
+:host ::ng-deep .ide .p-button{
+  font-size:20px;
+  width: 260px;
+  margin-left: 10%;
+  background-color: yellow;
+
+}
+
+:host ::ng-deep .zurück .p-button{
+  font-size:20px;
+  width: 150px;
+  margin-left: 0%;
+  background-color:#8f61da;
+  padding-left: 5%;
+  margin-top: 2%;
+
+}
+
+a{
+  text-decoration: none;
+  font-size: 180%;
+}
+
+.product_info{
+  margin-top: 6%;
+}
+
+#product_description{
+  font-size: 130%;
+}
+
+.garantie{
+  margin-top: 3%;
+  font-size: 130%;
+}
+
+.yp{
+  margin-left: 1%;
+  width: 7%;
+}
+
+.py{
+  width: 7%;
+}
+
+.product-container {
+  position: relative; /* Position relativ setzen */
+  width: fit-content; /* Containergröße an den Inhalt anpassen */
+}
+
+.image1 {
+  width: 200px; /* Breite des Bildes anpassen */
+}
+
+.price {
+  position: absolute; /* Position absolut setzen */
+  bottom: 2px; /* Am unteren Rand positionieren */
+  right: -250px; /* Am rechten Rand positionieren */
+  margin: 0; /* Standardmargen entfernen */
+  color: red;
+  font-size: 190%;
+}
+

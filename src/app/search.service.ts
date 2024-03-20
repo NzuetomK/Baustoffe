@@ -15,4 +15,8 @@ export class SearchService {
   setSearchTerm(searchTerm: string): void {
     this.searchTermSubject.next(searchTerm);
   }
+
+  setSearchHandwerker(searchHandwerker: string): void {
+    this.searchTermSubject.next(searchHandwerker);
+  }
 }

@@ -1,30 +1,46 @@
 <div class="grid" style="display: flex;">
   <div class="one" style=" margin-left: 0.5%; margin-top: 5%;">
     <p-card class="custom" [style]="{width: '500px', height: '300px'}">
-      <img class="image1" [src]="selectedImageSrc" alt="">
+      <div class="product-container">
+        <img class="image1" [src]="selectedImageSrc" alt="">
+        <p class="price">16,99 €</p>
+      </div>
     </p-card>
   </div>
   <div class="two" style=" margin-left: 2%; margin-top: 5%;">
-    <p-card class="custom" [style]="{width: '810px', height: '600px'}" >
-      <h2 class="product_name">Taunus Pfanne Schlussstein links</h2>
+    <p-card class="custom" [style]="{width: '810px', height: '490px'}" >
+      <h2 class="product_name">Taunus Pfanne</h2>
     <hr style="border: none; border-top: 1px solid #ccc; margin: 5px 0; width: 100%;">
     <div class="col-4">
-      <p class="image_color">Farbe: {{ selectedColor }}</p>
+      <p class="image_color"><strong>Farbe:</strong> {{ selectedColor }}</p>
       <span *ngFor="let item of items;" (click)="updateImage(item.imageUrl, item.farbe)">
         <img class="imgage2" [src]="item.imageUrl" alt="">
       </span>
     </div>
     <hr style="border: none; border-top: 1px solid #ccc; margin: 5px 0; width: 100%;">
-    <div class="quantity-box" style="margin-top: 5%;">
-      <label for="quantity" class="menge">Menge:</label>
-      <select id="quantity" [(ngModel)]="selectedQuantity">
+    <div class="quantity-box" style="margin-top: 5%; display: flex; align-items: center;">
+      <label for="quantity" class="menge" style="margin-right: 10px;"><strong>Menge:</strong></label>
+      <select id="quantity" [(ngModel)]="selectedQuantity" (ngModelChange)="onQuantityChange()" style="margin-right: 10px;">
         <option *ngFor="let option of quantityOptions" [value]="option">{{ option }}</option>
       </select>
+      <p class="total-price" style="margin-right: -2px;margin-left: 10px;"><strong style="font-size: 150%; margin-right: 10px;">Gesamtpreis:</strong><span style="font-size: 120%;">{{ totalPrice.toFixed(2) }} €</span></p>
+      <p-button (click)="addToCart()" class="ide"><strong style="color: black;">In den Einkaufswagen</strong></p-button>
     </div>
-
-    </p-card>
-
+    <p-button class="zurück" [routerLink]="['/ortgangziegel-artikel']"><strong style="color: black;">Zurück</strong></p-button>
+  </p-card>
   </div>
 </div>
+<div class="product_info">
+  <a href="javascript:void(0)" id="product_link" onclick="toggleProductDescription()">Produktinformationen</a>
+  <hr style="border: none; border-top: 1px solid #ccc; margin: 5px 0; width: 72%;">
+  <p id="product_description">Wie alle Braas Dachsteine bietet die Taunus Pfanne Ihnen 30 Jahre Garantie auf Material sowie 30 Jahre Zusatz-Garantie.</p>
+  <p class="garantie"><strong>Garantie</strong></p>
+  <div>
+    <img class="py" src="https://store.bmigroup.com/medias/Icon-BRAAS-30J-Materialgarantie.jpg?context=bWFzdGVyfHJvb3R8MTc3ODN8aW1hZ2UvanBlZ3xhR1k1TDJobU1DODVNRFl5TnpJeU9EazFPVEF5TDBsamIyNWZRbEpCUVZOZk16QktYMDFoZEdWeWFXRnNaMkZ5WVc1MGFXVXVhbkJufGJjYzUwZDVhNzRkZDc0YmFkNDBkNzkyNzI0YzUyYmVkMzkyZjUzNDIzNDg3ZTBmYzA3ODA1YjM3ZjEyOTUzZDg" alt="">
+    <img class="yp" src="https://store.bmigroup.com/medias/Icon-BRAAS-30J-Zusatzgarantie-auf-Frostbestaendigkeit-DS.jpg?context=bWFzdGVyfHJvb3R8MjYwNzZ8aW1hZ2UvanBlZ3xhR1U0TDJoaE1pODVNRFl5TnpJek1EVTVOelF5TDBsamIyNWZRbEpCUVZOZk16QktYMXAxYzJGMGVtZGhjbUZ1ZEdsbFgyRjFabDlHY205emRHSmxjM1JoWlc1a2FXZHJaV2wwWDBSVExtcHdad3xhMTExNDAzYjQ2MDBmZDFjYmE3OWQ5ZGNmODI1ODNlNjA3NjQwYzNlZGY5YWNjYWFlODdjNTliOWRjMTBkZWFi" alt="">
+  </div>
+</div>
+
+
 
 <!-- *ngIf="item.imageUrl === selectedImageSrc" -->

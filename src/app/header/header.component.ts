@@ -1,7 +1,9 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 import { SearchService } from '../search.service';
+import { QuantityService } from '../quantity.service';
+import { Subscription } from 'rxjs';
 
 interface Baustoffhändler {
   logo: string;
@@ -32,7 +34,7 @@ interface Handwerker {
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit, OnDestroy{
   @Output() searchInput: EventEmitter<string> = new EventEmitter<string>();
 
   onSearchInput(event: Event): void {
@@ -40,22 +42,27 @@ export class HeaderComponent {
     this.searchService.setSearchTerm(this.searchTerm);
   }
 
+  handwerkerSearchInput(event: Event): void {
+    this.searchHandwerker = (event.target as HTMLInputElement).value;
+    this.searchService.setSearchHandwerker(this.searchHandwerker);
+  }
 
   items: Baustoffhändler[];
   handwerker: Handwerker[];
   menus: MenuItem[];
   searchTerm: string = '';
-  searchBaustoff: string = '';
   searchHandwerker: string = '';
   searchTerm2: string = '';
   filteredItems: Baustoffhändler[];
   filteredHandwerker: Handwerker[] = [];
   showAdvertising: boolean = true;
   selectedRadius: number = 0;
+  selectedQuantity: number = 0;
+  private quantitySubscription: Subscription = new Subscription;
 
 
 
-  public constructor(private router: Router, private searchService: SearchService){
+  public constructor(private router: Router, private searchService: SearchService, private quantityService: QuantityService){
     this.items = [
       {logo: "https://www.designtagebuch.de/wp-content/uploads/mediathek//2021/04/raab-karcher-logo.jpg", adress:"Kaiserslautern", product_name:"Dachboden-Dämmplatte- 1200x625 mm", name: "Raab Karcher", radius:20, adress_2:"Saarbrücken", product_name2:"LINITHERM PAL N+F Dämmplatte - 2420 x 1000 mm", product_name3:"Ortgangziegel links Linea Klassik Engobe"},
       {logo: "https://tse3.mm.bing.net/th?id=OIP.n_R8v2CwWRawt-FcoGdSJgAAAA&pid=Api&P=0&h=180", adress:"Rockenhausen", product_name:"Superglass Dachboden- 1200x625 mm", name: "Wego", radius:20, adress_2:"Kaiserslautern",product_name2:"Mineraldämmplatte DAD Steildachdämmung | 600x390 mm", product_name3:"Ortgangziegel links Linea Klassik Engobe"},
@@ -89,23 +96,12 @@ export class HeaderComponent {
       // Filtern Sie Baustoffhändler
       this.filteredItems = this.items.filter(item =>
         item.product_name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-        item.product_name2.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-        item.product_name3.toLowerCase().includes(this.searchTerm.toLowerCase())
+        item.name.toLowerCase().includes(this.searchTerm.toLowerCase())
       );
 
       // Log-Ausgabe für die gefilterten Baustoffhändler
       console.log('Filtered Items:', this.filteredItems);
 
-      // Filtern Sie Handwerker nur nach product_name
-      this.filteredHandwerker = this.handwerker.filter(handwerk =>
-        handwerk.product_name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-        handwerk.product_name2.toLowerCase().includes(this.searchTerm.toLowerCase())||
-        handwerk.product_name3.toLowerCase().includes(this.searchTerm.toLowerCase())
-
-      );
-
-      // Log-Ausgabe für die gefilterten Handwerker
-      console.log('Filtered Handwerker:', this.filteredHandwerker);
     } else {
       // Wenn der Benutzer nichts eingegeben hat, filtern Sie nach der Adresse "Kaiserslautern"
       this.filteredItems = this.items.filter(item =>
@@ -118,37 +114,22 @@ export class HeaderComponent {
     }
   }
 
-
-  filterBaustoffhaendler(): void {
-    if (this.searchTerm.trim() !== '') {
-      // Filtern Sie Baustoffhändler
-      this.filteredItems = this.items.filter(item =>
-        item.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-      );
-
-      // Log-Ausgabe für die gefilterten Baustoffhändler
-      console.log('Filtered Items:', this.filteredItems);
-
-      // Log-Ausgabe für die gefilterten Handwerker
-      console.log('Filtered Handwerker:', this.filteredHandwerker);
-    } else {
-    }
-  }
-
-
   filterHandwerker(): void {
-    if (this.searchTerm.trim() !== '') {
-      // Filtern Sie Baustoffhändler
-      this.filteredItems = this.items.filter(item =>
-        item.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-      );
+    if (this.searchHandwerker.trim() !== '') {
 
-      // Log-Ausgabe für die gefilterten Baustoffhändler
-      console.log('Filtered Items:', this.filteredItems);
+      // Filtern Sie Handwerker nur nach product_name
+      this.filteredHandwerker = this.handwerker.filter(handwerk =>
+        handwerk.name.toLowerCase().includes(this.searchHandwerker.toLowerCase())
+
+      );
 
       // Log-Ausgabe für die gefilterten Handwerker
       console.log('Filtered Handwerker:', this.filteredHandwerker);
     } else {
+
+      this.filteredHandwerker = this.handwerker.filter(handwerk =>
+        handwerk.adress.toLowerCase().includes(''.toLowerCase())
+      );
     }
   }
 
@@ -216,6 +197,10 @@ export class HeaderComponent {
       }
     });
 
+    this.quantityService.selectedQuantity$.subscribe(quantity => {
+      this.selectedQuantity = quantity;
+    });
+
     this.menus = [
         {
             label: 'Dach',
@@ -223,7 +208,33 @@ export class HeaderComponent {
             items: [
                 {
                     label: 'Dachziegel/ -steine',
+                    routerLink: '/ziegel',
+                    items: [
+                      {
+                          label: 'Braas',
+                          routerLink: '/braas-unterkategorien'
+                      },
+                      {
+                        label: 'Koramic',
+                        routerLink: '/ziegel'
+                    },
+                    {
+                      label: 'Röben',
+                      routerLink: '/ziegel'
+                  },
+                  {
+                    label: 'Nelskamp',
                     routerLink: '/ziegel'
+                },
+                {
+                  label: 'Creaton',
+                  routerLink: '/ziegel'
+              },
+              {
+                label: 'Erlus',
+                routerLink: '/ziegel'
+            }
+            ]
                 },
                 {
 
@@ -368,5 +379,11 @@ export class HeaderComponent {
       ]
   },
     ];
+}
+
+ngOnDestroy(): void {
+  if (this.quantitySubscription) {
+    this.quantitySubscription.unsubscribe();
+  }
 }
 }
