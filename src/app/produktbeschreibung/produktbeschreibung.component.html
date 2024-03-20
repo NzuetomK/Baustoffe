@@ -24,7 +24,7 @@
         <option *ngFor="let option of quantityOptions" [value]="option">{{ option }}</option>
       </select>
       <p class="total-price" style="margin-right: -2px;margin-left: 10px;"><strong style="font-size: 150%; margin-right: 10px;">Gesamtpreis:</strong><span style="font-size: 120%;">{{ totalPrice.toFixed(2) }} €</span></p>
-      <p-button (click)="addToCart()" class="ide"><strong style="color: black;">In den Einkaufswagen</strong></p-button>
+      <p-button (click)="addToCart()" class="ide" [icon]="showCheckIcon ? checkIcon : ''"><strong style="color: black;">In den Einkaufswagen</strong></p-button>
     </div>
     <p-button class="zurück" [routerLink]="['/ortgangziegel-artikel']"><strong style="color: black;">Zurück</strong></p-button>
   </p-card>

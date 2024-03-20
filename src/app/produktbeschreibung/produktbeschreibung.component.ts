@@ -31,6 +31,9 @@ export class ProduktbeschreibungComponent {
   // Gesamtpreis
   totalPrice: number = 16.99;
 
+  showCheckIcon: boolean = false;
+  checkIcon: string = "pi pi-check";
+
   constructor(private quantityService: QuantityService) {
     this.selectedQuantity = 1;
     this.calculateTotalPrice();
@@ -48,8 +51,13 @@ export class ProduktbeschreibungComponent {
   }
 
   addToCart(): void {
-    console.log('Menge zum Einkaufswagen hinzufügen:', this.selectedQuantity);
-    this.quantityService.setSelectedQuantity(this.selectedQuantity);
+    // console.log('Menge zum Einkaufswagen hinzufügen:', this.selectedQuantity);
+    // this.quantityService.setSelectedQuantity(this.selectedQuantity);
+        // Fügen Sie hier die Logik zum Hinzufügen des Produkts zum Einkaufswagen hinzu
+    this.showCheckIcon = true;
+    setTimeout(() => {
+      this.showCheckIcon = false;
+    }, 5000);
   }
 
   updateImage(imageUrl: string, farbe: string): void {
