@@ -27,7 +27,7 @@ const routes: Routes = [
   { path: 'dachfenster', component: DachfensterComponent },
   { path: 'schiefer', component: SchieferComponent },
   { path: 'braas-unterkategorien', component: BraasUnterkategorienComponent },
-  { path: 'produktbeschreibung', component: ProduktbeschreibungComponent}
+  { path: 'produktbeschreibung/:id', component: ProduktbeschreibungComponent}
 
 
 
