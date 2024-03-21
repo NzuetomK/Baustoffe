@@ -19,7 +19,7 @@
             <strong class="price1">{{item.price}}</strong>&nbsp; | Qm
           </p>
         </div>
-        <p-button [routerLink]="['/produktbeschreibung']" severity="info" label="{{item.offer}}">
+        <p-button [routerLink]="['/produktbeschreibung', item.productId]" severity="info" label="{{item.offer}}">
         </p-button>
       </p-card>
     </div>
