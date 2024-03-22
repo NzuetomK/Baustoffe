@@ -1,0 +1,6 @@
+<div *ngFor="let brand of brands">
+  <label>
+    <input type="checkbox" [value]="brand" (change)="onCheckboxChange(brand, $event)">
+    {{ brand }}
+  </label>
+</div>

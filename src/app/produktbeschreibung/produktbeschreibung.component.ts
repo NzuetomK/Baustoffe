@@ -69,6 +69,7 @@ export class ProduktbeschreibungComponent {
       ];
       this.pricePerItem = 16.99;
       this.totalPrice = 16.99;
+
       // Weisen Sie die im localStorage gespeicherten Werte zu, wenn vorhanden
       if (storedColor && storedImageSrc) {
         this.selectedColor = storedColor;
@@ -95,7 +96,7 @@ export class ProduktbeschreibungComponent {
       this.price = 15.97;
 
 
-      // Verwenden Sie den Wert des `selectedColor` aus dem localStorage als Standardwert
+      // Verwendung der Wert des `selectedColor` aus dem localStorage als Standardwert
       this.selectedColor = storedColor || this.selectedColor;
       this.selectedImageSrc = storedImageSrc || this.selectedImageSrc;
 
@@ -111,15 +112,58 @@ export class ProduktbeschreibungComponent {
       this.name = 'Taunus Pfanne Giebelstein links';
       this.price = 19.84;
 
-      // Verwenden Sie den Wert des `selectedColor` aus dem localStorage als Standardwert
       this.selectedColor = storedColor || this.selectedColor;
       this.selectedImageSrc = storedImageSrc || this.selectedImageSrc;
     }
-    // Fügen Sie weitere Bedingungen hinzu, um Informationen für andere Produkt-IDs zu setzen
 }
+// else if (productId === '4') {
+//   this.items = [
+//     { imageUrl: 'https://store.bmigroup.com/medias/Product-Hero-Small-Desktop-Tablet-TP-Giebel-8-8LI-StarMATT-rot-Granit-Matt.jpg?context=bWFzdGVyfHJvb3R8MTkxMzE0NHxpbWFnZS9qcGVnfGFEQmpMMmd4TWk4NU1EUTJOVFE0TWpVd05qVTBMMUJ5YjJSMVkzUXRTR1Z5YnkxVGJXRnNiQzFFWlhOcmRHOXdMVlJoWW14bGRGOVVVRjlIYVdWaVpXeGZPQ3c0VEVsZlUzUmhjazFCVkZSZmNtOTBYMGR5WVc1cGRDQk5ZWFIwTG1wd1p3fDY3MWIyZDczNGY1NjM3NmNlMTJiZmNiNjI5NjY0ZTk4Mzc4ZDI2Y2E3YTM3NTJhODRmNjNiYmIxZDBjZTJhODI', farbe:"Granit"},
+//     { imageUrl: 'https://store.bmigroup.com/medias/Product-Hero-Small-Desktop-Tablet-TP-Giebel-8-8LI-StarMATT-rot.jpg?context=bWFzdGVyfHJvb3R8NDE2NDl8aW1hZ2UvanBlZ3xhRGszTDJoaFpDODVNRFEyTlRRMk9EQTRPRFl5TDFCeWIyUjFZM1F0U0dWeWJ5MVRiV0ZzYkMxRVpYTnJkRzl3TFZSaFlteGxkRjlVVUY5SGFXVmlaV3hmT0N3NFRFbGZVM1JoY2sxQlZGUmZjbTkwTG1wd1p3fGE0NzU3MmEyN2Q4NmVkOWYyMmZjYjZiYmY2NGQyMDMwMTNkOWQ2MzBjZWNmNWZhYjk0YzJlZDE2YWFiOTRjYTc', farbe:"Klassisch-Rot"},
+//     { imageUrl: 'https://store.bmigroup.com/medias/Product-Hero-Small-Desktop-Tablet-TP-Giebel-8-8LI-StarMATT-rot-Schiefergrau-Matt.jpg?context=bWFzdGVyfHJvb3R8MTkxNTk0MnxpbWFnZS9qcGVnfGFESmhMMmd5WVM4NU1EUTJOVFE0T1RjeE5UVXdMMUJ5YjJSMVkzUXRTR1Z5YnkxVGJXRnNiQzFFWlhOcmRHOXdMVlJoWW14bGRGOVVVRjlIYVdWaVpXeGZPQ3c0VEVsZlUzUmhjazFCVkZSZmNtOTBYMU5qYUdsbFptVnlaM0poZFNCTllYUjBMbXB3Wnd8ZmNjMDIzYmIxZjk2NDY0OTdiN2MxY2QwMjI2YjQxOTVjOTQ3M2ZlMjVkZGM2MGQ5YjQ1Nzg3OTVlNzc1NzYzMQ', farbe:"Schiefergrau"},
+//     { imageUrl: 'https://store.bmigroup.com/medias/Product-Hero-Small-Desktop-Tablet-TP-Giebel-8-8LI-StarMATT-rot-Ziegelrot-Matt.jpg?context=bWFzdGVyfHJvb3R8MTkwOTM3OHxpbWFnZS9qcGVnfGFEWTJMMmd3Tmk4NU1EUTJOVFV4TVRNME1qTTRMMUJ5YjJSMVkzUXRTR1Z5YnkxVGJXRnNiQzFFWlhOcmRHOXdMVlJoWW14bGRGOVVVRjlIYVdWaVpXeGZPQ3c0VEVsZlUzUmhjazFCVkZSZmNtOTBYMXBwWldkbGJISnZkQ0JOWVhSMExtcHdad3wxOTY5MTUzZmQ0MmQyNzJlZDlhODQxZWM1ZWQ5MGJkZWEyZjRkNGVlMjlmZTljMzcxOWFmNzkzNjBhMmQ1MmMw', farbe:"Ziegelrot"}
+//   ];
+//   this.pricePerItem = 19.84;
+//   this.totalPrice = 19.84;
+//   this.name = 'Taunus Pfanne Giebelstein links';
+//   this.price = 19.84;
+
+//   this.selectedColor = storedColor || this.selectedColor;
+//   this.selectedImageSrc = storedImageSrc || this.selectedImageSrc;
+// }
+// else if (productId === '5') {
+//   this.items = [
+//     { imageUrl: 'https://store.bmigroup.com/medias/Product-Hero-Small-Desktop-Tablet-TP-Giebel-8-8LI-StarMATT-rot-Granit-Matt.jpg?context=bWFzdGVyfHJvb3R8MTkxMzE0NHxpbWFnZS9qcGVnfGFEQmpMMmd4TWk4NU1EUTJOVFE0TWpVd05qVTBMMUJ5YjJSMVkzUXRTR1Z5YnkxVGJXRnNiQzFFWlhOcmRHOXdMVlJoWW14bGRGOVVVRjlIYVdWaVpXeGZPQ3c0VEVsZlUzUmhjazFCVkZSZmNtOTBYMGR5WVc1cGRDQk5ZWFIwTG1wd1p3fDY3MWIyZDczNGY1NjM3NmNlMTJiZmNiNjI5NjY0ZTk4Mzc4ZDI2Y2E3YTM3NTJhODRmNjNiYmIxZDBjZTJhODI', farbe:"Granit"},
+//     { imageUrl: 'https://store.bmigroup.com/medias/Product-Hero-Small-Desktop-Tablet-TP-Giebel-8-8LI-StarMATT-rot.jpg?context=bWFzdGVyfHJvb3R8NDE2NDl8aW1hZ2UvanBlZ3xhRGszTDJoaFpDODVNRFEyTlRRMk9EQTRPRFl5TDFCeWIyUjFZM1F0U0dWeWJ5MVRiV0ZzYkMxRVpYTnJkRzl3TFZSaFlteGxkRjlVVUY5SGFXVmlaV3hmT0N3NFRFbGZVM1JoY2sxQlZGUmZjbTkwTG1wd1p3fGE0NzU3MmEyN2Q4NmVkOWYyMmZjYjZiYmY2NGQyMDMwMTNkOWQ2MzBjZWNmNWZhYjk0YzJlZDE2YWFiOTRjYTc', farbe:"Klassisch-Rot"},
+//     { imageUrl: 'https://store.bmigroup.com/medias/Product-Hero-Small-Desktop-Tablet-TP-Giebel-8-8LI-StarMATT-rot-Schiefergrau-Matt.jpg?context=bWFzdGVyfHJvb3R8MTkxNTk0MnxpbWFnZS9qcGVnfGFESmhMMmd5WVM4NU1EUTJOVFE0T1RjeE5UVXdMMUJ5YjJSMVkzUXRTR1Z5YnkxVGJXRnNiQzFFWlhOcmRHOXdMVlJoWW14bGRGOVVVRjlIYVdWaVpXeGZPQ3c0VEVsZlUzUmhjazFCVkZSZmNtOTBYMU5qYUdsbFptVnlaM0poZFNCTllYUjBMbXB3Wnd8ZmNjMDIzYmIxZjk2NDY0OTdiN2MxY2QwMjI2YjQxOTVjOTQ3M2ZlMjVkZGM2MGQ5YjQ1Nzg3OTVlNzc1NzYzMQ', farbe:"Schiefergrau"},
+//     { imageUrl: 'https://store.bmigroup.com/medias/Product-Hero-Small-Desktop-Tablet-TP-Giebel-8-8LI-StarMATT-rot-Ziegelrot-Matt.jpg?context=bWFzdGVyfHJvb3R8MTkwOTM3OHxpbWFnZS9qcGVnfGFEWTJMMmd3Tmk4NU1EUTJOVFV4TVRNME1qTTRMMUJ5YjJSMVkzUXRTR1Z5YnkxVGJXRnNiQzFFWlhOcmRHOXdMVlJoWW14bGRGOVVVRjlIYVdWaVpXeGZPQ3c0VEVsZlUzUmhjazFCVkZSZmNtOTBYMXBwWldkbGJISnZkQ0JOWVhSMExtcHdad3wxOTY5MTUzZmQ0MmQyNzJlZDlhODQxZWM1ZWQ5MGJkZWEyZjRkNGVlMjlmZTljMzcxOWFmNzkzNjBhMmQ1MmMw', farbe:"Ziegelrot"}
+//   ];
+//   this.pricePerItem = 19.84;
+//   this.totalPrice = 19.84;
+//   this.name = 'Taunus Pfanne Giebelstein links';
+//   this.price = 19.84;
+
+//   this.selectedColor = storedColor || this.selectedColor;
+//   this.selectedImageSrc = storedImageSrc || this.selectedImageSrc;
+// }
+// else if (productId === '6') {
+//   this.items = [
+//     { imageUrl: 'https://store.bmigroup.com/medias/Product-Hero-Small-Desktop-Tablet-TP-Giebel-8-8LI-StarMATT-rot-Granit-Matt.jpg?context=bWFzdGVyfHJvb3R8MTkxMzE0NHxpbWFnZS9qcGVnfGFEQmpMMmd4TWk4NU1EUTJOVFE0TWpVd05qVTBMMUJ5YjJSMVkzUXRTR1Z5YnkxVGJXRnNiQzFFWlhOcmRHOXdMVlJoWW14bGRGOVVVRjlIYVdWaVpXeGZPQ3c0VEVsZlUzUmhjazFCVkZSZmNtOTBYMGR5WVc1cGRDQk5ZWFIwTG1wd1p3fDY3MWIyZDczNGY1NjM3NmNlMTJiZmNiNjI5NjY0ZTk4Mzc4ZDI2Y2E3YTM3NTJhODRmNjNiYmIxZDBjZTJhODI', farbe:"Granit"},
+//     { imageUrl: 'https://store.bmigroup.com/medias/Product-Hero-Small-Desktop-Tablet-TP-Giebel-8-8LI-StarMATT-rot.jpg?context=bWFzdGVyfHJvb3R8NDE2NDl8aW1hZ2UvanBlZ3xhRGszTDJoaFpDODVNRFEyTlRRMk9EQTRPRFl5TDFCeWIyUjFZM1F0U0dWeWJ5MVRiV0ZzYkMxRVpYTnJkRzl3TFZSaFlteGxkRjlVVUY5SGFXVmlaV3hmT0N3NFRFbGZVM1JoY2sxQlZGUmZjbTkwTG1wd1p3fGE0NzU3MmEyN2Q4NmVkOWYyMmZjYjZiYmY2NGQyMDMwMTNkOWQ2MzBjZWNmNWZhYjk0YzJlZDE2YWFiOTRjYTc', farbe:"Klassisch-Rot"},
+//     { imageUrl: 'https://store.bmigroup.com/medias/Product-Hero-Small-Desktop-Tablet-TP-Giebel-8-8LI-StarMATT-rot-Schiefergrau-Matt.jpg?context=bWFzdGVyfHJvb3R8MTkxNTk0MnxpbWFnZS9qcGVnfGFESmhMMmd5WVM4NU1EUTJOVFE0T1RjeE5UVXdMMUJ5YjJSMVkzUXRTR1Z5YnkxVGJXRnNiQzFFWlhOcmRHOXdMVlJoWW14bGRGOVVVRjlIYVdWaVpXeGZPQ3c0VEVsZlUzUmhjazFCVkZSZmNtOTBYMU5qYUdsbFptVnlaM0poZFNCTllYUjBMbXB3Wnd8ZmNjMDIzYmIxZjk2NDY0OTdiN2MxY2QwMjI2YjQxOTVjOTQ3M2ZlMjVkZGM2MGQ5YjQ1Nzg3OTVlNzc1NzYzMQ', farbe:"Schiefergrau"},
+//     { imageUrl: 'https://store.bmigroup.com/medias/Product-Hero-Small-Desktop-Tablet-TP-Giebel-8-8LI-StarMATT-rot-Ziegelrot-Matt.jpg?context=bWFzdGVyfHJvb3R8MTkwOTM3OHxpbWFnZS9qcGVnfGFEWTJMMmd3Tmk4NU1EUTJOVFV4TVRNME1qTTRMMUJ5YjJSMVkzUXRTR1Z5YnkxVGJXRnNiQzFFWlhOcmRHOXdMVlJoWW14bGRGOVVVRjlIYVdWaVpXeGZPQ3c0VEVsZlUzUmhjazFCVkZSZmNtOTBYMXBwWldkbGJISnZkQ0JOWVhSMExtcHdad3wxOTY5MTUzZmQ0MmQyNzJlZDlhODQxZWM1ZWQ5MGJkZWEyZjRkNGVlMjlmZTljMzcxOWFmNzkzNjBhMmQ1MmMw', farbe:"Ziegelrot"}
+//   ];
+//   this.pricePerItem = 19.84;
+//   this.totalPrice = 19.84;
+//   this.name = 'Taunus Pfanne Giebelstein links';
+//   this.price = 19.84;
+
+//   this.selectedColor = storedColor || this.selectedColor;
+//   this.selectedImageSrc = storedImageSrc || this.selectedImageSrc;
+// }
 
 
-  // Berechnen Sie den Gesamtpreis basierend auf dem Preis pro Artikel und der ausgewählten Menge
+  // Berechnung des Gesamtpreises basierend auf dem Preis pro Artikel und der ausgewählten Menge
   calculateTotalPrice() {
     this.totalPrice = this.pricePerItem * this.selectedQuantity;
   }

@@ -32,6 +32,7 @@ import { SchieferComponent } from './schiefer/schiefer.component';
 import { SliderModule } from 'primeng/slider';
 import { BraasUnterkategorienComponent } from './braas-unterkategorien/braas-unterkategorien.component';
 import { ProduktbeschreibungComponent } from './produktbeschreibung/produktbeschreibung.component';
+import { BrandsFilterComponent } from './brands-filter/brands-filter.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { ProduktbeschreibungComponent } from './produktbeschreibung/produktbesch
     DachfensterComponent,
     SchieferComponent,
     BraasUnterkategorienComponent,
-    ProduktbeschreibungComponent
+    ProduktbeschreibungComponent,
+    BrandsFilterComponent
   ],
   imports: [
     BrowserModule,

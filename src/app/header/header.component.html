@@ -2,7 +2,7 @@
   <div class="p-input-icon-right">
     <strong class="rub">Rund um Baustoffe</strong>&nbsp;&nbsp;
     <i class="pi pi-search"></i>
-    <input pInputText type="text" class="p-inputtext-lg" placeholder="Artikel, Baustoffhändler"
+    <input pInputText type="text" class="p-inputtext-lg" placeholder="Artikel, Baustoffhändler, Handwerker"
            [(ngModel)]="searchTerm" (input)="filterItems()" (keyup)="onSearchInput($event)" />
     <p-dropdown [options]="filteredItems" placeholder="Select a product" (onChange)="onDropdownChange($event)"></p-dropdown>
 </div>
@@ -41,12 +41,12 @@
       <ng-template pTemplate="header">
         <div class="panel-header">
           <div class="header-content">
-            <!-- <span class="p-input-icon-right">
+            <span class="p-input-icon-right">
               <i class="pi pi-search"></i>
               <input pInputText type="text" class="p-inputtext-lg3" placeholder="Baustoffhändler"
               [(ngModel)]="searchTerm" (input)="filterItems()" (keyup)="onSearchInput($event)" />
-            </span> -->
-            <span class="header-text1">Baustoffhändler</span>
+            </span>
+            <!-- <span class="header-text1">Baustoffhändler</span> -->
             <!-- <i class="pi pi-search" style="margin-left: 10px;"></i> -->
           </div>
         </div>

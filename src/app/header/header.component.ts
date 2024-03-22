@@ -47,14 +47,21 @@ export class HeaderComponent implements OnInit, OnDestroy{
     this.searchService.setSearchHandwerker(this.searchHandwerker);
   }
 
+  baustoffSearchInput(event: Event): void {
+    this.searchBaustoffhändler = (event.target as HTMLInputElement).value;
+    this.searchService.setSearchHandwerker(this.searchBaustoffhändler);
+  }
+
   items: Baustoffhändler[];
   handwerker: Handwerker[];
   menus: MenuItem[];
   searchTerm: string = '';
   searchHandwerker: string = '';
+  searchBaustoffhändler: string = '';
   searchTerm2: string = '';
   filteredItems: Baustoffhändler[];
   filteredHandwerker: Handwerker[] = [];
+  filteredBaustoffhändler: Handwerker[] = [];
   showAdvertising: boolean = true;
   selectedRadius: number = 0;
   selectedQuantity: number = 0;
@@ -139,6 +146,25 @@ export class HeaderComponent implements OnInit, OnDestroy{
     }
   }
 
+
+  filterBaustoffhändler(): void {
+    if (this.searchBaustoffhändler.trim() !== '') {
+
+      // Filtern Sie Handwerker nur nach product_name
+      this.filteredItems = this.items.filter(items =>
+        items.name.toLowerCase().includes(this.searchBaustoffhändler.toLowerCase())
+
+      );
+
+      // Log-Ausgabe für die gefilterten Handwerker
+      console.log('Filtered Baustoffhändler:', this.filteredHandwerker);
+    } else {
+
+      this.filteredItems = this.items.filter(items =>
+        items.adress.toLowerCase().includes(''.toLowerCase())
+      );
+    }
+  }
 
   filterItems2(): void {
     if (this.searchTerm2.trim() !== '') {
