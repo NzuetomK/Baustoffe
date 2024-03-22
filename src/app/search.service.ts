@@ -20,7 +20,7 @@ export class SearchService {
     this.searchTermSubject.next(searchHandwerker);
   }
 
-  setSearchBaustoff(searchBaustoffhändler: string): void {
-    this.searchTermSubject.next(searchBaustoffhändler);
+  setSearchBaustoffhaendler(searchBaustoffhaendler: string): void {
+    this.searchTermSubject.next(searchBaustoffhaendler);
   }
 }

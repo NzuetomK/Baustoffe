@@ -47,9 +47,9 @@ export class HeaderComponent implements OnInit, OnDestroy{
     this.searchService.setSearchHandwerker(this.searchHandwerker);
   }
 
-  baustoffSearchInput(event: Event): void {
-    this.searchBaustoffhändler = (event.target as HTMLInputElement).value;
-    this.searchService.setSearchHandwerker(this.searchBaustoffhändler);
+  baustoffhaendlerSearchInput(event: Event): void {
+    this.searchBaustoffhaendler = (event.target as HTMLInputElement).value;
+    this.searchService.setSearchBaustoffhaendler(this.searchBaustoffhaendler);
   }
 
   items: Baustoffhändler[];
@@ -57,7 +57,7 @@ export class HeaderComponent implements OnInit, OnDestroy{
   menus: MenuItem[];
   searchTerm: string = '';
   searchHandwerker: string = '';
-  searchBaustoffhändler: string = '';
+  searchBaustoffhaendler: string = '';
   searchTerm2: string = '';
   filteredItems: Baustoffhändler[];
   filteredHandwerker: Handwerker[] = [];
@@ -72,7 +72,6 @@ export class HeaderComponent implements OnInit, OnDestroy{
   public constructor(private router: Router, private searchService: SearchService, private quantityService: QuantityService){
     this.items = [
       {logo: "https://www.designtagebuch.de/wp-content/uploads/mediathek//2021/04/raab-karcher-logo.jpg", adress:"Kaiserslautern", product_name:"Dachboden-Dämmplatte- 1200x625 mm", name: "Raab Karcher", radius:20, adress_2:"Saarbrücken", product_name2:"LINITHERM PAL N+F Dämmplatte - 2420 x 1000 mm", product_name3:"Ortgangziegel links Linea Klassik Engobe"},
-      {logo: "https://tse3.mm.bing.net/th?id=OIP.n_R8v2CwWRawt-FcoGdSJgAAAA&pid=Api&P=0&h=180", adress:"Rockenhausen", product_name:"Superglass Dachboden- 1200x625 mm", name: "Wego", radius:20, adress_2:"Kaiserslautern",product_name2:"Mineraldämmplatte DAD Steildachdämmung | 600x390 mm", product_name3:"Ortgangziegel links Linea Klassik Engobe"},
       {logo: "https://tse3.mm.bing.net/th?id=OIP.eazMVopEqR-3CTnYCLBuVwHaCG&pid=Api&P=0&h=180", adress:"Otterberg", product_name:"Superglass Dachboden- 1200x625 mm", name: "Hubing", radius:35, adress_2:"Kaiserslautern", product_name2:"Mineraldämmplatte DAD Steildachdämmung | 600x390 mm", product_name3:"Ortgangziegel links Linea Klassik Engobe"},
       {logo: "https://tse1.mm.bing.net/th?id=OIP.uxp6h-I7U0TETUTz6_lUhAAAAA&pid=Api&P=0&h=180", adress:"Kaiserslautern", product_name:"Superglass Dachboden- 1200x625 mm", name: "Cemex", radius:20, adress_2:"Saarbrücken", product_name2:"Mineraldämmplatte DAD Steildachdämmung | 600x390 mm", product_name3:"Ortgangziegel links Falzziegel Engobe"},
       {logo: "https://tse4.mm.bing.net/th?id=OIP.AAYG_zLLCtUWziaMYvADpgHaBT&pid=Api&P=0&h=180", adress:"Rodenbach", product_name:"Superglass Dachboden- 1200x625 mm", name: "Höhn", radius:30, adress_2:"Kaiserslautern", product_name2:"Mineraldämmplatte DAD Steildachdämmung | 600x390 mm", product_name3:"Ortgangziegel links Falzziegel Engobe"},
@@ -86,7 +85,6 @@ export class HeaderComponent implements OnInit, OnDestroy{
       {logo: "https://tse3.mm.bing.net/th?id=OIP.GLd703di2IXEfIT6TSEkmwHaCv&pid=Api&P=0&h=180", adress:"Kaiserslautern", product_name:"Superglass Dachboden- 1200x625 mm", radius:20, adress_2:"Saarbrücken", product_name2:"Mineraldämmplatte DAD Steildachdämmung | 600x390 mm",product_name3:"Ortgangziegel links Linea Klassik Engobe", name:"GGS"},
       {logo: "https://tse3.mm.bing.net/th?id=OIP.Gvk8Jsk6fcvntGC5mGs8LQHaHa&pid=Api&P=0&h=180", adress:"Frankfurt", product_name:"Dachboden-Dämmplatte- 1200x625 mm", radius:60, adress_2:"Mannheim", product_name2:"LINITHERM PAL N+F Dämmplatte - 2420 x 1000 mm", product_name3:"Ortgangziegel links Falzziegel Engobe", name:"A. Rose"},
       {logo: "https://tse4.mm.bing.net/th?id=OIP.TLm50CAwI-pS0H9AsARw1QHaCx&pid=Api&P=0&h=180", adress:"Pirmasens", product_name:"Dachboden-Dämmplatte- 1200x625 mm", radius:29, adress_2:"Kaiserslautern", product_name2:"LINITHERM PAL N+F Dämmplatte - 2420 x 1000 mm", product_name3:"Ortgangziegel links Falzziegel Engobe", name:"Handwerkservice"},
-      {logo: "https://tse2.mm.bing.net/th?id=OIP.KN77yWC1SrXaYK8C9w2XogHaBP&pid=Api&P=0&h=180", adress:"Frankenthal", product_name:"Dachboden-Dämmplatte- 1200x625 mm", radius:45, adress_2:"Kaiserslautern", product_name2:"LINITHERM PAL N+F Dämmplatte - 2420 x 1000 mm", product_name3:"Ortgangziegel links Falzziegel Engobe", name:"Hornbach"},
       {logo: "https://tse3.mm.bing.net/th?id=OIP.bdBlBXYW9ydi03LPUqbwXgAAAA&pid=Api&P=0&h=180", adress:"Hütschenhausen", product_name:"Dachboden-Dämmplatte- 1200x625 mm", radius:20, adress_2:"Kaiserslautern", product_name2:"LINITHERM PAL N+F Dämmplatte - 2420 x 1000 mm", product_name3:"Ortgangziegel links Falzziegel Engobe", name:"Handwerker"},
       {logo: "https://tse3.mm.bing.net/th?id=OIP.RVI0B8Z0NXKQFDrjjV4T0QAAAA&pid=Api&P=0&h=180", adress:"St. Wendel", product_name:"Dachboden-Dämmplatte- 1200x625 mm", radius:43.5, adress_2:"Kaiserslautern", product_name2:"LINITHERM PAL N+F Dämmplatte - 2420 x 1000 mm", product_name3:"Ortgangziegel links Falzziegel Engobe", name:"Projektbau"},
       {logo: "https://tse3.mm.bing.net/th?id=OIP.d3hvWtPLnkqDdA-U-SZkEAAAAA&pid=Api&P=0&h=180", adress:"Römerberg", product_name:"Dachboden-Dämmplatte- 1200x625 mm", radius:48.3, adress_2:"Kaiserslautern", product_name2:"LINITHERM PAL N+F Dämmplatte - 2420 x 1000 mm", product_name3:"Ortgangziegel links Falzziegel Engobe", name:"Handwerker 2.0"},
@@ -110,6 +108,12 @@ export class HeaderComponent implements OnInit, OnDestroy{
       this.filteredItems = this.items.filter(item =>
         item.product_name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
         item.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+      );
+
+      // Filtern Sie Handwerker
+      this.filteredHandwerker = this.handwerker.filter(handwerker =>
+        handwerker.product_name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+        handwerker.name.toLowerCase().includes(this.searchTerm.toLowerCase())
       );
 
       // Log-Ausgabe für die gefilterten Baustoffhändler
@@ -147,12 +151,12 @@ export class HeaderComponent implements OnInit, OnDestroy{
   }
 
 
-  filterBaustoffhändler(): void {
-    if (this.searchBaustoffhändler.trim() !== '') {
+  filterBaustoffhaendler(): void {
+    if (this.searchBaustoffhaendler.trim() !== '') {
 
       // Filtern Sie Handwerker nur nach product_name
       this.filteredItems = this.items.filter(items =>
-        items.name.toLowerCase().includes(this.searchBaustoffhändler.toLowerCase())
+        items.name.toLowerCase().includes(this.searchBaustoffhaendler.toLowerCase())
 
       );
 
@@ -207,6 +211,7 @@ export class HeaderComponent implements OnInit, OnDestroy{
   onSearchInputChange(): void {
     this.searchService.setSearchTerm(this.searchTerm);
   }
+
 
   onEnterPressed(): void {
     // Hier können Sie zusätzliche Aktionen für Enter-Taste durchführen
