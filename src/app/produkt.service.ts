@@ -6,12 +6,27 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProduktService {
-  private apiUrl = 'https://api.example.com/produkte';
+  selectedColors: { [productId: string]: string } = {};
+  selectedImageSrcs: { [productId: string]: string } = {}; // Speichert ausgewählte Bild-URLs für jede Produkt-ID
 
-  constructor(private http: HttpClient) { }
-  // Methode zum Abrufen von Produktinformationen basierend auf der Produkt-ID
-  getProductDescription(productId: string): Observable<any> {
-    const url = `${this.apiUrl}/${productId}`;
-    return this.http.get<any>(url);
+  constructor() { }
+
+  // Setter-Funktionen für ausgewählte Farbe und Bild-URL
+  setSelectedColor(productId: string, color: string): void {
+    this.selectedColors[productId] = color;
   }
+
+  setSelectedImageSrc(productId: string, imageSrc: string): void {
+    this.selectedImageSrcs[productId] = imageSrc;
+  }
+
+  // Getter-Funktionen für ausgewählte Farbe und Bild-URL
+  getSelectedColor(productId: string): string {
+    return this.selectedColors[productId] || '';
+  }
+
+  getSelectedImageSrc(productId: string): string {
+    return this.selectedImageSrcs[productId] || '';
+  }
+
 }

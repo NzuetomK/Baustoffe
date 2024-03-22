@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { QuantityService } from '../quantity.service';
 import { ActivatedRoute } from '@angular/router';
+import { ProduktService } from '../produkt.service';
 
 interface Produktbeschreibung {
   imageUrl: string;
@@ -27,13 +28,19 @@ export class ProduktbeschreibungComponent {
   // Gesamtpreis
   totalPrice: number = 0;
 
+  defaultColor: string = '';
+  defaultImage: string = '';
+  price: number = 0;
+  name: string = "";
+
   showCheckIcon: boolean = false;
   checkIcon: string = "pi pi-check";
   productId: string = '';
 
-  constructor(private route: ActivatedRoute, private quantityService: QuantityService) {
+  constructor(private route: ActivatedRoute, private quantityService: QuantityService, private produktService: ProduktService) {
     this.selectedQuantity = 1;
     this.calculateTotalPrice();
+
   }
 
   ngOnInit(): void {
@@ -47,6 +54,8 @@ export class ProduktbeschreibungComponent {
 
 
   loadProductInfo(productId: string): void {
+    this.selectedColor = this.produktService.getSelectedColor(productId);
+    this.selectedImageSrc = this.produktService.getSelectedImageSrc(productId);
     if (productId === '1') {
       this.items = [
         { imageUrl: 'https://store.bmigroup.com/medias/Product-Hero-Small-Desktop-Tablet-TP-Granit.jpg?context=bWFzdGVyfHJvb3R8Mzc3ODl8aW1hZ2UvanBlZ3xhRFUyTDJnNE5TODVNRFEyTlRVM05qSXlNekF5TDFCeWIyUjFZM1F0U0dWeWJ5MVRiV0ZzYkMxRVpYTnJkRzl3TFZSaFlteGxkRjlVVUY5SGNtRnVhWFF1YW5Cbnw4NGZjMmQwZmExNTU0ZWEwZTA0ODIwNGYwMGI3ZGQ3N2JmNzViOTA4NDZhYTQ1OWJiZGJlNjNmZTQ5MzcxZjJm', farbe:"Granit"},
@@ -58,6 +67,9 @@ export class ProduktbeschreibungComponent {
       this.totalPrice = 16.99;
       this.selectedColor='Granit';
       this.selectedImageSrc="https://store.bmigroup.com/medias/Product-Hero-Small-Desktop-Tablet-TP-Granit.jpg?context=bWFzdGVyfHJvb3R8Mzc3ODl8aW1hZ2UvanBlZ3xhRFUyTDJnNE5TODVNRFEyTlRVM05qSXlNekF5TDFCeWIyUjFZM1F0U0dWeWJ5MVRiV0ZzYkMxRVpYTnJkRzl3TFZSaFlteGxkRjlVVUY5SGNtRnVhWFF1YW5Cbnw4NGZjMmQwZmExNTU0ZWEwZTA0ODIwNGYwMGI3ZGQ3N2JmNzViOTA4NDZhYTQ1OWJiZGJlNjNmZTQ5MzcxZjJm"
+      this.name = 'Taunus Pfanne';
+      this.price = 16.99;
+
 
     } else if (productId === '2') {
       this.items = [
@@ -66,10 +78,27 @@ export class ProduktbeschreibungComponent {
         { imageUrl: 'https://store.bmigroup.com/medias/Product-Hero-Small-Desktop-Tablet-TP-Schluss-StarMATT-rot-Schiefergrau-Matt.jpg?context=bWFzdGVyfHJvb3R8MTkyMTA3M3xpbWFnZS9qcGVnfGFHUm1MMmczWkM4NU1EUTJOamMxTnpnek56RXdMMUJ5YjJSMVkzUXRTR1Z5YnkxVGJXRnNiQzFFWlhOcmRHOXdMVlJoWW14bGRGOVVVRjlUWTJoc2RYTnpYMU4wWVhKTlFWUlVYM0p2ZEY5VFkyaHBaV1psY21keVlYVWdUV0YwZEM1cWNHY3w4ZDJkM2UzMTUwZjQ3NzYwZjkyYWUyMDYwMjUxY2MzMjgxNzllYjM5ZGI3YTAwZWQwNWFhNDIxZDAxNjA2ZDJm', farbe:"Schiefergrau"},
         { imageUrl: 'https://store.bmigroup.com/medias/Product-Hero-Small-Desktop-Tablet-TP-Schluss-StarMATT-rot-Ziegelrot-Matt.jpg?context=bWFzdGVyfHJvb3R8MTkxNDc4M3xpbWFnZS9qcGVnfGFHRTRMMmcxTmk4NU1EUTJOamM0TWpBNE5UUXlMMUJ5YjJSMVkzUXRTR1Z5YnkxVGJXRnNiQzFFWlhOcmRHOXdMVlJoWW14bGRGOVVVRjlUWTJoc2RYTnpYMU4wWVhKTlFWUlVYM0p2ZEY5YWFXVm5aV3h5YjNRZ1RXRjBkQzVxY0djfDg3OGEzOWY5NmQwYzY3YjJmYTlhYWVmYzk3YWI4OTk4ZjAwMDQzY2RkN2I3MjU2NmVmODA4YTZmMmE1MzA0ZDc', farbe:"Ziegelrot"}
       ];
+
       this.pricePerItem = 15.97;
       this.totalPrice = 15.97;
       this.selectedColor='Schiefergrau';
+      this.name = 'Taunus Pfanne Schlussstein links';
+      this.price = 15.97;
       this.selectedImageSrc="https://store.bmigroup.com/medias/Product-Hero-Small-Desktop-Tablet-TP-Schluss-StarMATT-rot-Schiefergrau-Matt.jpg?context=bWFzdGVyfHJvb3R8MTkyMTA3M3xpbWFnZS9qcGVnfGFHUm1MMmczWkM4NU1EUTJOamMxTnpnek56RXdMMUJ5YjJSMVkzUXRTR1Z5YnkxVGJXRnNiQzFFWlhOcmRHOXdMVlJoWW14bGRGOVVVRjlUWTJoc2RYTnpYMU4wWVhKTlFWUlVYM0p2ZEY5VFkyaHBaV1psY21keVlYVWdUV0YwZEM1cWNHY3w4ZDJkM2UzMTUwZjQ3NzYwZjkyYWUyMDYwMjUxY2MzMjgxNzllYjM5ZGI3YTAwZWQwNWFhNDIxZDAxNjA2ZDJm"
+
+    } else if (productId === '3') {
+      this.items = [
+        { imageUrl: 'https://store.bmigroup.com/medias/Product-Hero-Small-Desktop-Tablet-TP-Giebel-8-8LI-StarMATT-rot-Granit-Matt.jpg?context=bWFzdGVyfHJvb3R8MTkxMzE0NHxpbWFnZS9qcGVnfGFEQmpMMmd4TWk4NU1EUTJOVFE0TWpVd05qVTBMMUJ5YjJSMVkzUXRTR1Z5YnkxVGJXRnNiQzFFWlhOcmRHOXdMVlJoWW14bGRGOVVVRjlIYVdWaVpXeGZPQ3c0VEVsZlUzUmhjazFCVkZSZmNtOTBYMGR5WVc1cGRDQk5ZWFIwTG1wd1p3fDY3MWIyZDczNGY1NjM3NmNlMTJiZmNiNjI5NjY0ZTk4Mzc4ZDI2Y2E3YTM3NTJhODRmNjNiYmIxZDBjZTJhODI', farbe:"Granit"},
+        { imageUrl: 'https://store.bmigroup.com/medias/Product-Hero-Small-Desktop-Tablet-TP-Giebel-8-8LI-StarMATT-rot.jpg?context=bWFzdGVyfHJvb3R8NDE2NDl8aW1hZ2UvanBlZ3xhRGszTDJoaFpDODVNRFEyTlRRMk9EQTRPRFl5TDFCeWIyUjFZM1F0U0dWeWJ5MVRiV0ZzYkMxRVpYTnJkRzl3TFZSaFlteGxkRjlVVUY5SGFXVmlaV3hmT0N3NFRFbGZVM1JoY2sxQlZGUmZjbTkwTG1wd1p3fGE0NzU3MmEyN2Q4NmVkOWYyMmZjYjZiYmY2NGQyMDMwMTNkOWQ2MzBjZWNmNWZhYjk0YzJlZDE2YWFiOTRjYTc', farbe:"Klassisch-Rot"},
+        { imageUrl: 'https://store.bmigroup.com/medias/Product-Hero-Small-Desktop-Tablet-TP-Giebel-8-8LI-StarMATT-rot-Schiefergrau-Matt.jpg?context=bWFzdGVyfHJvb3R8MTkxNTk0MnxpbWFnZS9qcGVnfGFESmhMMmd5WVM4NU1EUTJOVFE0T1RjeE5UVXdMMUJ5YjJSMVkzUXRTR1Z5YnkxVGJXRnNiQzFFWlhOcmRHOXdMVlJoWW14bGRGOVVVRjlIYVdWaVpXeGZPQ3c0VEVsZlUzUmhjazFCVkZSZmNtOTBYMU5qYUdsbFptVnlaM0poZFNCTllYUjBMbXB3Wnd8ZmNjMDIzYmIxZjk2NDY0OTdiN2MxY2QwMjI2YjQxOTVjOTQ3M2ZlMjVkZGM2MGQ5YjQ1Nzg3OTVlNzc1NzYzMQ', farbe:"Schiefergrau"},
+        { imageUrl: 'https://store.bmigroup.com/medias/Product-Hero-Small-Desktop-Tablet-TP-Giebel-8-8LI-StarMATT-rot-Ziegelrot-Matt.jpg?context=bWFzdGVyfHJvb3R8MTkwOTM3OHxpbWFnZS9qcGVnfGFEWTJMMmd3Tmk4NU1EUTJOVFV4TVRNME1qTTRMMUJ5YjJSMVkzUXRTR1Z5YnkxVGJXRnNiQzFFWlhOcmRHOXdMVlJoWW14bGRGOVVVRjlIYVdWaVpXeGZPQ3c0VEVsZlUzUmhjazFCVkZSZmNtOTBYMXBwWldkbGJISnZkQ0JOWVhSMExtcHdad3wxOTY5MTUzZmQ0MmQyNzJlZDlhODQxZWM1ZWQ5MGJkZWEyZjRkNGVlMjlmZTljMzcxOWFmNzkzNjBhMmQ1MmMw', farbe:"Ziegelrot"}
+      ];
+      this.pricePerItem = 19.84;
+      this.totalPrice = 19.84;
+      this.selectedColor='Schiefergrau';
+      this.name = 'Taunus Pfanne Giebelstein links';
+      this.price = 19.84;
+      this.selectedImageSrc="https://store.bmigroup.com/medias/Product-Hero-Small-Desktop-Tablet-TP-Giebel-8-8LI-StarMATT-rot-Schiefergrau-Matt.jpg?context=bWFzdGVyfHJvb3R8MTkxNTk0MnxpbWFnZS9qcGVnfGFESmhMMmd5WVM4NU1EUTJOVFE0T1RjeE5UVXdMMUJ5YjJSMVkzUXRTR1Z5YnkxVGJXRnNiQzFFWlhOcmRHOXdMVlJoWW14bGRGOVVVRjlIYVdWaVpXeGZPQ3c0VEVsZlUzUmhjazFCVkZSZmNtOTBYMU5qYUdsbFptVnlaM0poZFNCTllYUjBMbXB3Wnd8ZmNjMDIzYmIxZjk2NDY0OTdiN2MxY2QwMjI2YjQxOTVjOTQ3M2ZlMjVkZGM2MGQ5YjQ1Nzg3OTVlNzc1NzYzMQ"
     }
     // Fügen Sie weitere Bedingungen hinzu, um Informationen für andere Produkt-IDs zu setzen
   }
@@ -90,6 +119,11 @@ export class ProduktbeschreibungComponent {
     // console.log('Menge zum Einkaufswagen hinzufügen:', this.selectedQuantity);
     // this.quantityService.setSelectedQuantity(this.selectedQuantity);
         // Fügen Sie hier die Logik zum Hinzufügen des Produkts zum Einkaufswagen hinzu
+
+    console.log('Farbe zum Einkaufswagen hinzufügen:', this.selectedColor);
+    this.defaultColor = this.selectedColor;
+    console.log('Farbe zum Einkaufswagen hinzufügen:', this.defaultColor);
+
     this.showCheckIcon = true;
     setTimeout(() => {
       this.showCheckIcon = false;

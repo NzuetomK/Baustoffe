@@ -91,6 +91,12 @@ export class HeaderComponent implements OnInit, OnDestroy{
 
   }
 
+  onDropdownChange(event: any): void{
+    this.searchTerm = event.value;
+    this.filterItems();
+}
+
+
   filterItems(): void {
     if (this.searchTerm.trim() !== '') {
       // Filtern Sie Baustoffhändler

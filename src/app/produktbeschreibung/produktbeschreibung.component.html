@@ -3,13 +3,13 @@
     <p-card class="custom" [style]="{width: '500px', height: '300px'}">
       <div class="product-container">
         <img class="image1" [src]="selectedImageSrc" alt="">
-        <p class="price">16,99 €</p>
+        <p class="price">{{price}} €</p>
       </div>
     </p-card>
   </div>
   <div class="two" style=" margin-left: 2%; margin-top: 5%;">
     <p-card class="custom" [style]="{width: '810px', height: '490px'}" >
-      <h2 class="product_name">Taunus Pfanne</h2>
+      <h2 class="product_name">{{name}}</h2>
     <hr style="border: none; border-top: 1px solid #ccc; margin: 5px 0; width: 100%;">
     <div class="col-4">
       <p class="image_color"><strong>Farbe:</strong> {{ selectedColor }}</p>

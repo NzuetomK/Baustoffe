@@ -42,6 +42,11 @@
 
 }
 
+:host ::ng-deep .first-product-button .p-button{
+  margin-top: 23px;
+}
+
+
 .main-content {
   width: 50%;
 }
