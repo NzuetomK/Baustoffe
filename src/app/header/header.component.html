@@ -3,8 +3,10 @@
     <strong class="rub">Rund um Baustoffe</strong>&nbsp;&nbsp;
     <i class="pi pi-search"></i>
     <input pInputText type="text" class="p-inputtext-lg" placeholder="Artikel, Baustoffhändler, Handwerker"
-           [(ngModel)]="searchTerm" (input)="filterItems()" (keyup)="onSearchInput($event)" />
-    <p-dropdown [options]="filteredItems" placeholder="Select a product" (onChange)="onDropdownChange($event)"></p-dropdown>
+           [(ngModel)]="searchTerm" (input)="filterItems()" (keyup)="onSearchKeyup($event)" />
+    <div *ngIf="showDropdown">
+        <p-dropdown [options]="dachsteinOptions" placeholder="Select a product" (onChange)="onDropdownChange($event)"></p-dropdown>
+    </div>
 </div>
 
 
@@ -28,7 +30,7 @@
 </div>
 
 <div class="menu">
-  <p-menubar [model]="menus" [style]="{'max-width.px': 1300}"></p-menubar>
+  <p-menubar [model]="menus" [style]="{'max-width.px': 1300, 'margin-bottom.px': 100, 'margin-top.px': 20}"></p-menubar>
 </div>
 
 <div *ngIf="showAdvertising">
@@ -53,12 +55,14 @@
       </ng-template>
       <div class="grid">
         <div class="col-6" *ngFor="let item of filteredItems;">
-          <p-card class="custom" [style]="{width: '150px', height: '110px'}" styleClass="shadow-2">
-            <ng-template pTemplate="header">
-                <img class="ort" alt="Card" src="{{item.logo}}">
-            </ng-template>
-            <p style="margin-top: 10px; padding-top: 0px; padding-bottom: 0; text-align: center;">{{item.adress}}</p>
-          </p-card>
+          <div class="card-item">
+            <p-card class="custom" [style]="{width: '150px', height: '110px'}" styleClass="shadow-2">
+              <ng-template pTemplate="header">
+                  <img class="ort" alt="Card" src="{{item.logo}}">
+              </ng-template>
+              <p style="margin-top: 10px; padding-top: 0px; padding-bottom: 0; text-align: center;">{{item.adress}}</p>
+            </p-card>
+          </div>
         </div>
       </div>
     </p-panel>
@@ -90,7 +94,7 @@
 
 </div> -->
 
-<div class="grid tp" style="overflow-y: auto; max-height: 340px; max-width: 700px; margin-top: 2%;"> <!-- Max. Höhe für Scroller festlegen -->
+<div class="grid tp" style="overflow-y: auto; max-height: 340px; max-width: 700px; margin-top: 5%;"> <!-- Max. Höhe für Scroller festlegen -->
   <p-panel class="p-input-icon-right">
       <ng-template pTemplate="header">
           <div class="panel-header">

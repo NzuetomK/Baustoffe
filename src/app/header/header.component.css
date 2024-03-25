@@ -8,10 +8,12 @@ img{
   height: 60px;
 }
 .sidecontent{
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 10%;
-  margin-right: 55px;
+  margin-right: 50px;
+  width: 35%;
+  z-index: 999;
 }
 .tp{
   margin-left: 38%;

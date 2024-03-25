@@ -66,6 +66,8 @@ export class HeaderComponent implements OnInit, OnDestroy{
   selectedRadius: number = 0;
   selectedQuantity: number = 0;
   private quantitySubscription: Subscription = new Subscription;
+  dachsteinOptions: string[] = ["Braas Taunuspfanne", "Nelskamp Hinkenberger Pfanne"];
+  showDropdown: boolean = false;
 
 
 
@@ -96,11 +98,21 @@ export class HeaderComponent implements OnInit, OnDestroy{
 
   }
 
-  onDropdownChange(event: any): void{
+  onDropdownChange(event: any): void {
+    console.log('Dropdown-Auswahl geändert:', event.value);
     this.searchTerm = event.value;
     this.filterItems();
-}
+  }
 
+onSearchKeyup(event: any) {
+  if (this.searchTerm.toLowerCase().includes('dachsteine')) {
+    console.log('Suchbegriff enthält "Dachsteine". Dropdown-Menü wird angezeigt.');
+    this.showDropdown = true;
+  } else {
+    console.log('Suchbegriff enthält keine "Dachsteine". Dropdown-Menü wird ausgeblendet.');
+    this.showDropdown = false;
+  }
+}
 
   filterItems(): void {
     if (this.searchTerm.trim() !== '') {
