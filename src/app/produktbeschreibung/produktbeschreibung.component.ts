@@ -175,23 +175,28 @@ export class ProduktbeschreibungComponent {
   }
 
   addToCart(): void {
-    // console.log('Menge zum Einkaufswagen hinzufügen:', this.selectedQuantity);
-    // this.quantityService.setSelectedQuantity(this.selectedQuantity);
-        // Fügen Sie hier die Logik zum Hinzufügen des Produkts zum Einkaufswagen hinzu
-
+    // Fügen Sie hier die Logik zum Hinzufügen des Produkts zum Einkaufswagen hinzu
     if (this.productId === '1') {
       localStorage.setItem('selectedColor', this.selectedColor);
       localStorage.setItem('selectedImageSrc', this.selectedImageSrc);
     }
 
-    console.log('Farbe zum Einkaufswagen hinzufügen:', this.selectedColor);
-    console.log('Farbe zum Einkaufswagen hinzufügen:', this.defaultColor);
+    // Erhöhen Sie die Anzahl der Produkte im Warenkorb um 1
+    // this.selectedQuantity++;
+    // Aktualisieren Sie den Wert in Ihrem QuantityService
+    this.quantityService.setSelectedQuantity(this.selectedQuantity);
 
+    console.log('Menge zum Einkaufswagen hinzugefügt. Aktuelle Menge:', this.selectedQuantity);
+
+    // Zeigen Sie das Bestätigungs-Symbol für eine kurze Zeit an
     this.showCheckIcon = true;
     setTimeout(() => {
       this.showCheckIcon = false;
     }, 5000);
-  }
+}
+
+
+
 
   updateImage(imageUrl: string, farbe: string): void {
     this.selectedImageSrc = imageUrl;

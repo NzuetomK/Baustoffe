@@ -48,6 +48,7 @@ img{
   width: 450px;
   height: 45px;
   margin-bottom: 0.5%;
+  font-size: 21px;
 }
 
 .p-inputtext-lg3 {
@@ -55,10 +56,13 @@ img{
   width: 250px;
   height: 45px;
   margin-bottom: 0.5%;
+
 }
 
 .p-inputtext-lg2 {
   margin-bottom: 0.5%;
+  font-size: 18px;
+
 }
 .logIn{
   margin-right: 50px;
@@ -132,8 +136,8 @@ img{
 }
 
 :host ::ng-deep .p-slider{
-  max-width: 100px;
-  margin-left: 1150px;
+  max-width: 80px;
+  margin-left: 1170px;
   margin-top: -25px;
 }
 .s{
@@ -147,3 +151,21 @@ img{
   top: 1%;
   margin-right: 30px;
 }
+
+.dropdown-container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Z-Index anpassen, um sicherzustellen, dass das Dropdown-Menü über anderen Elementen liegt */
+}
+
+.p-dropdown {
+  width: 100%; /* Die Breite des Dropdown-Menüs an das Suchfeld anpassen */
+}
+
+:host ::ng-deep .p-menubar .p-menuitem-text {
+  font-size: 20px; /* Hier können Sie die gewünschte Schriftgröße angeben */
+  margin-left: 5px;
+}
+

@@ -33,6 +33,8 @@ import { SliderModule } from 'primeng/slider';
 import { BraasUnterkategorienComponent } from './braas-unterkategorien/braas-unterkategorien.component';
 import { ProduktbeschreibungComponent } from './produktbeschreibung/produktbeschreibung.component';
 import { BrandsFilterComponent } from './brands-filter/brands-filter.component';
+import { BadgeModule } from 'primeng/badge';
+import { DachsteinDropdownComponent } from './dachstein-dropdown/dachstein-dropdown.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,8 @@ import { BrandsFilterComponent } from './brands-filter/brands-filter.component';
     SchieferComponent,
     BraasUnterkategorienComponent,
     ProduktbeschreibungComponent,
-    BrandsFilterComponent
+    BrandsFilterComponent,
+    DachsteinDropdownComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +73,8 @@ import { BrandsFilterComponent } from './brands-filter/brands-filter.component';
     SidebarModule,
     InputNumberModule,
     BrowserAnimationsModule,
-    SliderModule
+    SliderModule,
+    BadgeModule
   ],
   providers: [
     provideClientHydration()

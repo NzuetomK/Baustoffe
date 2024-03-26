@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 import { SearchService } from '../search.service';
@@ -37,11 +37,6 @@ interface Handwerker {
 export class HeaderComponent implements OnInit, OnDestroy{
   @Output() searchInput: EventEmitter<string> = new EventEmitter<string>();
 
-  onSearchInput(event: Event): void {
-    this.searchTerm = (event.target as HTMLInputElement).value;
-    this.searchService.setSearchTerm(this.searchTerm);
-  }
-
   handwerkerSearchInput(event: Event): void {
     this.searchHandwerker = (event.target as HTMLInputElement).value;
     this.searchService.setSearchHandwerker(this.searchHandwerker);
@@ -68,10 +63,28 @@ export class HeaderComponent implements OnInit, OnDestroy{
   private quantitySubscription: Subscription = new Subscription;
   dachsteinOptions: string[] = ["Braas Taunuspfanne", "Nelskamp Hinkenberger Pfanne"];
   showDropdown: boolean = false;
+  dropdownOptions: any[] = []; // Hier sollten Ihre Dropdown-Optionen sein
+  selectedProduct: string = '';
+
+  toggleDropdown() {
+    this.showDropdown = !this.showDropdown;
+    console.log('Dropdown is currently:', this.showDropdown ? 'visible' : 'hidden');
+  }
+
+  selectOption(selectedValue: any) {
+    console.log('Selected value:', selectedValue);
+    // Führen Sie hier Ihre weiteren Aktionen basierend auf dem ausgewählten Wert aus
+  }
+
+
+  onSearchInput(event: any) {
+    this.searchTerm = event.target.value;
+    // Überprüfen Sie, ob der Suchbegriff "Dachsteine" ist
+  }
 
 
 
-  public constructor(private router: Router, private searchService: SearchService, private quantityService: QuantityService){
+  public constructor(private router: Router, private searchService: SearchService, private quantityService: QuantityService, private cdr: ChangeDetectorRef){
     this.items = [
       {logo: "https://www.designtagebuch.de/wp-content/uploads/mediathek//2021/04/raab-karcher-logo.jpg", adress:"Kaiserslautern", product_name:"Dachboden-Dämmplatte- 1200x625 mm", name: "Raab Karcher", radius:20, adress_2:"Saarbrücken", product_name2:"LINITHERM PAL N+F Dämmplatte - 2420 x 1000 mm", product_name3:"Ortgangziegel links Linea Klassik Engobe"},
       {logo: "https://tse3.mm.bing.net/th?id=OIP.eazMVopEqR-3CTnYCLBuVwHaCG&pid=Api&P=0&h=180", adress:"Otterberg", product_name:"Superglass Dachboden- 1200x625 mm", name: "Hubing", radius:35, adress_2:"Kaiserslautern", product_name2:"Mineraldämmplatte DAD Steildachdämmung | 600x390 mm", product_name3:"Ortgangziegel links Linea Klassik Engobe"},
@@ -96,13 +109,22 @@ export class HeaderComponent implements OnInit, OnDestroy{
     this.filteredItems = this.items;
     this.filteredHandwerker = this.handwerker;
 
+    this.quantityService.selectedQuantity$.subscribe(quantity => {
+      this.selectedQuantity = quantity;
+      // Manuell das Change Detection auslösen, um die Ansicht zu aktualisieren
+      this.cdr.detectChanges();
+    });
+
   }
 
   onDropdownChange(event: any): void {
-    console.log('Dropdown-Auswahl geändert:', event.value);
-    this.searchTerm = event.value;
-    this.filterItems();
+    const selectedOption = event?.value;
+    if (selectedOption) {
+      // Hier können Sie die ausgewählte Option weiter verarbeiten
+      console.log('Ausgewählte Option:', selectedOption);
+    }
   }
+
 
 onSearchKeyup(event: any) {
   if (this.searchTerm.toLowerCase().includes('dachsteine')) {
@@ -113,6 +135,8 @@ onSearchKeyup(event: any) {
     this.showDropdown = false;
   }
 }
+
+
 
   filterItems(): void {
     if (this.searchTerm.trim() !== '') {
@@ -143,6 +167,8 @@ onSearchKeyup(event: any) {
     }
   }
 
+
+
   filterHandwerker(): void {
     if (this.searchHandwerker.trim() !== '') {
 
@@ -161,6 +187,8 @@ onSearchKeyup(event: any) {
       );
     }
   }
+
+
 
 
   filterBaustoffhaendler(): void {
@@ -246,9 +274,11 @@ onSearchKeyup(event: any) {
       }
     });
 
-    this.quantityService.selectedQuantity$.subscribe(quantity => {
-      this.selectedQuantity = quantity;
-    });
+    this.selectedQuantity = 0;
+
+    // this.quantityService.selectedQuantity$.subscribe(quantity => {
+    //   this.selectedQuantity = quantity;
+    // });
 
     this.menus = [
         {
@@ -407,26 +437,26 @@ onSearchKeyup(event: any) {
             }
         ]
     },
-    {
-      label: 'Werkzeug/Maschinen',
-      items: [
-          {
-              label: 'Sägen'
-          },
-          {
-              label: 'Trennmaschinen'
-          },
-          {
-              label: ' Druckluftgeräte'
-          },
-          {
-              label: 'Gartenschläuche'
-          },
-          {
-              label: 'Schraubendreher & Schlüssel'
-          }
-      ]
-  },
+  //   {
+  //     label: 'Werkzeug/Maschinen',
+  //     items: [
+  //         {
+  //             label: 'Sägen'
+  //         },
+  //         {
+  //             label: 'Trennmaschinen'
+  //         },
+  //         {
+  //             label: ' Druckluftgeräte'
+  //         },
+  //         {
+  //             label: 'Gartenschläuche'
+  //         },
+  //         {
+  //             label: 'Schraubendreher & Schlüssel'
+  //         }
+  //     ]
+  // },
     ];
 }
 

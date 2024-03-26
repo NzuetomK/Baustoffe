@@ -1,0 +1,13 @@
+<!-- dachstein-dropdown.component.html -->
+
+<div class="p-input-icon-right">
+  <i class="pi pi-search"></i>
+  <input pInputText type="text" class="p-inputtext-lg" placeholder="Artikel, Baustoffhändler, Handwerker"
+           [(ngModel)]="searchTerm" />
+</div>
+
+<div class="dropdown-container">
+  <ul>
+    <li *ngFor="let option of dropdownOptions">{{ option }}</li>
+  </ul>
+</div>

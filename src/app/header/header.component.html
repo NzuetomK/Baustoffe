@@ -1,13 +1,17 @@
 <div>
   <div class="p-input-icon-right">
-    <strong class="rub">Rund um Baustoffe</strong>&nbsp;&nbsp;
-    <i class="pi pi-search"></i>
-    <input pInputText type="text" class="p-inputtext-lg" placeholder="Artikel, Baustoffhändler, Handwerker"
-           [(ngModel)]="searchTerm" (input)="filterItems()" (keyup)="onSearchKeyup($event)" />
-    <div *ngIf="showDropdown">
-        <p-dropdown [options]="dachsteinOptions" placeholder="Select a product" (onChange)="onDropdownChange($event)"></p-dropdown>
-    </div>
+  <strong class="rub">Rund um Baustoffe</strong>&nbsp;&nbsp;
+
+  <i class="pi pi-search"></i>
+  <input pInputText type="text" class="p-inputtext-lg" placeholder="Artikel, Baustoffhändler, Handwerker"
+         [(ngModel)]="searchTerm" (input)="onSearchInput($event)" />
+    <!-- <app-dachstein-dropdown></app-dachstein-dropdown> -->
+
+  <!-- <div *ngIf="showDropdown" class="dropdown-container"> -->
+    <!-- <p-dropdown [options]="dachsteinOptions" placeholder="Select a product" (onChange)="selectOption($event)"></p-dropdown> -->
+  <!-- </div> -->
 </div>
+
 
 
   <span class="p-input-icon-right">
@@ -24,7 +28,7 @@
   <span class="aligne">
   <p-button class="logIn" label="Login/Registrierung"></p-button>
   <p-button class="user" icon="pi pi-user" [rounded]="true" severity="secondary"[outlined]="true"></p-button>
-  <p-button class="shopping" icon="pi pi-shopping-cart" pBadge [value]="selectedQuantity" [rounded]="true" severity="secondary" [outlined]="true"></p-button>
+  <p-button class="shopping" icon="pi pi-shopping-cart" [badge]="selectedQuantity.toString()"></p-button>
   <p-button  class="bell" icon="pi pi-bell" [rounded]="true" severity="secondary" [outlined]="true"></p-button>&nbsp;&nbsp;&nbsp;&nbsp;
   </span>
 </div>
@@ -123,11 +127,12 @@
 </div>
 
 
+
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <div class="grid tp">
   <p-button class="tender" label="Zur Ausschreibungsseite">
   </p-button>
 </div>
 </div>
-
 
