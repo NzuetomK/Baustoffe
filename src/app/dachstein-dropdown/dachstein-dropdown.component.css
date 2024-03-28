@@ -1,0 +1,63 @@
+/* Stile für die Dropdown-Komponente */
+.dachstein-dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 40%;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  width: 60%;
+  z-index: 1000;
+
+}
+
+.dropdown-item {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: #f0f0f0;
+}
+
+/* Stile für das Suchfeld */
+.search-container {
+  position: relative;
+}
+
+.search-input {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 450px; /* Anpassen der Breite nach Bedarf */
+  margin-left: 300px;
+  margin-top: 90px;
+  /* margin-bottom: 2px; */
+  font-size: 21px;
+  height: 46px;
+}
+
+.search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  width: calc(100% - 2px);
+  z-index: 1000;
+}
+
+.a{
+  text-decoration: none;
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  top: 90%;
+  transform: translateY(-50%);
+}

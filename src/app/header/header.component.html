@@ -1,11 +1,9 @@
 <div>
-  <div class="p-input-icon-right">
+  <div>
   <strong class="rub">Rund um Baustoffe</strong>&nbsp;&nbsp;
-
-  <i class="pi pi-search"></i>
+  <!-- <i class="pi pi-search"></i>
   <input pInputText type="text" class="p-inputtext-lg" placeholder="Artikel, Baustoffhändler, Handwerker"
-         [(ngModel)]="searchTerm" (input)="onSearchInput($event)" />
-    <!-- <app-dachstein-dropdown></app-dachstein-dropdown> -->
+         [(ngModel)]="searchTerm" (input)="filterItems()" /> -->
 
   <!-- <div *ngIf="showDropdown" class="dropdown-container"> -->
     <!-- <p-dropdown [options]="dachsteinOptions" placeholder="Select a product" (onChange)="selectOption($event)"></p-dropdown> -->
@@ -13,7 +11,7 @@
 </div>
 
 
-
+<app-dachstein-dropdown (searchTermEvent)="inputValueChanged($event)"></app-dachstein-dropdown>
   <span class="p-input-icon-right">
       <i class="pi pi-map-marker"></i>
       <input pInputText type="text" class="p-inputtext-lg2" placeholder="PLZ/Stadt"
@@ -34,11 +32,11 @@
 </div>
 
 <div class="menu">
-  <p-menubar [model]="menus" [style]="{'max-width.px': 1300, 'margin-bottom.px': 100, 'margin-top.px': 20}"></p-menubar>
+  <p-menubar [model]="menus" [style]="{'max-width.px': 1300, 'margin-top.px': 40}"></p-menubar>
 </div>
 
 <div *ngIf="showAdvertising">
-  <app-advertising></app-advertising>
+  <app-advertising [style]="{'max-width.px': 1300, 'margin-bottom.px': 1000}"></app-advertising>
 </div>
 
 <div class="sidecontent">
@@ -135,4 +133,3 @@
   </p-button>
 </div>
 </div>
-

@@ -1,6 +1,6 @@
 <!-- dachstein-dropdown.component.html -->
 
-<div class="p-input-icon-right">
+<!-- <div class="p-input-icon-right">
   <i class="pi pi-search"></i>
   <input pInputText type="text" class="p-inputtext-lg" placeholder="Artikel, Baustoffhändler, Handwerker"
            [(ngModel)]="searchTerm" />
@@ -10,4 +10,17 @@
   <ul>
     <li *ngFor="let option of dropdownOptions">{{ option }}</li>
   </ul>
+</div> -->
+
+<!-- real-time-search.component.html -->
+<div class="p-input-icon-right">
+  <input type="text" class="search-input" placeholder="Artikel, Baustoffhändler, Handwerker" (input)="onSearchInputChange($event)">
+  <i class="pi pi-search search-icon"></i>
+  <div *ngIf="showDropdown" class="dropdown-menu">
+    <div *ngFor="let option of dropdownOptions" class="dropdown-item" (click)="onItemClick(option)">
+      <a style="text-decoration: none;" [routerLink]="['/ortgangziegel-artikel']">{{ option }}</a>
+    </div>
+  </div>
 </div>
+
+
