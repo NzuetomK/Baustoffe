@@ -30,6 +30,7 @@ export class ProduktbeschreibungComponent {
 
   defaultColor: string = '';
   defaultImage: string = '';
+  defautQuantity: number = 0;
   price: number = 0;
   name: string = "";
 
@@ -175,16 +176,30 @@ export class ProduktbeschreibungComponent {
   }
 
   addToCart(): void {
-    // Fügen Sie hier die Logik zum Hinzufügen des Produkts zum Einkaufswagen hinzu
-    if (this.productId === '1') {
-      localStorage.setItem('selectedColor', this.selectedColor);
-      localStorage.setItem('selectedImageSrc', this.selectedImageSrc);
-    }
 
+    switch (this.productId) {
+      case '1':
+        localStorage.setItem('selectedColor', this.selectedColor);
+        localStorage.setItem('selectedImageSrc', this.selectedImageSrc);
+        this.defautQuantity = 1;
+        break;
+      case '2':
+        localStorage.setItem('selectedColor', this.selectedColor);
+        localStorage.setItem('selectedImageSrc', this.selectedImageSrc);
+        this.defautQuantity++;
+        break;
+      case '3':
+        localStorage.setItem('selectedColor', this.selectedColor);
+        localStorage.setItem('selectedImageSrc', this.selectedImageSrc);
+        this.defautQuantity++;
+        break;
+      default:
+        break;
+    }
     // Erhöhen Sie die Anzahl der Produkte im Warenkorb um 1
     // this.selectedQuantity++;
     // Aktualisieren Sie den Wert in Ihrem QuantityService
-    this.quantityService.setSelectedQuantity(this.selectedQuantity);
+    this.quantityService.setSelectedQuantity(this.defautQuantity);
 
     console.log('Menge zum Einkaufswagen hinzugefügt. Aktuelle Menge:', this.selectedQuantity);
 
