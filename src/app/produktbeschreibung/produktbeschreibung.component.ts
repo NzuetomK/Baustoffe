@@ -38,6 +38,8 @@ export class ProduktbeschreibungComponent {
   checkIcon: string = "pi pi-check";
   productId: string = '';
 
+  totalOrders: number = 0;
+
   constructor(private route: ActivatedRoute, private quantityService: QuantityService, private produktService: ProduktService) {
     this.selectedQuantity = 1;
     this.calculateTotalPrice();
@@ -57,8 +59,8 @@ export class ProduktbeschreibungComponent {
   loadProductInfo(productId: string): void {
 
     // Zuerst versuchen, die Werte aus dem localStorage abzurufen
-    const storedColor = localStorage.getItem('selectedColor');
-    const storedImageSrc = localStorage.getItem('selectedImageSrc');
+    let storedColor = localStorage.getItem('selectedColor');
+    let storedImageSrc = localStorage.getItem('selectedImageSrc');
 
 
       if (productId === '1') {
@@ -75,15 +77,19 @@ export class ProduktbeschreibungComponent {
       if (storedColor && storedImageSrc) {
         this.selectedColor = storedColor;
         this.selectedImageSrc = storedImageSrc;
+
+      console.log(this.selectedColor);
+
       } else {
         // Wenn keine Werte im localStorage vorhanden sind, setzen Sie Standardwerte
         this.selectedColor = 'Granit';
         this.selectedImageSrc = 'https://store.bmigroup.com/medias/Product-Hero-Small-Desktop-Tablet-TP-Granit.jpg?context=bWFzdGVyfHJvb3R8Mzc3ODl8aW1hZ2UvanBlZ3xhRFUyTDJnNE5TODVNRFEyTlRVM05qSXlNekF5TDFCeWIyUjFZM1F0U0dWeWJ5MVRiV0ZzYkMxRVpYTnJkRzl3TFZSaFlteGxkRjlVVUY5SGNtRnVhWFF1YW5Cbnw4NGZjMmQwZmExNTU0ZWEwZTA0ODIwNGYwMGI3ZGQ3N2JmNzViOTA4NDZhYTQ1OWJiZGJlNjNmZTQ5MzcxZjJm';
+
       }
       this.name = 'Taunus Pfanne';
       this.price = 16.99;
-
     } else if (productId === '2') {
+
       this.items = [
         { imageUrl: 'https://store.bmigroup.com/medias/Product-Hero-Small-Desktop-Tablet-TP-Schluss-StarMATT-rot-Granit-Matt.jpg?context=bWFzdGVyfHJvb3R8MTkxMjAzMXxpbWFnZS9qcGVnfGFHTXlMMmcyTlM4NU1EUTJOamMxTURZeU9ERTBMMUJ5YjJSMVkzUXRTR1Z5YnkxVGJXRnNiQzFFWlhOcmRHOXdMVlJoWW14bGRGOVVVRjlUWTJoc2RYTnpYMU4wWVhKTlFWUlVYM0p2ZEY5SGNtRnVhWFFnVFdGMGRDNXFjR2N8OTNjM2E4ZTZkZjVmYzk2Yjg4OTIzMTFlYTZiYzQyMDYxOWFmN2M2NWFlOWFmODk4OTNkOTU0OWEzZmY5MzRjMg', farbe:"Granit"},
         { imageUrl: 'https://store.bmigroup.com/medias/Product-Hero-Small-Desktop-Tablet-TP-Schluss-StarMATT-rot.jpg?context=bWFzdGVyfHJvb3R8NTE2NzR8aW1hZ2UvanBlZ3xhRGRsTDJnMlpDODVNRFEyTmpjek1EazJOek0wTDFCeWIyUjFZM1F0U0dWeWJ5MVRiV0ZzYkMxRVpYTnJkRzl3TFZSaFlteGxkRjlVVUY5VFkyaHNkWE56WDFOMFlYSk5RVlJVWDNKdmRDNXFjR2N8NDM4NDcxMzQzYzkwYmQwZmIzNTI2YTlmNDY0NDM0YjQ2Mzk5ZGQyM2EzZjlmNzE1MTJhYmMwOWQ2MTMzOWRlZA', farbe:"Klassisch-Rot"},
@@ -98,6 +104,8 @@ export class ProduktbeschreibungComponent {
 
 
       // Verwendung der Wert des `selectedColor` aus dem localStorage als Standardwert
+
+
       this.selectedColor = storedColor || this.selectedColor;
       this.selectedImageSrc = storedImageSrc || this.selectedImageSrc;
 
@@ -164,54 +172,60 @@ export class ProduktbeschreibungComponent {
 // }
 
 
-  // Berechnung des Gesamtpreises basierend auf dem Preis pro Artikel und der ausgewählten Menge
-  calculateTotalPrice() {
-    this.totalPrice = this.pricePerItem * this.selectedQuantity;
-  }
-
-   // Diese Funktion wird aufgerufen, wenn sich die ausgewählte Menge ändert
-   onQuantityChange() {
-    // Berechnen Sie den Gesamtpreis erneut
-    this.calculateTotalPrice();
-  }
-
-  addToCart(): void {
-
-    switch (this.productId) {
-      case '1':
-        localStorage.setItem('selectedColor', this.selectedColor);
-        localStorage.setItem('selectedImageSrc', this.selectedImageSrc);
-        this.defautQuantity = 1;
-        break;
-      case '2':
-        localStorage.setItem('selectedColor', this.selectedColor);
-        localStorage.setItem('selectedImageSrc', this.selectedImageSrc);
-        this.defautQuantity++;
-        break;
-      case '3':
-        localStorage.setItem('selectedColor', this.selectedColor);
-        localStorage.setItem('selectedImageSrc', this.selectedImageSrc);
-        this.defautQuantity++;
-        break;
-      default:
-        break;
-    }
-    // Erhöhen Sie die Anzahl der Produkte im Warenkorb um 1
-    // this.selectedQuantity++;
-    // Aktualisieren Sie den Wert in Ihrem QuantityService
-    this.quantityService.setSelectedQuantity(this.defautQuantity);
-
-    console.log('Menge zum Einkaufswagen hinzugefügt. Aktuelle Menge:', this.selectedQuantity);
-
-    // Zeigen Sie das Bestätigungs-Symbol für eine kurze Zeit an
-    this.showCheckIcon = true;
-    setTimeout(() => {
-      this.showCheckIcon = false;
-    }, 5000);
+// Berechnung des Gesamtpreises basierend auf dem Preis pro Artikel und der ausgewählten Menge
+calculateTotalPrice() {
+  this.totalPrice = this.pricePerItem * this.selectedQuantity;
 }
 
+// Diese Funktion wird aufgerufen, wenn sich die ausgewählte Menge ändert
+onQuantityChange() {
+  // Berechnen Sie den Gesamtpreis erneut
+  this.calculateTotalPrice();
+}
 
+addToCart(): void {
+  let ordersForCurrentProduct = localStorage.getItem('totalOrders'); // Initialisez ordersForCurrentProduct à 1 puisque vous ajoutez un produit à la fois
+  let result = 0;
 
+  if(!ordersForCurrentProduct){
+    result = 1;
+    // Convertir le nombre total de commandes en une chaîne de caractères avant de l'enregistrer
+    localStorage.setItem('totalOrders', result.toString());
+    }
+    else{
+      result = Number(ordersForCurrentProduct) ;
+      result++;
+      localStorage.setItem('totalOrders', result.toString())
+    }
+
+  switch (this.productId) {
+      case '1':
+          localStorage.setItem('selectedColor', this.selectedColor);
+          localStorage.setItem('selectedImageSrc', this.selectedImageSrc);
+          break;
+      case '2':
+
+          localStorage.setItem('selectedColor', this.selectedColor);
+          localStorage.setItem('selectedImageSrc', this.selectedImageSrc);
+          break;
+      case '3':
+          localStorage.setItem('selectedColor', this.selectedColor);
+          localStorage.setItem('selectedImageSrc', this.selectedImageSrc);
+          break;
+      default:
+          break;
+  }
+
+  // Mettez à jour la quantité sélectionnée en utilisant le service QuantityService (si nécessaire)
+  this.quantityService.setSelectedQuantity(result);
+
+  console.log('Quantité ajoutée au panier. Quantité actuelle :', ordersForCurrentProduct);
+
+  this.showCheckIcon = true;
+  setTimeout(() => {
+      this.showCheckIcon = false;
+  }, 5000);
+}
 
   updateImage(imageUrl: string, farbe: string): void {
     this.selectedImageSrc = imageUrl;
@@ -228,8 +242,5 @@ export class ProduktbeschreibungComponent {
         }
     }
   }
-
-
-
 
 }

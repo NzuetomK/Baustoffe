@@ -166,7 +166,7 @@ img{
 }
 
 :host ::ng-deep .p-menubar .p-menuitem-text {
-  font-size: 20px; /* Hier können Sie die gewünschte Schriftgröße angeben */
+  font-size: 19px; /* Hier können Sie die gewünschte Schriftgröße angeben */
   margin-left: 5px;
 }
 
