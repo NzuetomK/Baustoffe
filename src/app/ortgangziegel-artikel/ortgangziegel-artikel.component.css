@@ -2,6 +2,9 @@
   color: red;
 }
 
+/* .item{
+  margin-bottom: 20%;
+} */
 .dachboden{
   position: center;
   width: auto;
@@ -46,6 +49,9 @@
   margin-top: 23px;
 }
 
+:host ::ng-deep .third-product-button .p-button{
+  margin-top: 24px;
+}
 
 .main-content {
   width: 50%;
@@ -66,9 +72,7 @@
 }
 
 .productbeschreibung{
-  padding-right: 30%;
-  font-family:Effra Regular;
-  font-size: 25px;
-  display: block;
-  margin-bottom: 3%;
+  width: 10%;
+  margin-left: 1%;
+  margin-bottom: -45px;
 }

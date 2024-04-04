@@ -1,5 +1,6 @@
 .imgage2{
-  max-width: 25%;
+  width: 25%;
+
 }
 
 :host ::ng-deep .p-card {
@@ -71,21 +72,23 @@ a{
   width: 7%;
 }
 
-.product-container {
-  position: relative; /* Position relativ setzen */
-  width: fit-content; /* Containergröße an den Inhalt anpassen */
-}
+/* .product-container {
+  position: relative;
+  max-width: fit-content;
+} */
 
 .image1 {
   width: 200px; /* Breite des Bildes anpassen */
+  height: 244px;
+  margin-top: -30px;
+  margin-bottom: 2%;
 }
 
 .price {
-  position: absolute; /* Position absolut setzen */
-  bottom: 2px; /* Am unteren Rand positionieren */
-  right: -250px; /* Am rechten Rand positionieren */
-  margin: 0; /* Standardmargen entfernen */
+  position: relative;
+  right: -350px; /* Am rechten Rand positionieren */
   color: red;
   font-size: 190%;
+  bottom: 45px;
 }
 

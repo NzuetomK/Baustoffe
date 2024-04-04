@@ -19,7 +19,7 @@
   </span>
   &nbsp;
   <span>
-    <label for="radiusSlider">Umkreis: <p-slider id="radiusSlider" [(ngModel)]="selectedRadius" (ngModelChange)="onRadiusChange()" [min]="0" [max]="50"></p-slider></label>
+    <label for="radiusSlider"><strong style="font-size: 100%;">Umkreis:</strong> <p-slider id="radiusSlider" [(ngModel)]="selectedRadius" (ngModelChange)="onRadiusChange()" [min]="0" [max]="80"></p-slider></label>
     <p class="s">{{ selectedRadius }} km</p>
   </span>
 
@@ -32,7 +32,7 @@
 </div>
 
 <div class="menu">
-  <p-menubar [model]="menus" [style]="{'max-width.px': 1300, 'margin-top.px': 40}"></p-menubar>
+  <p-menubar [model]="menus" [style]="{'max-width.px': 1360, 'margin-top.px': 40}"></p-menubar>
 </div>
 
 <div *ngIf="showAdvertising">

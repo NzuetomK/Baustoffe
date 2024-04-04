@@ -1,4 +1,5 @@
-<div class="productbeschreibung">
+<div>
+  <img class="productbeschreibung" src="https://www.designtagebuch.de/wp-content/uploads/mediathek//2021/04/raab-karcher-logo.jpg" alt="">
 </div>
 <div class="main-content">
   <div class="grid">
@@ -9,11 +10,11 @@
         </ng-template>
         <div class="text">
           <h3>{{item.product_name}}</h3>
-          <p>
-            <strong class="price1">{{item.price}}</strong>&nbsp; | Qm
+          <p class="item">
+            <strong class="price1">{{item.price}}</strong>&nbsp; | SHL
           </p>
         </div>
-        <p-button [routerLink]="['/produktbeschreibung', item.productId]" severity="info" label="{{item.offer}}" [ngClass]="{'first-product-button': item.productId === '1'}">
+        <p-button [routerLink]="['/produktbeschreibung', item.productId]" severity="info" label="{{item.offer}}" [ngClass]="{'first-product-button': item.productId === '1', 'third-product-button': item.productId === '3'}">
         </p-button>
       </p-card>
     </div>

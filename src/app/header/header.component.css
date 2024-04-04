@@ -45,6 +45,9 @@ img{
     margin-right: 80%;
 }
 
+/* :host ::ng-deep .p-menubar .p-submenu-list{
+  width: 100%;
+} */
 .p-inputtext-lg {
   margin-left: 30px;
   width: 450px;
@@ -138,11 +141,11 @@ img{
 
 :host ::ng-deep .p-slider{
   max-width: 100px;
-  margin-left: 1150px;
+  margin-left: 1155px;
   margin-top: -25px;
 }
 .s{
-  margin-left: 1260px;
+  margin-left: 1270px;
   margin-top: -13px;
 }
 
@@ -170,3 +173,6 @@ img{
   margin-left: 5px;
 }
 
+label{
+  width: 500%;
+}
