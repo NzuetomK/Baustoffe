@@ -8,6 +8,8 @@ interface Ortgangziegel {
   offer: string;
   price: string;
   productId: string;
+  product_name2: string;
+  product_name3: string;
 };
 
 @Component({
@@ -26,20 +28,20 @@ export class OrtgangziegelArtikelComponent {
 
   public constructor(private router: Router, private searchService: SearchService){
     this.items = [
-      {productId: '1', product_image: "assets/images/Product-Hero-Small-Desktop-Tablet-TP-Granit.jpg", product_name:"Taunus Pfanne", offer: "ANGEBOT ANZEIGEN", price:"0,86 €"},
-      {productId: '2',product_image: "assets/images/Pro-rot-Granit-Matt.jpg", product_name:"Taunus Pfanne Giebelstein links", offer: "ANGEBOT ANZEIGEN", price:"10,90 €"},
-      {productId: '3',product_image: "assets/images/Product-Hero-Small-Desktop-Tablet-Braas-First-MATT-rot-Granit-Matt.jpg", product_name:"Taunus Pfanne Firststein", offer: "ANGEBOT ANZEIGEN", price:"8,50 €"},
-      {productId: '4',product_image: "assets/images/Product-Hero-rot.jpg", product_name:"Taunus Pfanne Giebelstein rechts", offer: "ANGEBOT ANZEIGEN", price:"22,44 €"},
-      {productId: '5',product_image: "assets/images/Product-Hero-Schiefergrau-Matt.jpg", product_name:"Taunus Pfanne Halber Normalstein", offer: "ANGEBOT ANZEIGEN", price:"45,27 €"},
-      {productId: '6',product_image: "assets/images/Product-Hero-Granit-Matt.jpg", product_name:"Taunus Pfanne Flächenlüfterstein", offer: "ANGEBOT ANZEIGEN", price:"6,99 €"},
-      {productId: '7',product_image: "assets/images/Product-Hero-Ziegelrot-Matt.jpg", product_name:"Taunus Pfanne Pult-Giebelstein rechts", offer: "ANGEBOT ANZEIGEN", price:"16,20 €"},
+      {productId: '1', product_image: "assets/images/Product-Hero-Small-Desktop-Tablet-TP-Granit.jpg", product_name:"Taunus Pfanne", product_name2:'meisterdach & dach', product_name3:"raab karcher", offer: "ANGEBOT ANZEIGEN", price:"0,86 €"},
+      {productId: '2',product_image: "assets/images/Pro-rot-Granit-Matt.jpg", product_name2:'meisterdach & dach', product_name3:"raab karcher", product_name:"Taunus Pfanne Giebelstein links", offer: "ANGEBOT ANZEIGEN", price:"10,90 €"},
+      {productId: '3',product_image: "assets/images/Product-Hero-Small-Desktop-Tablet-Braas-First-MATT-rot-Granit-Matt.jpg", product_name2:'meisterdach & dach', product_name3:"raab karcher", product_name:"Taunus Pfanne Firststein", offer: "ANGEBOT ANZEIGEN", price:"8,50 €"},
+      {productId: '4',product_image: "assets/images/Product-Hero-rot.jpg", product_name2:'Daba dach', product_name3:"raab karcher", product_name:"Taunus Pfanne Giebelstein rechts", offer: "ANGEBOT ANZEIGEN", price:"22,44 €"},
+      {productId: '5',product_image: "assets/images/Product-Hero-Schiefergrau-Matt.jpg", product_name:"Taunus Pfanne Halber Normalstein", product_name2:'meisterdach & dach', product_name3:"raab karcher", offer: "ANGEBOT ANZEIGEN", price:"45,27 €"},
+      {productId: '6',product_image: "assets/images/Product-Hero-Granit-Matt.jpg", product_name:"Taunus Pfanne Flächenlüfterstein", product_name2:'Daba Dach', product_name3:"raab karcher", offer: "ANGEBOT ANZEIGEN", price:"6,99 €"},
+      {productId: '7',product_image: "assets/images/Product-Hero-Ziegelrot-Matt.jpg", product_name:"Taunus Pfanne Pult-Giebelstein rechts",product_name2:'meisterdach & dach', product_name3:"raab karcher", offer: "ANGEBOT ANZEIGEN", price:"16,20 €"},
 
 
-      {productId: '8',product_image: "assets/images/Product-Hero-Schiefergrau-Mat.jpg", product_name:"Taunus Pfanne Mansardstein", offer: "ANGEBOT ANZEIGEN", price:"ab 15,97 €"},
-      {productId: '9',product_image: "assets/images/Product-Hero-ot-Schiefergrau-Matt.jpg", product_name:"Taunus Pfanne halber Mansardstein", offer: "ANGEBOT ANZEIGEN", price:"19,84 €"},
-      {productId: '10',product_image: "assets/images/Product-Hero-Small-Desktop-Schiefergrau-Matt.jpg", product_name:"Taunus Pfanne Mansard-Giebelstein links", offer: "ANGEBOT ANZEIGEN", price:"22,44 €"},
-      {productId: '11',product_image: "assets/images/Product-Hero-Small-Desktop--Matt.jpg", product_name:"Taunus Pfanne Mansard-Giebelstein rechts", offer: "ANGEBOT ANZEIGEN", price:"45,27 €"},
-      {productId: '12',product_image: "assets/images/Product-Hero-Small-Desktop--rot-Schiefergrau-Matt.jpg", product_name:"Taunus Pfanne Knick-Giebelstein links", offer: "ANGEBOT ANZEIGEN", price:"16,20 €"}
+      {productId: '8',product_image: "assets/images/Product-Hero-Schiefergrau-Mat.jpg", product_name:"Taunus Pfanne Mansardstein",product_name2:'meisterdach & dach', product_name3:"raab karcher", offer: "ANGEBOT ANZEIGEN", price:"ab 15,97 €"},
+      {productId: '9',product_image: "assets/images/Product-Hero-ot-Schiefergrau-Matt.jpg", product_name:"Taunus Pfanne halber Mansardstein",product_name2:'daba dach', product_name3:"raab karcher", offer: "ANGEBOT ANZEIGEN", price:"19,84 €"},
+      {productId: '10',product_image: "assets/images/Product-Hero-Small-Desktop-Schiefergrau-Matt.jpg", product_name:"Taunus Pfanne Mansard-Giebelstein links",product_name2:'meisterdach & dach', product_name3:"raab karcher", offer: "ANGEBOT ANZEIGEN", price:"22,44 €"},
+      {productId: '11',product_image: "assets/images/Product-Hero-Small-Desktop--Matt.jpg", product_name:"Taunus Pfanne Mansard-Giebelstein rechts",product_name2:'meisterdach & dach', product_name3:"raab karcher", offer: "ANGEBOT ANZEIGEN", price:"45,27 €"},
+      {productId: '12',product_image: "assets/images/Product-Hero-Small-Desktop--rot-Schiefergrau-Matt.jpg", product_name:"Taunus Pfanne Knick-Giebelstein links",product_name2:'daba dach', product_name3:"raab karcher", offer: "ANGEBOT ANZEIGEN", price:"16,20 €"}
 
     ];
     this.filteredItems = this.items;
@@ -50,7 +52,9 @@ export class OrtgangziegelArtikelComponent {
   filterItems(searchTerm: string): void {
     // Führen Sie die Filterung durch und aktualisieren Sie die filteredItems-Liste
     this.filteredItems = this.items.filter(item =>
-      item.product_name.toLowerCase().includes(searchTerm.toLowerCase())
+      item.product_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.product_name2.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase()) ||
+      item.product_name3.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())
     );
   }
 

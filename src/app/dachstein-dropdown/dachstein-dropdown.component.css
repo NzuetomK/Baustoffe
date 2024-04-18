@@ -6,11 +6,11 @@
 .dropdown-menu {
   position: absolute;
   top: 100%;
-  left: 40%;
+  left: 31%;
   background-color: #fff;
   border: 1px solid #ccc;
   border-top: none;
-  width: 60%;
+  width: 69%;
   z-index: 1000;
 
 }
@@ -34,7 +34,7 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   width: 450px; /* Anpassen der Breite nach Bedarf */
-  margin-left: 300px;
+  margin-left: 200px;
   margin-top: 20px;
   /* margin-bottom: 2px; */
   font-size: 21px;

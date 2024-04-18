@@ -87,20 +87,20 @@ export class HeaderComponent implements OnInit, OnDestroy{
 
   public constructor(private router: Router, private searchService: SearchService, private quantityService: QuantityService, private cdr: ChangeDetectorRef){
     this.items = [
-      {logo: "assets/images/raab-karcher-logo.jpg", adress:"Kaiserslautern", product_name:"Dachboden-Dämmplatte- 1200x625 mm", name: "Raab Karcher", radius:0, adress_2:"Kaiserslautern", product_name2:"Betonziegel", product_name3:"Ortgangziegel links Linea Klassik Engobe"},
-      {logo: "assets/images/thx.jpg", adress:"Kaiserslautern", product_name:"Superglass Dachboden- 1200x625 mm", name: "Union Baustoff", radius:0, adress_2:"Kaiserslautern", product_name2:"Betonziegel", product_name3:"Ortgangziegel links Linea Klassik Engobe"},
-      {logo: "assets/images/thxx.jpg", adress:"Bad Kreuznach", product_name:"Superglass Dachboden- 1200x625 mm", name: "Beinbrech", radius:78, adress_2:"Kaiserslautern", product_name2:"Betonziegel", product_name3:"Ortgangziegel links Falzziegel Engobe"},
-      {logo: "assets/images/thxxx.jpg", adress:"Eisenberg", product_name:"Superglass Dachboden- 1200x625 mm", name: "Köbig", radius:33, adress_2:"Kaiserslautern", product_name2:"Betonziegel", product_name3:"Ortgangziegel links Falzziegel Engobe"},
+      {logo: "assets/images/thxxx.jpg", adress:"Eisenberg", product_name:"Superglass Dachboden- 1200x625 mm", name: "Köbig", radius:0, adress_2:"Eisenberg", product_name2:"Betonziegel", product_name3:"Ortgangziegel links Falzziegel Engobe"},
+      {logo: "assets/images/thxx.jpg", adress:"Bad Kreuznach", product_name:"Superglass Dachboden- 1200x625 mm", name: "Beinbrech", radius:56.4, adress_2:"Eisenberg", product_name2:"Betonziegel", product_name3:"Ortgangziegel links Falzziegel Engobe"},
+      {logo: "assets/images/thx.jpg", adress:"Kaiserslautern", product_name:"Superglass Dachboden- 1200x625 mm", name: "Union Baustoff", radius:58, adress_2:"Eisenberg", product_name2:"Betonziegel", product_name3:"Ortgangziegel links Linea Klassik Engobe"},
+      {logo: "assets/images/raab-karcher-logo.jpg", adress:"Kaiserslautern", product_name:"Dachboden-Dämmplatte- 1200x625 mm", name: "Raab Karcher", radius:58, adress_2:"Eisenberg", product_name2:"Betonziegel", product_name3:"Ortgangziegel links Linea Klassik Engobe"},
       // {logo: "https://tse3.mm.bing.net/th?id=OIP.Pu0cINY7aE6E4ktOifuE4gAAAA&pid=Api&P=0&h=180", adress:"Paderborn", product_name:"Superglass Dachboden- 1200x625 mm", name: "Omlor", radius:60, adress_2:"Badlipspringe", product_name2:"Mineraldämmplatte DAD Steildachdämmung | 600x390 mm", product_name3:"Ortgangziegel links Falzziegel Engobe"},
       // {logo: "https://tse1.mm.bing.net/th?id=OIP.T2M-QX2IVRXBsUiQsMXUhAAAAA&pid=Api&P=0&h=180", adress:"Hirschhorn", product_name:"Superglass Dachboden- 1200x625 mm", name: "Mannweiler", radius:25, adress_2:"Kaiserslautern", product_name2:"Betonziegel", product_name3:"Ortgangziegel links Falzziegel Engobe"},
       // {logo: "https://tse3.mm.bing.net/th?id=OIP.udcFmVsQ9i-KGAnol8DqWAHaDx&pid=Api&P=0&h=180", adress:"Kaiserslautern", product_name:"Superglass Dachboden- 1200x625 mm", name: "Reca", radius:20, adress_2:"Saarbrücken", product_name2:"Betonziegel", product_name3:"Ortgangziegel links Falzziegel Engobe"}
     ];
     this.handwerker = [
-      {logo: "assets/images/thz.jpg", adress:"Rockenhausen", product_name:"Superglass Dachboden- 1200x625 mm", radius:31, adress_2:"Kaiserslautern", product_name2:"Betonziegel",product_name3:"Ortgangziegel links Linea Klassik Engobe", name:"Meisterbau und Dach"},
-      {logo: "assets/images/logo-png.png", adress:"Winnweiler", product_name:"Dachboden-Dämmplatte- 1200x625 mm", radius:22, adress_2:"Kaiserslautern", product_name2:"xx", product_name3:"Organtziegel", name:"Daba Dach"},
-      {logo: "assets/images/Ferocon Bauunternehmen.jpg", adress:"Kaiserslautern", product_name:"Dachboden-Dämmplatte- 1200x625 mm", radius:0, adress_2:"Kaiserslautern", product_name2:"Ortgangziegel", product_name3:"Ortgangziegel links Falzziegel Engobe", name:"Fero Bau"},
-      {logo: "assets/images/Handwerker Rühling.png", adress:"Rockenhausen", product_name:"Dachboden-Dämmplatte- 1200x625 mm", radius:31, adress_2:"Kaiserslautern", product_name2:"xx", product_name3:"Ortgangziegel", name:"Cal Maler Betrieb"},
-      // {logo: "https://tse3.mm.bing.net/th?id=OIP.RVI0B8Z0NXKQFDrjjV4T0QAAAA&pid=Api&P=0&h=180", adress:"St. Wendel", product_name:"Dachboden-Dämmplatte- 1200x625 mm", radius:43.5, adress_2:"Kaiserslautern", product_name2:"Betonziegel", product_name3:"Ortgangziegel links Falzziegel Engobe", name:"Projektbau"},
+      {logo: "assets/images/malerBetrieb.PNG", adress:"Eisenberg", product_name:"Dachboden-Dämmplatte- 1200x625 mm", radius:0, adress_2:"Eisenberg", product_name2:"xx", product_name3:"Ortgangziegel", name:"Cal Maler Betrieb"},
+      {logo: "assets/images/Logo_Bornschein_2020.png", adress:"Bad Kreuznach", product_name:"Dachboden-Dämmplatte- 1200x625 mm", radius:56.4, adress_2:"Eisenberg", product_name2:"Betonziegel", product_name3:"Ortgangziegel links Falzziegel Engobe", name:"Projektbau"},
+      {logo: "assets/images/thz.jpg", adress:"Rockenhausen", product_name:"Superglass Dachboden- 1200x625 mm", radius:25.9, adress_2:"Eisenberg", product_name2:"Betonziegel",product_name3:"Ortgangziegel links Linea Klassik Engobe", name:"Meisterbau und Dach"},
+      {logo: "assets/images/logo-png.png", adress:"Winnweiler", product_name:"Dachboden-Dämmplatte- 1200x625 mm", radius:24.3, adress_2:"Eisenberg", product_name2:"Betonziegel", product_name3:"Organtziegel", name:"Daba Dach"},
+      {logo: "assets/images/Ferocon Bauunternehmen.jpg", adress:"Kaiserslautern", product_name:"Dachboden-Dämmplatte- 1200x625 mm", radius:58, adress_2:"Eisenberg", product_name2:"Ortgangziegel", product_name3:"Ortgangziegel links Falzziegel Engobe", name:"Fero Bau"},
       // {logo: "https://tse3.mm.bing.net/th?id=OIP.d3hvWtPLnkqDdA-U-SZkEAAAAA&pid=Api&P=0&h=180", adress:"Römerberg", product_name:"Dachboden-Dämmplatte- 1200x625 mm", radius:48.3, adress_2:"Kaiserslautern", product_name2:"Betonziegel", product_name3:"Ortgangziegel links Falzziegel Engobe", name:"Handwerker 2.0"},
       // {logo: "https://tse2.mm.bing.net/th?id=OIP._7C9TCoWvHSRUO6qYcDevAAAAA&pid=Api&P=0&h=180", adress:"Kaiserslautern", product_name:"Dachboden-Dämmplatte- 1200x625 mm", radius:20, adress_2:"Saarbrücken", product_name2:"Betonziegel", product_name3:"Ortgangziegel links Falzziegel Engobe", name:"WSA"}
     ];
@@ -238,7 +238,7 @@ onSearchKeyup(event: any) {
   }
 
   onRadiusChange() {
-    if (this.selectedRadius !== 0) {
+    if (this.selectedRadius !== -1) {
       // Filtern Sie Baustoffhändler nach Adresse oder Adresse_2 und Umkreis
       this.filteredItems = this.items.filter(item =>
         (item.adress.toLowerCase().includes(this.searchTerm2.toLowerCase()) ||
